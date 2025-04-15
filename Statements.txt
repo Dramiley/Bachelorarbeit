@@ -1,0 +1,63 @@
+Schleifmaschine is part of Maschines
+Sicherung is part of Components
+Schleifscheibe is part of Components
+Schleifscheibe2 is part of Components
+Motor is part of Components
+Lampe is part of Components
+Schalter is part of Components
+
+Sicherung y_maximum 313.0
+Sicherung x_maximum 219.0
+Sicherung y_minimum 265.0
+Sicherung y_center 289.0
+Sicherung x_minimum 169.0
+Sicherung below Schleifscheibe
+Sicherung x_center 194.0
+
+Schleifscheibe above Sicherung
+Schleifscheibe y_maximum 225.0
+Schleifscheibe left_to Lampe
+Schleifscheibe x_maximum 167.0
+Schleifscheibe y_minimum 107.0
+Schleifscheibe y_center 166.0
+Schleifscheibe x_minimum 92.0
+Schleifscheibe x_center 129.5
+
+Schleifscheibe2 y_maximum 200.0
+Schleifscheibe2 x_maximum 386.0
+Schleifscheibe2 y_minimum 109.0
+Schleifscheibe2 y_center 154.5
+Schleifscheibe2 x_minimum 309.0
+Schleifscheibe2 right_to Motor
+Schleifscheibe2 x_center 347.5
+
+Motor x_minimum 186.0
+Motor in_the_middle_of Schleifmaschine
+Motor above Schalter
+Motor y_center 154.5
+Motor y_maximum 176.0
+Motor x_maximum 341.0
+Motor x_center 263.5
+Motor y_minimum 133.0
+Motor below Lampe
+Motor right_to Schleifscheibe
+Motor left_to Schleifscheibe2
+
+Lampe above Motor
+Lampe y_maximum 101.0
+Lampe x_maximum 322.0
+Lampe y_minimum 54.0
+Lampe y_center 77.5
+Lampe x_minimum 204.0
+Lampe right_to Schleifscheibe
+Lampe x_center 263.0
+
+Schalter y_maximum 214.0
+Schalter x_maximum 298.0
+Schalter y_minimum 194.0
+Schalter y_center 204.0
+Schalter x_minimum 259.0
+Schalter right_to Schleifscheibe
+Schalter below Motor
+Schalter x_center 278.5
+

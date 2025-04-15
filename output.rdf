@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/industrial_maschine"
+         xmlns="http://www.semanticweb.org/industrial_maschine#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/industrial_maschine"/>
+
+<owl:ObjectProperty rdf:about="#in_the_middle_of"/>
+
+<owl:ObjectProperty rdf:about="#left_to"/>
+
+<owl:ObjectProperty rdf:about="#right_to"/>
+
+<owl:ObjectProperty rdf:about="#above"/>
+
+<owl:ObjectProperty rdf:about="#below"/>
+
+<owl:DatatypeProperty rdf:about="#x_center">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_center">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x_minimum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_minimum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x_maximum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_maximum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Camera_cam0">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Components">
+  <rdfs:subClassOf rdf:resource="#Camera_cam0"/>
+  <rdfs:subClassOf rdf:resource="#Camera_cam1"/>
+  <rdfs:subClassOf rdf:resource="#Camera_sample"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Maschines">
+  <rdfs:subClassOf rdf:resource="#Camera_cam0"/>
+  <rdfs:subClassOf rdf:resource="#Camera_cam1"/>
+  <rdfs:subClassOf rdf:resource="#Camera_sample"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Camera_cam1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Camera_sample">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Schleifmaschine">
+  <rdf:type rdf:resource="#Maschines"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Motor">
+  <rdf:type rdf:resource="#Components"/>
+  <above rdf:resource="#Sicherung2"/>
+  <above rdf:resource="#Schalter2"/>
+  <right_to rdf:resource="#Schalter"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sicherung2">
+  <rdf:type rdf:resource="#Components"/>
+  <below rdf:resource="#Schalter2"/>
+  <right_to rdf:resource="#Ablageflaeche"/>
+  <below rdf:resource="#Sicherung"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Schalter2">
+  <rdf:type rdf:resource="#Components"/>
+  <above rdf:resource="#Sicherung2"/>
+  <below rdf:resource="#Sicherung"/>
+  <right_to rdf:resource="#Schalter"/>
+  <right_to rdf:resource="#Abdeckung"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ablageflaeche">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Sicherung2"/>
+  <below rdf:resource="#Anschluss"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Anschluss">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Sicherung2"/>
+  <above rdf:resource="#Ablageflaeche"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sicherung">
+  <rdf:type rdf:resource="#Components"/>
+  <above rdf:resource="#Sicherung2"/>
+  <above rdf:resource="#Schalter2"/>
+  <right_to rdf:resource="#Schalter"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Schalter">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Schalter2"/>
+  <above rdf:resource="#Ablageflaeche"/>
+  <left_to rdf:resource="#Abdeckung"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Abdeckung">
+  <rdf:type rdf:resource="#Components"/>
+  <in_the_middle_of rdf:resource="#Schleifmaschine"/>
+  <left_to rdf:resource="#Schalter2"/>
+  <above rdf:resource="#Ablageflaeche"/>
+  <right_to rdf:resource="#Schalter"/>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
