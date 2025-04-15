@@ -188,16 +188,17 @@ def explicit_mode(onto, individuals):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
-    parser.add_argument('-f', '--file', type=str, required=True, help='csv file path')
+    parser.add_argument('-f', '--file', type=str, required=True, help='csv path for single camera, directory for multicam')
     parser.add_argument('-e','--explicit', default=False, action='store_true', help='add -e for explicit mode')
     parser.add_argument('-c','--coordinates', default=False, action='store_true', help='add -c to add coordinates to the individuals')
-    parser.add_argument('-m','--multicam', default=False, action='store_true', help='add -m for multicam mode')
     
     args = parser.parse_args()
     csv_path = args.file
     explicit = args.explicit
     coordinates = args.coordinates
-    multicam = args.multicam
+    
+    if csv_path.endswith(".csv"):
+        multicam = False
     
     # Check if the csv file exists
     if not os.path.exists(csv_path):

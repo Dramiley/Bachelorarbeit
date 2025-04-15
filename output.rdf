@@ -81,6 +81,12 @@
   <above rdf:resource="#Sicherung2"/>
   <above rdf:resource="#Schalter2"/>
   <right_to rdf:resource="#Schalter"/>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">37.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">384.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">404.0</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">424.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Sicherung2">
@@ -88,6 +94,12 @@
   <below rdf:resource="#Schalter2"/>
   <right_to rdf:resource="#Ablageflaeche"/>
   <below rdf:resource="#Sicherung"/>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">380.0</x_minimum>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">385.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">408.0</y_center>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">415.5</x_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">431.0</y_maximum>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">451.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Schalter2">
@@ -96,18 +108,36 @@
   <below rdf:resource="#Sicherung"/>
   <right_to rdf:resource="#Schalter"/>
   <right_to rdf:resource="#Abdeckung"/>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">141.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">168.5</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">196.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">387.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">418.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">450.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Ablageflaeche">
   <rdf:type rdf:resource="#Components"/>
   <left_to rdf:resource="#Sicherung2"/>
   <below rdf:resource="#Anschluss"/>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">114.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">133.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">153.0</x_maximum>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">384.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">414.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">444.0</y_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Anschluss">
   <rdf:type rdf:resource="#Components"/>
   <left_to rdf:resource="#Sicherung2"/>
   <above rdf:resource="#Ablageflaeche"/>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">94.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">130.0</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">166.0</x_maximum>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">224.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">233.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">242.0</y_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Sicherung">
@@ -115,6 +145,12 @@
   <above rdf:resource="#Sicherung2"/>
   <above rdf:resource="#Schalter2"/>
   <right_to rdf:resource="#Schalter"/>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">62.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">73.5</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">85.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">329.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">360.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">392.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Schalter">
@@ -122,6 +158,12 @@
   <left_to rdf:resource="#Schalter2"/>
   <above rdf:resource="#Ablageflaeche"/>
   <left_to rdf:resource="#Abdeckung"/>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">27.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">51.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">76.0</x_maximum>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">148.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">161.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">174.0</y_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Abdeckung">
@@ -130,6 +172,12 @@
   <left_to rdf:resource="#Schalter2"/>
   <above rdf:resource="#Ablageflaeche"/>
   <right_to rdf:resource="#Schalter"/>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">108.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">157.5</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">207.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">228.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">236.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">245.0</x_maximum>
 </owl:NamedIndividual>
 
 
