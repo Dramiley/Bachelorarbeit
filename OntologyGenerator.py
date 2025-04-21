@@ -175,16 +175,44 @@ def explicit_mode(onto, individuals):
                                                 continue
                                             changed = True
                                             if prop.name == "above":
-                                                individuals[i].above = [values, individuals[key2]]
+                                                individuals[i].above.append(individuals[key2])
                                             elif prop.name == "below":
-                                                individuals[i].below = [values, individuals[key2]]
+                                                individuals[i].below.append(individuals[key2])
                                             elif prop.name == "left_to":
-                                                individuals[i].left_to = [values, individuals[key2]]
+                                                individuals[i].left_to.append(individuals[key2])
                                             elif prop.name == "right_to":
-                                                individuals[i].right_to = [values, individuals[key2]]
+                                                individuals[i].right_to.append(individuals[key2])
                                             else: print(prop.name)
     return onto, individuals
 
+
+def symmetric_mode(onto, individuals):
+    # TODO implement symmetric mode
+    # for every individual
+    for i in range(len(individuals)):
+        print(individuals[i].below)
+        for ind in individuals[i].below:
+            if not individuals[i] in ind.above:
+                ind.above.append(individuals[i])
+                print(f"added {individuals[i]} to {ind} above")
+                
+        for ind in individuals[i].above:
+            if not individuals[i] in ind.below:
+                ind.below.append(individuals[i])
+                print(f"added {individuals[i]} to {ind} below")
+        
+        for ind in individuals[i].left_to:
+            if not individuals[i] in ind.right_to:
+                ind.right_to.append(individuals[i])
+                print(f"added {individuals[i]} to {ind} right_to")
+        
+        for ind in individuals[i].right_to:
+            if not individuals[i] in ind.left_to:
+                ind.left_to.append(individuals[i])
+                print(f"added {individuals[i]} to {ind} left_to")
+                
+                                    
+    return onto, individuals
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
@@ -199,6 +227,8 @@ if __name__ == "__main__":
     
     if csv_path.endswith(".csv"):
         multicam = False
+    else: 
+        multicam = True
     
     # Check if the csv file exists
     if not os.path.exists(csv_path):
@@ -222,6 +252,10 @@ if __name__ == "__main__":
             right_to = types.new_class("right_to", (ObjectProperty,))
             above = types.new_class("above", (ObjectProperty,))
             below = types.new_class("below", (ObjectProperty,))
+            
+            left_to.inverse_property = right_to
+            above.inverse_property = below
+                    
             class x_center(Thing >> float):
                 pass
             class y_center(Thing >> float):
@@ -279,10 +313,8 @@ if __name__ == "__main__":
         # Create explicit relations
         if explicit:
             onto, individuals = explicit_mode(onto, individuals)
-                                                    
-                                                    
-                    
-                            
+            onto, individuals = symmetric_mode(onto, individuals)
+                 
         
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
@@ -311,10 +343,14 @@ if __name__ == "__main__":
                     in_the_middle_of
                 except NameError:
                     in_the_middle_of = types.new_class("in_the_middle_of", (ObjectProperty,))
-                    left_to = types.new_class("left_to", (ObjectProperty,))
+                    left_to = types.new_class("left_to", (ObjectProperty, ))
                     right_to = types.new_class("right_to", (ObjectProperty,))
                     above = types.new_class("above", (ObjectProperty,))
                     below = types.new_class("below", (ObjectProperty,))
+                    
+                    left_to.inverse_property = right_to
+                    above.inverse_property = below
+                    
                     class x_center(Thing >> float):
                         pass
                     class y_center(Thing >> float):
@@ -373,6 +409,8 @@ if __name__ == "__main__":
         # Create explicit relations
         if explicit:
             onto, individuals = explicit_mode(onto, individuals)
+            onto, individuals = symmetric_mode(onto, individuals)
+
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
     

@@ -10,13 +10,21 @@
 
 <owl:ObjectProperty rdf:about="#in_the_middle_of"/>
 
-<owl:ObjectProperty rdf:about="#left_to"/>
+<owl:ObjectProperty rdf:about="#left_to">
+  <owl:inverseOf rdf:resource="#right_to"/>
+</owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#right_to"/>
+<owl:ObjectProperty rdf:about="#right_to">
+  <owl:inverseOf rdf:resource="#left_to"/>
+</owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#above"/>
+<owl:ObjectProperty rdf:about="#above">
+  <owl:inverseOf rdf:resource="#below"/>
+</owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#below"/>
+<owl:ObjectProperty rdf:about="#below">
+  <owl:inverseOf rdf:resource="#above"/>
+</owl:ObjectProperty>
 
 <owl:DatatypeProperty rdf:about="#x_center">
   <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
@@ -78,9 +86,6 @@
 
 <owl:NamedIndividual rdf:about="#Motor">
   <rdf:type rdf:resource="#Components"/>
-  <above rdf:resource="#Sicherung2"/>
-  <above rdf:resource="#Schalter2"/>
-  <right_to rdf:resource="#Schalter"/>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.0</y_minimum>
   <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">37.0</y_center>
   <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.0</y_maximum>
@@ -104,7 +109,6 @@
 
 <owl:NamedIndividual rdf:about="#Schalter2">
   <rdf:type rdf:resource="#Components"/>
-  <above rdf:resource="#Sicherung2"/>
   <below rdf:resource="#Sicherung"/>
   <right_to rdf:resource="#Schalter"/>
   <right_to rdf:resource="#Abdeckung"/>
@@ -118,7 +122,6 @@
 
 <owl:NamedIndividual rdf:about="#Ablageflaeche">
   <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Sicherung2"/>
   <below rdf:resource="#Anschluss"/>
   <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">114.0</x_minimum>
   <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">133.5</x_center>
@@ -131,7 +134,6 @@
 <owl:NamedIndividual rdf:about="#Anschluss">
   <rdf:type rdf:resource="#Components"/>
   <left_to rdf:resource="#Sicherung2"/>
-  <above rdf:resource="#Ablageflaeche"/>
   <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">94.0</x_minimum>
   <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">130.0</x_center>
   <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">166.0</x_maximum>
@@ -142,9 +144,6 @@
 
 <owl:NamedIndividual rdf:about="#Sicherung">
   <rdf:type rdf:resource="#Components"/>
-  <above rdf:resource="#Sicherung2"/>
-  <above rdf:resource="#Schalter2"/>
-  <right_to rdf:resource="#Schalter"/>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">62.0</y_minimum>
   <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">73.5</y_center>
   <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">85.0</y_maximum>
@@ -155,7 +154,6 @@
 
 <owl:NamedIndividual rdf:about="#Schalter">
   <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Schalter2"/>
   <above rdf:resource="#Ablageflaeche"/>
   <left_to rdf:resource="#Abdeckung"/>
   <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">27.0</x_minimum>
@@ -169,9 +167,7 @@
 <owl:NamedIndividual rdf:about="#Abdeckung">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Schleifmaschine"/>
-  <left_to rdf:resource="#Schalter2"/>
   <above rdf:resource="#Ablageflaeche"/>
-  <right_to rdf:resource="#Schalter"/>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">108.0</y_minimum>
   <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">157.5</y_center>
   <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">207.0</y_maximum>
