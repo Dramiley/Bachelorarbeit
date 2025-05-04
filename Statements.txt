@@ -1,63 +1,211 @@
 Schleifmaschine is part of Maschines
-Sicherung is part of Components
-Schleifscheibe is part of Components
-Schleifscheibe2 is part of Components
-Motor is part of Components
-Lampe is part of Components
-Schalter is part of Components
+Anschluss_cam0 is part of Components_cam0
+Ablageflaeche_cam0 is part of Components_cam0
+Motor_cam0 is part of Components_cam0
+Sicherung2_cam0 is part of Components_cam0
+Schalter_cam0 is part of Components_cam0
+Sicherung_cam0 is part of Components_cam0
+Anschluss_cam1 is part of Components_cam1
+Ablageflaeche_cam1 is part of Components_cam1
+Motor_cam1 is part of Components_cam1
+Sicherung2_cam1 is part of Components_cam1
+Schalter_cam1 is part of Components_cam1
+Sicherung_cam1 is part of Components_cam1
+Motor_sample is part of Components_sample
+Sicherung2_sample is part of Components_sample
+Schalter2_sample is part of Components_sample
+Ablageflaeche_sample is part of Components_sample
+Sicherung_sample is part of Components_sample
+Schalter_sample is part of Components_sample
+Abdeckung_sample is part of Components_sample
+Anschluss_sample is part of Components_sample
 
-Sicherung y_maximum 313.0
-Sicherung x_maximum 219.0
-Sicherung y_minimum 265.0
-Sicherung y_center 289.0
-Sicherung x_minimum 169.0
-Sicherung below Schleifscheibe
-Sicherung x_center 194.0
+Anschluss_cam0 x_center 106.0
+Anschluss_cam0 x_maximum 135.0
+Anschluss_cam0 y_minimum 222.0
+Anschluss_cam0 above Motor_cam0
+Anschluss_cam0 x_minimum 77.0
+Anschluss_cam0 left_to Ablageflaeche_cam0
+Anschluss_cam0 y_maximum 240.0
+Anschluss_cam0 y_center 231.0
 
-Schleifscheibe above Sicherung
-Schleifscheibe y_maximum 225.0
-Schleifscheibe left_to Lampe
-Schleifscheibe x_maximum 167.0
-Schleifscheibe y_minimum 107.0
-Schleifscheibe y_center 166.0
-Schleifscheibe x_minimum 92.0
-Schleifscheibe x_center 129.5
+Ablageflaeche_cam0 x_center 342.5
+Ablageflaeche_cam0 x_maximum 368.0
+Ablageflaeche_cam0 below Sicherung2_cam0
+Ablageflaeche_cam0 below Sicherung_cam0
+Ablageflaeche_cam0 in_the_middle_of Schleifmaschine
+Ablageflaeche_cam0 y_minimum 139.0
+Ablageflaeche_cam0 above Schalter_cam0
+Ablageflaeche_cam0 x_minimum 317.0
+Ablageflaeche_cam0 right_to Anschluss_cam0
+Ablageflaeche_cam0 y_maximum 194.0
+Ablageflaeche_cam0 y_center 166.5
 
-Schleifscheibe2 y_maximum 200.0
-Schleifscheibe2 x_maximum 386.0
-Schleifscheibe2 y_minimum 109.0
-Schleifscheibe2 y_center 154.5
-Schleifscheibe2 x_minimum 309.0
-Schleifscheibe2 right_to Motor
-Schleifscheibe2 x_center 347.5
+Motor_cam0 x_center 109.0
+Motor_cam0 x_maximum 125.0
+Motor_cam0 below Anschluss_cam0
+Motor_cam0 y_minimum 381.0
+Motor_cam0 x_minimum 93.0
+Motor_cam0 left_to Schalter_cam0
+Motor_cam0 y_maximum 440.0
+Motor_cam0 y_center 410.5
 
-Motor x_minimum 186.0
-Motor in_the_middle_of Schleifmaschine
-Motor above Schalter
-Motor y_center 154.5
-Motor y_maximum 176.0
-Motor x_maximum 341.0
-Motor x_center 263.5
-Motor y_minimum 133.0
-Motor below Lampe
-Motor right_to Schleifscheibe
-Motor left_to Schleifscheibe2
+Sicherung2_cam0 x_center 295.0
+Sicherung2_cam0 x_maximum 321.0
+Sicherung2_cam0 y_minimum 61.0
+Sicherung2_cam0 above Ablageflaeche_cam0
+Sicherung2_cam0 x_minimum 269.0
+Sicherung2_cam0 y_maximum 84.0
+Sicherung2_cam0 y_center 72.5
 
-Lampe above Motor
-Lampe y_maximum 101.0
-Lampe x_maximum 322.0
-Lampe y_minimum 54.0
-Lampe y_center 77.5
-Lampe x_minimum 204.0
-Lampe right_to Schleifscheibe
-Lampe x_center 263.0
+Schalter_cam0 x_center 340.0
+Schalter_cam0 x_maximum 369.0
+Schalter_cam0 below Ablageflaeche_cam0
+Schalter_cam0 y_minimum 382.0
+Schalter_cam0 x_minimum 311.0
+Schalter_cam0 right_to Motor_cam0
+Schalter_cam0 y_maximum 427.0
+Schalter_cam0 y_center 404.5
 
-Schalter y_maximum 214.0
-Schalter x_maximum 298.0
-Schalter y_minimum 194.0
-Schalter y_center 204.0
-Schalter x_minimum 259.0
-Schalter right_to Schleifscheibe
-Schalter below Motor
-Schalter x_center 278.5
+Sicherung_cam0 x_center 330.5
+Sicherung_cam0 x_maximum 347.0
+Sicherung_cam0 y_minimum 23.0
+Sicherung_cam0 above Ablageflaeche_cam0
+Sicherung_cam0 x_minimum 314.0
+Sicherung_cam0 y_maximum 49.0
+Sicherung_cam0 y_center 36.0
+
+Anschluss_cam1 x_center 79.5
+Anschluss_cam1 x_maximum 102.0
+Anschluss_cam1 y_minimum 211.0
+Anschluss_cam1 above Motor_cam1
+Anschluss_cam1 x_minimum 57.0
+Anschluss_cam1 left_to Ablageflaeche_cam1
+Anschluss_cam1 y_maximum 228.0
+Anschluss_cam1 y_center 219.5
+
+Ablageflaeche_cam1 x_center 257.5
+Ablageflaeche_cam1 x_maximum 277.0
+Ablageflaeche_cam1 below Sicherung2_cam1
+Ablageflaeche_cam1 below Sicherung_cam1
+Ablageflaeche_cam1 in_the_middle_of Schleifmaschine
+Ablageflaeche_cam1 y_minimum 133.0
+Ablageflaeche_cam1 above Schalter_cam1
+Ablageflaeche_cam1 x_minimum 238.0
+Ablageflaeche_cam1 right_to Anschluss_cam1
+Ablageflaeche_cam1 y_maximum 185.0
+Ablageflaeche_cam1 y_center 159.0
+
+Motor_cam1 x_center 82.0
+Motor_cam1 x_maximum 94.0
+Motor_cam1 below Anschluss_cam1
+Motor_cam1 y_minimum 363.0
+Motor_cam1 x_minimum 70.0
+Motor_cam1 left_to Schalter_cam1
+Motor_cam1 y_maximum 419.0
+Motor_cam1 y_center 391.0
+
+Sicherung2_cam1 x_center 221.5
+Sicherung2_cam1 x_maximum 241.0
+Sicherung2_cam1 y_minimum 58.0
+Sicherung2_cam1 above Ablageflaeche_cam1
+Sicherung2_cam1 x_minimum 202.0
+Sicherung2_cam1 y_maximum 80.0
+Sicherung2_cam1 y_center 69.0
+
+Schalter_cam1 x_center 255.0
+Schalter_cam1 x_maximum 277.0
+Schalter_cam1 below Ablageflaeche_cam1
+Schalter_cam1 y_minimum 364.0
+Schalter_cam1 x_minimum 233.0
+Schalter_cam1 right_to Motor_cam1
+Schalter_cam1 y_maximum 407.0
+Schalter_cam1 y_center 385.5
+
+Sicherung_cam1 x_center 248.5
+Sicherung_cam1 x_maximum 261.0
+Sicherung_cam1 y_minimum 22.0
+Sicherung_cam1 above Ablageflaeche_cam1
+Sicherung_cam1 x_minimum 236.0
+Sicherung_cam1 y_maximum 47.0
+Sicherung_cam1 y_center 34.5
+
+Motor_sample x_center 404.0
+Motor_sample x_maximum 424.0
+Motor_sample y_minimum 24.0
+Motor_sample x_minimum 384.0
+Motor_sample y_maximum 50.0
+Motor_sample y_center 37.0
+
+Sicherung2_sample x_center 415.5
+Sicherung2_sample x_maximum 451.0
+Sicherung2_sample y_minimum 385.0
+Sicherung2_sample x_minimum 380.0
+Sicherung2_sample right_to Ablageflaeche_sample
+Sicherung2_sample right_to Anschluss_sample
+Sicherung2_sample y_maximum 431.0
+Sicherung2_sample y_center 408.0
+Sicherung2_sample below Schalter2_sample
+Sicherung2_sample below Sicherung_sample
+
+Schalter2_sample x_center 418.5
+Schalter2_sample x_maximum 450.0
+Schalter2_sample y_minimum 141.0
+Schalter2_sample above Sicherung2_sample
+Schalter2_sample x_minimum 387.0
+Schalter2_sample right_to Schalter_sample
+Schalter2_sample right_to Abdeckung_sample
+Schalter2_sample y_maximum 196.0
+Schalter2_sample y_center 168.5
+Schalter2_sample below Sicherung_sample
+
+Ablageflaeche_sample x_center 133.5
+Ablageflaeche_sample x_maximum 153.0
+Ablageflaeche_sample y_minimum 384.0
+Ablageflaeche_sample x_minimum 114.0
+Ablageflaeche_sample left_to Sicherung2_sample
+Ablageflaeche_sample y_maximum 444.0
+Ablageflaeche_sample y_center 414.0
+Ablageflaeche_sample below Schalter_sample
+Ablageflaeche_sample below Abdeckung_sample
+Ablageflaeche_sample below Anschluss_sample
+
+Sicherung_sample x_center 360.5
+Sicherung_sample x_maximum 392.0
+Sicherung_sample y_minimum 62.0
+Sicherung_sample above Sicherung2_sample
+Sicherung_sample above Schalter2_sample
+Sicherung_sample x_minimum 329.0
+Sicherung_sample y_maximum 85.0
+Sicherung_sample y_center 73.5
+
+Schalter_sample x_center 51.5
+Schalter_sample x_maximum 76.0
+Schalter_sample y_minimum 148.0
+Schalter_sample above Ablageflaeche_sample
+Schalter_sample x_minimum 27.0
+Schalter_sample left_to Schalter2_sample
+Schalter_sample left_to Abdeckung_sample
+Schalter_sample y_maximum 174.0
+Schalter_sample y_center 161.0
+
+Abdeckung_sample x_center 236.5
+Abdeckung_sample x_maximum 245.0
+Abdeckung_sample in_the_middle_of Schleifmaschine
+Abdeckung_sample y_minimum 108.0
+Abdeckung_sample above Ablageflaeche_sample
+Abdeckung_sample x_minimum 228.0
+Abdeckung_sample right_to Schalter_sample
+Abdeckung_sample left_to Schalter2_sample
+Abdeckung_sample y_maximum 207.0
+Abdeckung_sample y_center 157.5
+
+Anschluss_sample x_center 130.0
+Anschluss_sample x_maximum 166.0
+Anschluss_sample y_minimum 224.0
+Anschluss_sample above Ablageflaeche_sample
+Anschluss_sample x_minimum 94.0
+Anschluss_sample left_to Sicherung2_sample
+Anschluss_sample y_maximum 242.0
+Anschluss_sample y_center 233.0
 

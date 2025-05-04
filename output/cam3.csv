@@ -1,0 +1,4 @@
+,detection_scores,class,x min,y min,x max,y max
+0,0.7455984786138374,Gewinde,279,68,354,149
+1,0.8629731298353851,Abdeckung,78,72,129,94
+2,0.8331381410161265,Hebel,308,57,359,110

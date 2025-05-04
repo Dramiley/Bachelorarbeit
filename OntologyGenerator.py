@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from owlready2 import *
 from math import sqrt
+import re
 
 
 
@@ -111,6 +112,18 @@ def make_float(x):
         x[i] = float(x[i])
     return x
 
+def remove_end_number(string):
+    # remove the number at the end of the string
+    return re.sub(r'\d+$', '', string)
+
+def get_class_names(array):
+    for i in range(len(array)):
+        # remove the number at the end of the string
+        array[i] = array[i].name.split("_")[0]
+        array[i] = re.sub(r'\d+$', '', array[i])
+    
+    return array
+
 def read_csv(path):
     # Read the csv file and generate lists for each property filled with the values from the csv file
     df = pd.read_csv(path)
@@ -192,7 +205,7 @@ def symmetric_mode(onto, individuals):
     for i in range(len(individuals)):
         print(individuals[i].below)
         for ind in individuals[i].below:
-            if not individuals[i] in ind.above:
+            if individuals[i] in ind.above:
                 ind.above.append(individuals[i])
                 print(f"added {individuals[i]} to {ind} above")
                 
@@ -213,6 +226,90 @@ def symmetric_mode(onto, individuals):
                 
                                     
     return onto, individuals
+
+def same_individuals(onto, all_individuals):
+    # for every combination of individual-lists
+    for a in range(len(all_individuals)):
+        for b in range(len(all_individuals)):
+            # if the lists are the same, continue
+            if a == b:
+                continue
+            # only check lists, that are not already checked (a < b)
+            if b < a:
+                continue
+            
+            # set the lists for future reference
+            individuals = all_individuals[a]
+            next = all_individuals[b]
+            
+            # for every individual in every list
+            for j in range(len(individuals)):
+                for k in range(len(next)):
+                    # compare names and properties of the individuals
+                    propability = 0.0
+                    same_next = False
+                    # [0] is the class name, [:-1] to remove the number at the end of the class name
+                    if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(next[k].name.split("_")[0]):
+                        for l in range(len(individuals[j].above)):
+                            for m in range(len(next[k].above)):
+                                if remove_end_number(individuals[j].above[l].name.split("_")[0]) == remove_end_number(next[k].above[m].name.split("_")[0]):
+                                    propability += 1.0
+                                if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].above[l].name.split("_")[0]):
+                                    same_next = True
+                        for l in range(len(individuals[j].below)):
+                            for m in range(len(next[k].below)):
+                                if remove_end_number(individuals[j].below[l].name.split("_")[0]) == remove_end_number(next[k].below[m].name.split("_")[0]):
+                                    propability += 1.0
+                                if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].below[l].name.split("_")[0]):
+                                    same_next = True
+                        for l in range(len(individuals[j].left_to)):
+                            for m in range(len(next[k].left_to)):
+                                if remove_end_number(individuals[j].left_to[l].name.split("_")[0]) == remove_end_number(next[k].left_to[m].name.split("_")[0]):
+                                    propability += 1.0
+                                if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].left_to[l].name.split("_")[0]):
+                                    same_next = True
+                        for l in range(len(individuals[j].right_to)):
+                            for m in range(len(next[k].right_to)):
+                                if remove_end_number(individuals[j].right_to[l].name.split("_")[0]) == remove_end_number(next[k].right_to[m].name.split("_")[0]):
+                                    propability += 1.0
+                                if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].right_to[l].name.split("_")[0]):
+                                    same_next = True
+                            
+                        # calculate the propability of the individuals being the same
+                        propability = propability / (len(individuals[j].above) + len(individuals[j].below) + len(individuals[j].left_to) + len(individuals[j].right_to))      
+                        print(f"propability: {propability}")
+                        # if the individual has a object of the same class next to it
+                        if same_next:
+                            # check if the next individual is in a property of the individual and the individual is in the same property of the next individual
+                            if remove_end_number(next[j].name.split("_")[0]) in get_class_names(individuals[j].above) and remove_end_number(individuals[k].name.split("_")[0]) in get_class_names(next[j].above) and propability > 0.5:
+                                individuals[j].same_as.append(next[k])
+                                next[k].same_as.append(individuals[j])
+                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                
+                            if remove_end_number(next[j].name.split("_")[0]) in get_class_names(individuals[j].below) and remove_end_number(individuals[k].name.split("_")[0]) in get_class_names(next[j].below) and propability > 0.5:
+                                individuals[j].same_as.append(next[k])
+                                next[k].same_as.append(individuals[j])
+                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                
+                            if remove_end_number(next[j].name.split("_")[0]) in get_class_names(individuals[j].left_to) and remove_end_number(individuals[k].name.split("_")[0]) in get_class_names(next[j].left_to) and propability > 0.5:
+                                individuals[j].same_as.append(next[k])
+                                next[k].same_as.append(individuals[j])
+                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                        
+                            if remove_end_number(next[k].name.split("_")[0]) in get_class_names(individuals[j].right_to) and remove_end_number(individuals[j].name.split("_")[0]) in get_class_names(next[j].right_to) and propability > 0.5:
+                                individuals[j].same_as.append(next[k])
+                                next[k].same_as.append(individuals[j])
+                                print(f"added {individuals[j]} to {next[k]} same_as")          
+    
+                        else:
+                            if propability > 0.5:
+                                individuals[j].same_as.append(next[k])
+                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                # add the individual to the next individual
+                       
+
+
+    return onto, all_individuals
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
@@ -252,9 +349,11 @@ if __name__ == "__main__":
             right_to = types.new_class("right_to", (ObjectProperty,))
             above = types.new_class("above", (ObjectProperty,))
             below = types.new_class("below", (ObjectProperty,))
+            same_as = types.new_class("same_as", (ObjectProperty,))
             
             left_to.inverse_property = right_to
             above.inverse_property = below
+            same_as.symmetric = True
                     
             class x_center(Thing >> float):
                 pass
@@ -313,7 +412,7 @@ if __name__ == "__main__":
         # Create explicit relations
         if explicit:
             onto, individuals = explicit_mode(onto, individuals)
-            onto, individuals = symmetric_mode(onto, individuals)
+            #onto, individuals = symmetric_mode(onto, individuals)
                  
         
         # save the ontology
@@ -329,15 +428,21 @@ if __name__ == "__main__":
         print(files)
         # for every file in the directory
         cams = {}
+        components = {}
         i = 0
+        all_individuals = {}
         for file in files:
             # Read the csv file
             df, classes, det_scores, x_min, y_min, x_max, y_max, middle, x_cen, y_cen = read_csv(f'{csv_path}/{file}')  
             with onto:
-                cams[i] = types.new_class(f"Camera_{file.removesuffix('.csv')}", (Thing,))
+                name = file.removesuffix('.csv')
+                cams[i] = types.new_class(f"Camera_{name}", (Thing,))
                 # Create classes and properties
-                Components = types.new_class("Components", (cams[i],))
+                components[i] = types.new_class(f"Components_{name}", (cams[i],))
                 Maschines = types.new_class("Maschines", (cams[i],))
+                # Create individual of maschines
+                Schleifmaschine = Maschines("Schleifmaschine")
+
                 
                 try: 
                     in_the_middle_of
@@ -347,6 +452,7 @@ if __name__ == "__main__":
                     right_to = types.new_class("right_to", (ObjectProperty,))
                     above = types.new_class("above", (ObjectProperty,))
                     below = types.new_class("below", (ObjectProperty,))
+                    same_as = types.new_class("same_as", (ObjectProperty,))
                     
                     left_to.inverse_property = right_to
                     above.inverse_property = below
@@ -365,52 +471,53 @@ if __name__ == "__main__":
                         pass
                 else: 
                     pass
-            
-            # Create individual of maschines
-        Schleifmaschine = Maschines("Schleifmaschine")
+                
+                individuals = {}
         
-        
-        individuals = {}
-        
-        print(abs(x_cen[1] - x_cen[0]), abs(y_cen[1]-y_cen[0]))
-        
-        # Create individuals
-        for i in range(len(x_cen)):
-            individuals[i] = Components(classes[i])
+                # Create individuals
+                for j in range(len(x_cen)):
+                    individuals[j] = components[i](classes[j] + "_" + name)
             
-            # Add coordinates to the individuals
-            if coordinates:
-                individuals[i].x_center = [x_cen[i]]
-                individuals[i].y_center = [y_cen[i]]
-                individuals[i].x_minimum = [x_min[i]]
-                individuals[i].y_minimum = [y_min[i]]
-                individuals[i].x_maximum = [x_max[i]]
-                individuals[i].y_maximum = [y_max[i]]
+                    # Add coordinates to the individuals
+                    if coordinates:
+                        individuals[j].x_center = [x_cen[j]]
+                        individuals[j].y_center = [y_cen[j]]
+                        individuals[j].x_minimum = [x_min[j]]
+                        individuals[j].y_minimum = [y_min[j]]
+                        individuals[j].x_maximum = [x_max[j]]
+                        individuals[j].y_maximum = [y_max[j]]
             
-        # Create relations
-        for i in range(len(x_cen)):
-            below_class, above_class = check_vertical(i)
-            left_class, right_class = check_horizontal(i)
+                # Create relations
+                for j in range(len(x_cen)):
+                    below_class, above_class = check_vertical(j)
+                    left_class, right_class = check_horizontal(j)
             
-            # Add relations to the individuals
-            if below_class != None:
-                individuals[i].below = [individuals[below_class]]
-            if above_class != None:
-                individuals[i].above = [individuals[above_class]]
-            if left_class != None:
-                individuals[i].left_to = [individuals[left_class]]
-            if right_class != None:
-                individuals[i].right_to = [individuals[right_class]]
+                    # Add relations to the individuals
+                    if below_class != None:
+                        individuals[j].below = [individuals[below_class]]
+                    if above_class != None:
+                        individuals[j].above = [individuals[above_class]]
+                    if left_class != None:
+                        individuals[j].left_to = [individuals[left_class]]
+                    if right_class != None:
+                        individuals[j].right_to = [individuals[right_class]]
             
             
-        individuals[middle].in_the_middle_of = [Schleifmaschine]
-        
-        
-        # Create explicit relations
-        if explicit:
-            onto, individuals = explicit_mode(onto, individuals)
-            onto, individuals = symmetric_mode(onto, individuals)
+                individuals[middle].in_the_middle_of = [Schleifmaschine]
+                
+                # Create explicit relations
+                if explicit:
+                    onto, individuals = explicit_mode(onto, individuals)
+                    #onto, individuals = symmetric_mode(onto, individuals)
+                  
+                all_individuals[i] = individuals
+                  
+                i += 1
 
+        
+        
+        
+        onto, all_individuals = same_individuals(onto, all_individuals)
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
     
