@@ -1,211 +1,174 @@
 Schleifmaschine is part of Maschines
-Anschluss_cam0 is part of Components_cam0
-Ablageflaeche_cam0 is part of Components_cam0
-Motor_cam0 is part of Components_cam0
-Sicherung2_cam0 is part of Components_cam0
-Schalter_cam0 is part of Components_cam0
-Sicherung_cam0 is part of Components_cam0
-Anschluss_cam1 is part of Components_cam1
-Ablageflaeche_cam1 is part of Components_cam1
-Motor_cam1 is part of Components_cam1
-Sicherung2_cam1 is part of Components_cam1
-Schalter_cam1 is part of Components_cam1
-Sicherung_cam1 is part of Components_cam1
-Motor_sample is part of Components_sample
-Sicherung2_sample is part of Components_sample
-Schalter2_sample is part of Components_sample
-Ablageflaeche_sample is part of Components_sample
-Sicherung_sample is part of Components_sample
-Schalter_sample is part of Components_sample
+Gewinde_cam0 is part of Components_cam0
+Abdeckung_cam0 is part of Components_cam0
+Hebel_cam0 is part of Components_cam0
+Gewinde_cam1 is part of Components_cam1
+Gewinde_cam2 is part of Components_cam2
+Gewinde_cam3 is part of Components_cam3
+Gewinde_sample is part of Components_sample
+Abdeckung_cam1 is part of Components_cam1
+Abdeckung_cam2 is part of Components_cam2
+Abdeckung_cam3 is part of Components_cam3
 Abdeckung_sample is part of Components_sample
-Anschluss_sample is part of Components_sample
+Hebel_cam1 is part of Components_cam1
+Hebel_cam2 is part of Components_cam2
+Hebel_cam3 is part of Components_cam3
+Hebel_sample is part of Components_sample
 
-Anschluss_cam0 x_center 106.0
-Anschluss_cam0 x_maximum 135.0
-Anschluss_cam0 y_minimum 222.0
-Anschluss_cam0 above Motor_cam0
-Anschluss_cam0 x_minimum 77.0
-Anschluss_cam0 left_to Ablageflaeche_cam0
-Anschluss_cam0 y_maximum 240.0
-Anschluss_cam0 y_center 231.0
+Gewinde_cam0 x_center 196.5
+Gewinde_cam0 x_minimum 173.0
+Gewinde_cam0 right_to Abdeckung_cam0
+Gewinde_cam0 detection_score 0.864
+Gewinde_cam0 below Hebel_cam0
+Gewinde_cam0 y_minimum 69.0
+Gewinde_cam0 y_center 110.5
+Gewinde_cam0 in_the_middle_of Schleifmaschine
+Gewinde_cam0 y_maximum 152.0
+Gewinde_cam0 x_maximum 220.0
 
-Ablageflaeche_cam0 x_center 342.5
-Ablageflaeche_cam0 x_maximum 368.0
-Ablageflaeche_cam0 below Sicherung2_cam0
-Ablageflaeche_cam0 below Sicherung_cam0
-Ablageflaeche_cam0 in_the_middle_of Schleifmaschine
-Ablageflaeche_cam0 y_minimum 139.0
-Ablageflaeche_cam0 above Schalter_cam0
-Ablageflaeche_cam0 x_minimum 317.0
-Ablageflaeche_cam0 right_to Anschluss_cam0
-Ablageflaeche_cam0 y_maximum 194.0
-Ablageflaeche_cam0 y_center 166.5
+Abdeckung_cam0 x_minimum 48.0
+Abdeckung_cam0 x_center 64.0
+Abdeckung_cam0 detection_score 0.735
+Abdeckung_cam0 y_minimum 73.0
+Abdeckung_cam0 y_center 84.5
+Abdeckung_cam0 left_to Gewinde_cam0
+Abdeckung_cam0 left_to Hebel_cam0
+Abdeckung_cam0 y_maximum 96.0
+Abdeckung_cam0 x_maximum 80.0
 
-Motor_cam0 x_center 109.0
-Motor_cam0 x_maximum 125.0
-Motor_cam0 below Anschluss_cam0
-Motor_cam0 y_minimum 381.0
-Motor_cam0 x_minimum 93.0
-Motor_cam0 left_to Schalter_cam0
-Motor_cam0 y_maximum 440.0
-Motor_cam0 y_center 410.5
+Hebel_cam0 x_minimum 191.0
+Hebel_cam0 x_center 207.0
+Hebel_cam0 right_to Abdeckung_cam0
+Hebel_cam0 detection_score 0.838
+Hebel_cam0 above Gewinde_cam0
+Hebel_cam0 y_minimum 58.0
+Hebel_cam0 y_center 85.0
+Hebel_cam0 y_maximum 112.0
+Hebel_cam0 x_maximum 223.0
 
-Sicherung2_cam0 x_center 295.0
-Sicherung2_cam0 x_maximum 321.0
-Sicherung2_cam0 y_minimum 61.0
-Sicherung2_cam0 above Ablageflaeche_cam0
-Sicherung2_cam0 x_minimum 269.0
-Sicherung2_cam0 y_maximum 84.0
-Sicherung2_cam0 y_center 72.5
+Gewinde_cam1 x_center 277.5
+Gewinde_cam1 x_minimum 245.0
+Gewinde_cam1 right_to Abdeckung_cam1
+Gewinde_cam1 detection_score 0.805
+Gewinde_cam1 below Hebel_cam1
+Gewinde_cam1 y_minimum 66.0
+Gewinde_cam1 y_center 105.5
+Gewinde_cam1 in_the_middle_of Schleifmaschine
+Gewinde_cam1 y_maximum 145.0
+Gewinde_cam1 x_maximum 310.0
 
-Schalter_cam0 x_center 340.0
-Schalter_cam0 x_maximum 369.0
-Schalter_cam0 below Ablageflaeche_cam0
-Schalter_cam0 y_minimum 382.0
-Schalter_cam0 x_minimum 311.0
-Schalter_cam0 right_to Motor_cam0
-Schalter_cam0 y_maximum 427.0
-Schalter_cam0 y_center 404.5
+Gewinde_cam2 x_center 201.5
+Gewinde_cam2 x_minimum 178.0
+Gewinde_cam2 right_to Abdeckung_cam2
+Gewinde_cam2 detection_score 0.868
+Gewinde_cam2 below Hebel_cam2
+Gewinde_cam2 y_minimum 68.0
+Gewinde_cam2 y_center 109.0
+Gewinde_cam2 in_the_middle_of Schleifmaschine
+Gewinde_cam2 y_maximum 150.0
+Gewinde_cam2 x_maximum 225.0
 
-Sicherung_cam0 x_center 330.5
-Sicherung_cam0 x_maximum 347.0
-Sicherung_cam0 y_minimum 23.0
-Sicherung_cam0 above Ablageflaeche_cam0
-Sicherung_cam0 x_minimum 314.0
-Sicherung_cam0 y_maximum 49.0
-Sicherung_cam0 y_center 36.0
+Gewinde_cam3 x_center 316.5
+Gewinde_cam3 x_minimum 279.0
+Gewinde_cam3 right_to Abdeckung_cam3
+Gewinde_cam3 detection_score 0.746
+Gewinde_cam3 below Hebel_cam3
+Gewinde_cam3 y_minimum 68.0
+Gewinde_cam3 y_center 108.5
+Gewinde_cam3 in_the_middle_of Schleifmaschine
+Gewinde_cam3 y_maximum 149.0
+Gewinde_cam3 x_maximum 354.0
 
-Anschluss_cam1 x_center 79.5
-Anschluss_cam1 x_maximum 102.0
-Anschluss_cam1 y_minimum 211.0
-Anschluss_cam1 above Motor_cam1
-Anschluss_cam1 x_minimum 57.0
-Anschluss_cam1 left_to Ablageflaeche_cam1
-Anschluss_cam1 y_maximum 228.0
-Anschluss_cam1 y_center 219.5
+Gewinde_sample x_center 352.5
+Gewinde_sample x_minimum 311.0
+Gewinde_sample right_to Abdeckung_sample
+Gewinde_sample detection_score 0.881
+Gewinde_sample below Hebel_sample
+Gewinde_sample y_minimum 70.0
+Gewinde_sample left_to Hebel_sample
+Gewinde_sample in_the_middle_of Schleifmaschine
+Gewinde_sample y_center 111.5
+Gewinde_sample y_maximum 153.0
+Gewinde_sample x_maximum 394.0
 
-Ablageflaeche_cam1 x_center 257.5
-Ablageflaeche_cam1 x_maximum 277.0
-Ablageflaeche_cam1 below Sicherung2_cam1
-Ablageflaeche_cam1 below Sicherung_cam1
-Ablageflaeche_cam1 in_the_middle_of Schleifmaschine
-Ablageflaeche_cam1 y_minimum 133.0
-Ablageflaeche_cam1 above Schalter_cam1
-Ablageflaeche_cam1 x_minimum 238.0
-Ablageflaeche_cam1 right_to Anschluss_cam1
-Ablageflaeche_cam1 y_maximum 185.0
-Ablageflaeche_cam1 y_center 159.0
+Abdeckung_cam1 x_minimum 68.0
+Abdeckung_cam1 x_center 90.5
+Abdeckung_cam1 detection_score 0.79
+Abdeckung_cam1 y_minimum 70.0
+Abdeckung_cam1 y_center 81.0
+Abdeckung_cam1 left_to Gewinde_cam1
+Abdeckung_cam1 left_to Hebel_cam1
+Abdeckung_cam1 y_maximum 92.0
+Abdeckung_cam1 x_maximum 113.0
 
-Motor_cam1 x_center 82.0
-Motor_cam1 x_maximum 94.0
-Motor_cam1 below Anschluss_cam1
-Motor_cam1 y_minimum 363.0
-Motor_cam1 x_minimum 70.0
-Motor_cam1 left_to Schalter_cam1
-Motor_cam1 y_maximum 419.0
-Motor_cam1 y_center 391.0
+Abdeckung_cam2 x_minimum 49.0
+Abdeckung_cam2 x_center 65.5
+Abdeckung_cam2 detection_score 0.708
+Abdeckung_cam2 y_minimum 72.0
+Abdeckung_cam2 y_center 83.5
+Abdeckung_cam2 left_to Gewinde_cam2
+Abdeckung_cam2 left_to Hebel_cam2
+Abdeckung_cam2 y_maximum 95.0
+Abdeckung_cam2 x_maximum 82.0
 
-Sicherung2_cam1 x_center 221.5
-Sicherung2_cam1 x_maximum 241.0
-Sicherung2_cam1 y_minimum 58.0
-Sicherung2_cam1 above Ablageflaeche_cam1
-Sicherung2_cam1 x_minimum 202.0
-Sicherung2_cam1 y_maximum 80.0
-Sicherung2_cam1 y_center 69.0
+Abdeckung_cam3 x_minimum 78.0
+Abdeckung_cam3 x_center 103.5
+Abdeckung_cam3 detection_score 0.863
+Abdeckung_cam3 y_minimum 72.0
+Abdeckung_cam3 y_center 83.0
+Abdeckung_cam3 left_to Gewinde_cam3
+Abdeckung_cam3 left_to Hebel_cam3
+Abdeckung_cam3 y_maximum 94.0
+Abdeckung_cam3 x_maximum 129.0
 
-Schalter_cam1 x_center 255.0
-Schalter_cam1 x_maximum 277.0
-Schalter_cam1 below Ablageflaeche_cam1
-Schalter_cam1 y_minimum 364.0
-Schalter_cam1 x_minimum 233.0
-Schalter_cam1 right_to Motor_cam1
-Schalter_cam1 y_maximum 407.0
-Schalter_cam1 y_center 385.5
+Abdeckung_sample x_minimum 87.0
+Abdeckung_sample x_center 115.5
+Abdeckung_sample detection_score 0.76
+Abdeckung_sample y_minimum 74.0
+Abdeckung_sample y_center 85.5
+Abdeckung_sample left_to Gewinde_sample
+Abdeckung_sample left_to Hebel_sample
+Abdeckung_sample y_maximum 97.0
+Abdeckung_sample x_maximum 144.0
 
-Sicherung_cam1 x_center 248.5
-Sicherung_cam1 x_maximum 261.0
-Sicherung_cam1 y_minimum 22.0
-Sicherung_cam1 above Ablageflaeche_cam1
-Sicherung_cam1 x_minimum 236.0
-Sicherung_cam1 y_maximum 47.0
-Sicherung_cam1 y_center 34.5
+Hebel_cam1 x_minimum 270.0
+Hebel_cam1 x_center 292.5
+Hebel_cam1 right_to Abdeckung_cam1
+Hebel_cam1 detection_score 0.739
+Hebel_cam1 above Gewinde_cam1
+Hebel_cam1 y_minimum 56.0
+Hebel_cam1 y_center 81.5
+Hebel_cam1 y_maximum 107.0
+Hebel_cam1 x_maximum 315.0
 
-Motor_sample x_center 404.0
-Motor_sample x_maximum 424.0
-Motor_sample y_minimum 24.0
-Motor_sample x_minimum 384.0
-Motor_sample y_maximum 50.0
-Motor_sample y_center 37.0
+Hebel_cam2 x_minimum 196.0
+Hebel_cam2 x_center 212.5
+Hebel_cam2 right_to Abdeckung_cam2
+Hebel_cam2 detection_score 0.791
+Hebel_cam2 above Gewinde_cam2
+Hebel_cam2 y_minimum 58.0
+Hebel_cam2 y_center 84.5
+Hebel_cam2 y_maximum 111.0
+Hebel_cam2 x_maximum 229.0
 
-Sicherung2_sample x_center 415.5
-Sicherung2_sample x_maximum 451.0
-Sicherung2_sample y_minimum 385.0
-Sicherung2_sample x_minimum 380.0
-Sicherung2_sample right_to Ablageflaeche_sample
-Sicherung2_sample right_to Anschluss_sample
-Sicherung2_sample y_maximum 431.0
-Sicherung2_sample y_center 408.0
-Sicherung2_sample below Schalter2_sample
-Sicherung2_sample below Sicherung_sample
+Hebel_cam3 x_minimum 308.0
+Hebel_cam3 x_center 333.5
+Hebel_cam3 right_to Abdeckung_cam3
+Hebel_cam3 detection_score 0.833
+Hebel_cam3 above Gewinde_cam3
+Hebel_cam3 y_minimum 57.0
+Hebel_cam3 y_center 83.5
+Hebel_cam3 y_maximum 110.0
+Hebel_cam3 x_maximum 359.0
 
-Schalter2_sample x_center 418.5
-Schalter2_sample x_maximum 450.0
-Schalter2_sample y_minimum 141.0
-Schalter2_sample above Sicherung2_sample
-Schalter2_sample x_minimum 387.0
-Schalter2_sample right_to Schalter_sample
-Schalter2_sample right_to Abdeckung_sample
-Schalter2_sample y_maximum 196.0
-Schalter2_sample y_center 168.5
-Schalter2_sample below Sicherung_sample
-
-Ablageflaeche_sample x_center 133.5
-Ablageflaeche_sample x_maximum 153.0
-Ablageflaeche_sample y_minimum 384.0
-Ablageflaeche_sample x_minimum 114.0
-Ablageflaeche_sample left_to Sicherung2_sample
-Ablageflaeche_sample y_maximum 444.0
-Ablageflaeche_sample y_center 414.0
-Ablageflaeche_sample below Schalter_sample
-Ablageflaeche_sample below Abdeckung_sample
-Ablageflaeche_sample below Anschluss_sample
-
-Sicherung_sample x_center 360.5
-Sicherung_sample x_maximum 392.0
-Sicherung_sample y_minimum 62.0
-Sicherung_sample above Sicherung2_sample
-Sicherung_sample above Schalter2_sample
-Sicherung_sample x_minimum 329.0
-Sicherung_sample y_maximum 85.0
-Sicherung_sample y_center 73.5
-
-Schalter_sample x_center 51.5
-Schalter_sample x_maximum 76.0
-Schalter_sample y_minimum 148.0
-Schalter_sample above Ablageflaeche_sample
-Schalter_sample x_minimum 27.0
-Schalter_sample left_to Schalter2_sample
-Schalter_sample left_to Abdeckung_sample
-Schalter_sample y_maximum 174.0
-Schalter_sample y_center 161.0
-
-Abdeckung_sample x_center 236.5
-Abdeckung_sample x_maximum 245.0
-Abdeckung_sample in_the_middle_of Schleifmaschine
-Abdeckung_sample y_minimum 108.0
-Abdeckung_sample above Ablageflaeche_sample
-Abdeckung_sample x_minimum 228.0
-Abdeckung_sample right_to Schalter_sample
-Abdeckung_sample left_to Schalter2_sample
-Abdeckung_sample y_maximum 207.0
-Abdeckung_sample y_center 157.5
-
-Anschluss_sample x_center 130.0
-Anschluss_sample x_maximum 166.0
-Anschluss_sample y_minimum 224.0
-Anschluss_sample above Ablageflaeche_sample
-Anschluss_sample x_minimum 94.0
-Anschluss_sample left_to Sicherung2_sample
-Anschluss_sample y_maximum 242.0
-Anschluss_sample y_center 233.0
+Hebel_sample x_minimum 343.0
+Hebel_sample x_center 371.5
+Hebel_sample right_to Gewinde_sample
+Hebel_sample right_to Abdeckung_sample
+Hebel_sample detection_score 0.823
+Hebel_sample above Gewinde_sample
+Hebel_sample y_minimum 59.0
+Hebel_sample y_center 86.0
+Hebel_sample y_maximum 113.0
+Hebel_sample x_maximum 400.0
 

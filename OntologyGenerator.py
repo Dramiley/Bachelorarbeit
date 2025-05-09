@@ -3,6 +3,7 @@ import argparse
 import pandas as pd
 import numpy as np
 from owlready2 import *
+from owlready2.prop import destroy_entity
 from math import sqrt
 import re
 
@@ -34,6 +35,7 @@ def check_middle(x_min, y_min, x_max, y_max):
     return middle, x_cen, y_cen
 
 def check_vertical(x):
+    fixed_value = 0.7
     above_min = 1000
     above_class = None
     below_min = 1000
@@ -42,23 +44,26 @@ def check_vertical(x):
     
     # for all individuals	
     for i in range(len(y_min)):
+        if x_cen[i] == x_cen[x] and y_cen[i] == y_cen[x]:
+            continue
         # if the individual is above the current individual and the distance is smaller than the minimum distance
         if y_cen[i] < y_cen[x] and abs(y_cen[i]-y_cen[x]) < below_min:
-            # check if the individual is above (for example 45° angle is not allowed), 1.5 is finetuned and can be changed
-            if abs(x_cen[i] - x_cen[x])*1.5 < abs(y_cen[x] - y_cen[i]):
+            # check if the individual is above (for example 45° angle is not allowed), fixed_value is finetuned and can be changed
+            if abs(x_cen[i] - x_cen[x])*fixed_value < abs(y_cen[x] - y_cen[i]):
                 # set the minimum distance to the distance between the two individuals -> this is the new minimum distance
                 below_min = abs(y_cen[i]-y_cen[x])
                 # set the below class to the current individual
                 below_class = i
         # like above, but for below
         elif y_cen[i] > y_cen[x] and abs(y_cen[i]-y_cen[x]) < above_min:
-            if abs(x_cen[i] - x_cen[x])*1.5 < abs(y_cen[x] - y_cen[i]):
+            if abs(x_cen[i] - x_cen[x])*fixed_value < abs(y_cen[x] - y_cen[i]):
                 above_min = abs(y_cen[i]-y_cen[x])
                 above_class = i
     
     return below_class, above_class
 
 def check_horizontal(x):
+    fixed_value = 0.7
     left_min = 1000
     left_class = None
     right_min = 1000
@@ -66,17 +71,19 @@ def check_horizontal(x):
     
     # for all individuals	
     for i in range(len(x_min)):
+        if x_cen[i] == x_cen[x] and y_cen[i] == y_cen[x]:
+            continue
           # if the individual is left the current individual and the distance is smaller than the minimum distance
         if x_cen[i] > x_cen[x] and abs(x_cen[i]-x_cen[x]) < left_min:
-            # check if the individual is to the side (for example 45° angle is not allowed), 1.5 is finetuned and can be changed
-            if abs(y_cen[i] - y_cen[x])*1.5 < abs(x_cen[x] - x_cen[i]):
+            # check if the individual is to the side (for example 45° angle is not allowed), fixed_value is finetuned and can be changed
+            if abs(y_cen[i] - y_cen[x])*fixed_value< abs(x_cen[x] - x_cen[i]):
                 # set the minimum distance to the distance between the two individuals -> this is the new minimum distance
                 left_min = abs(x_cen[i]-x_cen[x])
                 # set the left class to the current individual
                 left_class = i
         # like left, but for right
         elif x_cen[i] < x_cen[x] and abs(x_cen[i]-x_cen[x]) < right_min:
-            if abs(y_cen[i] - y_cen[x])*1.5 < abs(x_cen[x] - x_cen[i]):
+            if abs(y_cen[i] - y_cen[x])*fixed_value < abs(x_cen[x] - x_cen[i]):
                 right_min = abs(x_cen[i]-x_cen[x])
                 right_class = i
     
@@ -109,7 +116,7 @@ def rename_classes(classes):
 def make_float(x):
     # convert the list of strings to a list of floats
     for i in range(len(x)):
-        x[i] = float(x[i])
+        x[i] = round(float(x[i]), 3)
     return x
 
 def remove_end_number(string):
@@ -144,16 +151,67 @@ def read_csv(path):
     y_min = make_float(y_min)
     x_max = make_float(x_max)
     y_max = make_float(y_max)
+    det_scores = make_float(det_scores).to_list()
         
     classes = rename_classes(classes)
         
     return df, classes, det_scores, x_min, y_min, x_max, y_max, middle, x_cen, y_cen
 
-def explicit_mode(onto, individuals):
-    # TODO implement explicit mode
+# used for backend, owl automatically creates the properties but the python-lists are not updated
+# so we need to update the lists manually, to avoid false calculations
+# so we need to add reverse properties to the individuals
+def reverse_properties(onto, individuals):
+    for i in range(len(individuals)):
+        for j in range(len(individuals[i].above)):
+            individuals[i].above[j].below.append(individuals[i]) 
+        for j in range(len(individuals[i].below)):
+            individuals[i].below[j].above.append(individuals[i])
+        for j in range(len(individuals[i].left_to)):
+            individuals[i].left_to[j].right_to.append(individuals[i])
+        for j in range(len(individuals[i].right_to)):
+            individuals[i].right_to[j].left_to.append(individuals[i])
+        for j in range(len(individuals[i].equivalent_to)):
+            individuals[i].equivalent_to[j].equivalent_to.append(individuals[i])
+        
+    onto, individuals = remove_redundant_properties(onto, individuals)
+    return onto, individuals
+
+# extension of reverse_properties for all individuals
+def reverse_properties_all(onto, all_individuals):
+    for i in range(len(all_individuals)):
+       onto, individuals = reverse_properties(onto, all_individuals[i])
+       all_individuals[i] = individuals
+
+        
+    return onto, all_individuals
+
+# function to remove redunant properties and individuals from the ontology-list
+def remove_redundant_properties(onto, individuals):
+    for i in range(len(individuals)):
+            # remove the redundant properties from the individuals
+            individuals[i].above = list(set(individuals[i].above))
+            individuals[i].below = list(set(individuals[i].below))
+            individuals[i].left_to = list(set(individuals[i].left_to))
+            individuals[i].right_to = list(set(individuals[i].right_to))
+            individuals[i].equivalent_to = list(set(individuals[i].equivalent_to))
+            
+    return onto, individuals
+
+# extension of remove_redundant_properties for all individuals
+def remove_redundant_properties_all(onto, all_individuals):
+    for i in range(len(all_individuals)):
+        onto, individuals = remove_redundant_properties(onto, all_individuals[i])
+        all_individuals[i] = individuals
+        
+    return onto, all_individuals
+
+
+def explicit_mode(onto, individuals): 
+    count = 0    
     changed = True
     # it's possible that all individuals depend on each other, so we need to repeat the process for every individual
     for p in range(len(individuals)):
+        count += 1
         # if no changes were made, break the loop
         if not changed:
             break
@@ -182,8 +240,7 @@ def explicit_mode(onto, individuals):
                                     # get the key of the individual from the value of the individual (2nd individual)
                                     for key, values in individuals.items():
                                         if values == value:
-                                            # add the explicit relation
-                                            # TODO only 2 relations possible, meed to change for more relations
+                                            # add the explicit relations
                                             if individuals[key2] in prop[individuals[i]]:
                                                 continue
                                             changed = True
@@ -196,35 +253,9 @@ def explicit_mode(onto, individuals):
                                             elif prop.name == "right_to":
                                                 individuals[i].right_to.append(individuals[key2])
                                             else: print(prop.name)
-    return onto, individuals
-
-
-def symmetric_mode(onto, individuals):
-    # TODO implement symmetric mode
-    # for every individual
-    for i in range(len(individuals)):
-        print(individuals[i].below)
-        for ind in individuals[i].below:
-            if individuals[i] in ind.above:
-                ind.above.append(individuals[i])
-                print(f"added {individuals[i]} to {ind} above")
-                
-        for ind in individuals[i].above:
-            if not individuals[i] in ind.below:
-                ind.below.append(individuals[i])
-                print(f"added {individuals[i]} to {ind} below")
-        
-        for ind in individuals[i].left_to:
-            if not individuals[i] in ind.right_to:
-                ind.right_to.append(individuals[i])
-                print(f"added {individuals[i]} to {ind} right_to")
-        
-        for ind in individuals[i].right_to:
-            if not individuals[i] in ind.left_to:
-                ind.left_to.append(individuals[i])
-                print(f"added {individuals[i]} to {ind} left_to")
-                
-                                    
+      
+    # print(f"explicit count: {count}")                                      
+    onto, individuals = remove_redundant_properties(onto, individuals)
     return onto, individuals
 
 def same_individuals(onto, all_individuals):
@@ -248,7 +279,7 @@ def same_individuals(onto, all_individuals):
                     # compare names and properties of the individuals
                     propability = 0.0
                     same_next = False
-                    # [0] is the class name, [:-1] to remove the number at the end of the class name
+                    # [0] is the class name, remove_end_number to make Motor and Motor_1 the same
                     if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(next[k].name.split("_")[0]):
                         for l in range(len(individuals[j].above)):
                             for m in range(len(next[k].above)):
@@ -277,39 +308,60 @@ def same_individuals(onto, all_individuals):
                             
                         # calculate the propability of the individuals being the same
                         propability = propability / (len(individuals[j].above) + len(individuals[j].below) + len(individuals[j].left_to) + len(individuals[j].right_to))      
-                        print(f"propability: {propability}")
+                        # print(f"propability: {propability}")
                         # if the individual has a object of the same class next to it
                         if same_next:
                             # check if the next individual is in a property of the individual and the individual is in the same property of the next individual
                             if remove_end_number(next[j].name.split("_")[0]) in get_class_names(individuals[j].above) and remove_end_number(individuals[k].name.split("_")[0]) in get_class_names(next[j].above) and propability > 0.5:
-                                individuals[j].same_as.append(next[k])
-                                next[k].same_as.append(individuals[j])
-                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                individuals[j].equivalent_to.append(next[k])
                                 
                             if remove_end_number(next[j].name.split("_")[0]) in get_class_names(individuals[j].below) and remove_end_number(individuals[k].name.split("_")[0]) in get_class_names(next[j].below) and propability > 0.5:
-                                individuals[j].same_as.append(next[k])
-                                next[k].same_as.append(individuals[j])
-                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                individuals[j].equivalent_to.append(next[k])
                                 
                             if remove_end_number(next[j].name.split("_")[0]) in get_class_names(individuals[j].left_to) and remove_end_number(individuals[k].name.split("_")[0]) in get_class_names(next[j].left_to) and propability > 0.5:
-                                individuals[j].same_as.append(next[k])
-                                next[k].same_as.append(individuals[j])
-                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                individuals[j].equivalent_to.append(next[k])
                                         
                             if remove_end_number(next[k].name.split("_")[0]) in get_class_names(individuals[j].right_to) and remove_end_number(individuals[j].name.split("_")[0]) in get_class_names(next[j].right_to) and propability > 0.5:
-                                individuals[j].same_as.append(next[k])
-                                next[k].same_as.append(individuals[j])
-                                print(f"added {individuals[j]} to {next[k]} same_as")          
+                                individuals[j].equivalent_to.append(next[k])        
     
                         else:
                             if propability > 0.5:
-                                individuals[j].same_as.append(next[k])
-                                print(f"added {individuals[j]} to {next[k]} same_as")
+                                individuals[j].equivalent_to.append(next[k])
+                                # print(individuals[j].equivalent_to)
                                 # add the individual to the next individual
-                       
 
-
+    onto, all_individuals = remove_redundant_properties_all(onto, all_individuals)
     return onto, all_individuals
+
+def remove_false_detections(onto, all_individuals):
+    average_same = 0.0
+    total_individuals = 0.0
+    for i in range(len(all_individuals)):
+        individuals = all_individuals[i]
+        for j in range(len(individuals)):
+            average_same += len(set(individuals[j].equivalent_to))
+            total_individuals += 1.0
+    
+    average_same = average_same / total_individuals
+    
+    for i in range(len(all_individuals)):
+        individuals = all_individuals[i]
+        for j in range(len(individuals)):
+            # if the individual has less than the average number of equivalent individuals and the detection_score is low, remove it
+            # TODO: ask, if removing the individuals is right, or add another property like possible wrong to the individual
+            # print(average_same, len(set(individuals[j].equivalent_to)), individuals[j].name)
+            if len(set(individuals[j].equivalent_to)) < average_same and individuals[j].detection_score[0] < 0.80:
+                # TODO: detroy_entity is not working, need to find a solution
+                try:
+                    #continue
+                    destroy_entity(individuals[j])
+                except Exception as e:
+                    print(f"Error: {e}")
+                print(f"removed {individuals[j].name} from ontology")
+        
+            
+    return onto, all_individuals
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
@@ -349,11 +401,9 @@ if __name__ == "__main__":
             right_to = types.new_class("right_to", (ObjectProperty,))
             above = types.new_class("above", (ObjectProperty,))
             below = types.new_class("below", (ObjectProperty,))
-            same_as = types.new_class("same_as", (ObjectProperty,))
             
             left_to.inverse_property = right_to
             above.inverse_property = below
-            same_as.symmetric = True
                     
             class x_center(Thing >> float):
                 pass
@@ -367,6 +417,8 @@ if __name__ == "__main__":
                 pass
             class y_maximum(Thing >> float):
                 pass
+            class detection_score(Thing >> float):
+                pass
             
             
         # Create individual of maschines
@@ -374,8 +426,7 @@ if __name__ == "__main__":
         
         
         individuals = {}
-        
-        print(abs(x_cen[1] - x_cen[0]), abs(y_cen[1]-y_cen[0]))
+
         
         # Create individuals
         for i in range(len(x_cen)):
@@ -389,6 +440,8 @@ if __name__ == "__main__":
                 individuals[i].y_minimum = [y_min[i]]
                 individuals[i].x_maximum = [x_max[i]]
                 individuals[i].y_maximum = [y_max[i]]
+            
+            individuals[i].detection_score = [det_scores[i]]
             
         # Create relations
         for i in range(len(x_cen)):
@@ -412,8 +465,10 @@ if __name__ == "__main__":
         # Create explicit relations
         if explicit:
             onto, individuals = explicit_mode(onto, individuals)
-            #onto, individuals = symmetric_mode(onto, individuals)
                  
+        onto, individuals = reverse_properties(onto, individuals)
+        
+        onto, individuals = remove_redundant_properties(onto, individuals)
         
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
@@ -425,7 +480,7 @@ if __name__ == "__main__":
         for file in files:
             if not file.endswith(".csv"):
                 files.remove(file)
-        print(files)
+        # print(files)
         # for every file in the directory
         cams = {}
         components = {}
@@ -452,7 +507,6 @@ if __name__ == "__main__":
                     right_to = types.new_class("right_to", (ObjectProperty,))
                     above = types.new_class("above", (ObjectProperty,))
                     below = types.new_class("below", (ObjectProperty,))
-                    same_as = types.new_class("same_as", (ObjectProperty,))
                     
                     left_to.inverse_property = right_to
                     above.inverse_property = below
@@ -469,6 +523,9 @@ if __name__ == "__main__":
                         pass
                     class y_maximum(Thing >> float):
                         pass
+                    class detection_score(Thing >> float):
+                        pass
+                    
                 else: 
                     pass
                 
@@ -477,7 +534,7 @@ if __name__ == "__main__":
                 # Create individuals
                 for j in range(len(x_cen)):
                     individuals[j] = components[i](classes[j] + "_" + name)
-            
+
                     # Add coordinates to the individuals
                     if coordinates:
                         individuals[j].x_center = [x_cen[j]]
@@ -486,6 +543,8 @@ if __name__ == "__main__":
                         individuals[j].y_minimum = [y_min[j]]
                         individuals[j].x_maximum = [x_max[j]]
                         individuals[j].y_maximum = [y_max[j]]
+                    
+                    individuals[j].detection_score = [det_scores[j]]
             
                 # Create relations
                 for j in range(len(x_cen)):
@@ -516,10 +575,17 @@ if __name__ == "__main__":
 
         
         
+        onto, all_individuals = reverse_properties_all(onto, all_individuals)
         
         onto, all_individuals = same_individuals(onto, all_individuals)
+        
+        onto, all_individuals = reverse_properties_all(onto, all_individuals)
+
+        onto, all_individuals = remove_false_detections(onto, all_individuals)
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
     
-# to run:
+# to run for single file:
 # python OntologyGenerator.py -f test.csv -e -c (-e for explicit mode, -c for added coordinates)
+# to run for multiple files (cams):
+# python OntologyGenerator.py -f .\filefolder -e -c (-e for explicit mode, -c for added coordinates)
