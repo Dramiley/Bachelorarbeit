@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.25)  25 APR 2025 14:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.25)  10 MAY 2025 18:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./sample.tex
-(sample.tex
+**C:/Users/Morge/UniProgrammieren/Bachelorarbeit/stthesis/sample.tex
+(C:/Users/Morge/UniProgrammieren/Bachelorarbeit/stthesis/sample.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
-(stthesis.cls
+(C:/Users/Morge/UniProgrammieren/Bachelorarbeit/stthesis\stthesis.cls
 Document Class: stthesis 2011/04/27 stthesis{} class for writing student theses
  at the chair of Softwaretechnologie of the Technische Universitaet Dresden
 
@@ -572,8 +572,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--35
 [1
 
 
-{C:/Users/Morge/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./tu_logo.pd
-f> <./STgroupLogo.pdf>] [2
+{C:/Users/Morge/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <C:/Users/Mor
+ge/UniProgrammieren/Bachelorarbeit/stthesis/tu_logo.pdf> <C:/Users/Morge/UniPro
+grammieren/Bachelorarbeit/stthesis/STgroupLogo.pdf>] [2
 
 ] (sample.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -586,11 +587,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `sample.toc'.
 
- [3] [4
+
+[3] [4
 
 
 ]
 chapter 1.
+
+LaTeX Warning: Citation `Yang2021' on page 1 undefined on input line 40.
+
 [1
 
 ] [2] [3] [4
@@ -603,62 +608,205 @@ chapter 2.
 chapter 3.
 [7]
 chapter A.
-[1
+(sample.bbl [1
+
+] [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 69--69
+! Undefined control sequence.
+<argument> \protect \citeauthoryear 
+                                    {Yang, Cormican\BCBL {}\ \BBA {} Yu}{Yan...
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+<argument> ...citeauthoryear {Yang, Cormican\BCBL 
+                                                  {}\ \BBA {} Yu}{Yang\ \pro...
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+<argument> ...ryear {Yang, Cormican\BCBL {}\ \BBA 
+                                                  {} Yu}{Yang\ \protect \BOt...
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+<argument> ...\BBA {} Yu}{Yang\ \protect \BOthers 
+                                                  {.}}{{\protect \APACyear {...
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+<argument> ...t \BOthers {.}}{{\protect \APACyear 
+                                                  {2021}}}
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+<write> ...t \citeauthoryear {Yang, Cormican\BCBL 
+                                                  {}\ \BBA {} Yu}{Yang\ \pro...
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+<write> ...thoryear {Yang, Cormican\BCBL {}\ \BBA 
+                                                  {} Yu}{Yang\ \protect \BOt...
+l.12 Yang2021}
+              
+? 
+! Undefined control sequence.
+l.13 \APACinsertmetastar
+                         {%
+? 
+
+! LaTeX Error: Environment APACrefauthors undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 \begin{APACrefauthors}
+                           %
+? 
+! Undefined control sequence.
+l.18 \BCBL
+           {}\ \BBA {} Yu, M.%
+? 
+! Undefined control sequence.
+l.18 \BCBL {}\ \BBA
+                    {} Yu, M.%
+? 
+
+! LaTeX Error: \begin{thebibliography} on input line 1 ended by \end{APACrefaut
+hors}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 \end{APACrefauthors}
+                         %
+? 
+! Undefined control sequence.
+l.22 \APACrefYearMonthDay
+                         {2021}{{\APACmonth{02}}}{}.
+? 
+! Undefined control sequence.
+l.22 \APACrefYearMonthDay{2021}{{\APACmonth
+                                           {02}}}{}.
+? 
+! Undefined control sequence.
+l.24 {\BBOQ
+           }\APACrefatitle {Ontology Learning for Systems Engineering Body of
+? 
+! Undefined control sequence.
+l.24 {\BBOQ}\APACrefatitle
+                           {Ontology Learning for Systems Engineering Body of
+? 
+! Undefined control sequence.
+l.26   knowledge}.{\BBCQ
+                        }
+? 
+! Undefined control sequence.
+l.28 \APACjournalVolNumPages
+                            {IEEE Transactions on Industrial
+? 
+
+! LaTeX Error: Environment APACrefDOI undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 \begin{APACrefDOI}
+                        \doi{10.1109/TII.2020.2990953} \end{APACrefDOI}
+? 
+! Undefined control sequence.
+l.31 \begin{APACrefDOI} \doi
+                            {10.1109/TII.2020.2990953} \end{APACrefDOI}
+? 
+
+! LaTeX Error: \begin{thebibliography} on input line 1 ended by \end{APACrefDOI
+}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 ...10.1109/TII.2020.2990953} \end{APACrefDOI}
+                                                  
+? 
+! Undefined control sequence.
+l.32 \PrintBackRefs
+                   {\CurrentBib}
+? 
+! Undefined control sequence.
+l.32 \PrintBackRefs{\CurrentBib
+                               }
+? 
+) [3]
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--69
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--69
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--69
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--69
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--69
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
-[2] (sample.aux)
+[4] (sample.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `sample.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14386 strings out of 474486
- 260979 string characters out of 5743755
+ 14413 strings out of 474486
+ 261616 string characters out of 5743755
  1934542 words of memory out of 5000000
- 36480 multiletter control sequences out of 15000+600000
- 563550 words of font info for 54 fonts, out of 8000000 for 9000
+ 36497 multiletter control sequences out of 15000+600000
+ 563858 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 122i,8n,121p,10904b,563s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 122i,8n,121p,10958b,563s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr10.pfb><C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmr12.pfb><C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsl10.pfb><C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on sample.pdf (13 pages, 283660 bytes).
+cmbx10.pfb><C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr10.pfb><C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Users/Morge/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Morge/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
+Output written on sample.pdf (15 pages, 297454 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

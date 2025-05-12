@@ -14,9 +14,11 @@
 
 % only used for exemplary lorem ipsum text
 \usepackage{lipsum}
+\usepackage[backend=biber, citestyle=numeric, sorting=none]{biblatex}
+\addbibresource{Quellen.bib}
 
 % Define the title of the thesis
-\title{The Title of the Thesis}
+\title{Automatisierung der Erstellung eines Wissensgraphen aus annotierten Bilddateien}
 % Specify the author of the thesis
 \author{Robin Morgenstern}
 % Specify the date on which the thesis is handed in
@@ -27,7 +29,7 @@
 \birthplace{Chemnitz}
 % Specify the name of the supervisor
 % Use '\newline' to separate multiple supervisors from each other
-\supervisor{Dr.-Ing. Birgit Demuth}
+\supervisor{Dr.-Ing. Karsten Wendt}
 % Optionally, you can also use \hsl to define the name of the supervising professor if this is necessary. 
 % This defaults to Prof. Aßmann
 
@@ -36,27 +38,81 @@
   
   \tableofcontents
   
-  \chapter{Introduction}
-    Das ist ein Test.
-  	\section{Motivation}
+  \chapter{Einleitung}
+    
+    \section{Motivation und Problemstellung}
+
+    \section{Zielsetzung der Arbeit}
+
+    \section{Forschungsfrage}
+
+    \section{Aufbau der Arbeit}
   	\lipsum
   	
-  	\section{Objectives}
-  	\lipsum[1-3]
-  	
-  	\section{Overview}
-	\lipsum[1]
     
-  \chapter{First meaningful chapter}
+  \chapter{Theoretischer Hintergrund}
   
-     \section{Introduction}
-       This is the first meaningful chapter, but all it contains is an introduction.
+     \section{Wissensgraphen in der semantischen Datenverarbeitung}
+       Wissensgraphen (Knowledge Graphs, KGs) sind eine Form der strukturierten Wissensrepräsentation, die sich im Bereich der Künstlichen Intelligenz etabliert haben. Sie bilden durch Entitäten, deren Beziehungen sowie weiteren semantisch beschriebenen Merkmalen, komplexe Sachverhalte ab. Die Knoten eines KGs repräsentieren reale oder abstrakte Objekte. Die Kanten hingegen modellieren Relationen zwischen diesen Entitäten \cite{Ji2022}.
+       Wissensgraphen bieten wichtige Vorteile im Gegensatz zu anderen Arten der Wissensrepräsentation. So sind sie, durch ihr graphbasiertes Datenmodell, leicht verständlich und erlaubene eine prägnante, intuitive Abstraktion. Sie besitzen außerdem kein festes Schema, was eine flexible Entwicklung ermöglicht \cite{Hogan2021}. Wissensgraphen verbessern außerdem die Qualität von KI-Systemen, insbesondere für Frage-Antwort-Systeme, die eine besondere Rolle in dieser Arbeit spielen. \cite{Peng2023}.
 
-  \chapter{Conclusion}
-  	\lipsum[1]
+       
+       \section{Ontologien als formale Grundlage für Wissensgraphen}
+       Ontologien legen die Basis für eine formale Darstellung von Wissen. Sie fungieren dabei als eine Art Konvention oder Richtlinie \cite{Hogan2021}. Sie sind in der Lage, die Vereinheitlichung terminologischer Konzepte zu fördern und ein konsistentes Verständnis zwischen unterschiedlichen Domänen zu ermöglichen \cite{Yang2021}. Eine Ontologie enthält Entitäten, Relationen, Eigenschaften sowie je nach Ontologiesprache auch Axiome \cite{Hogan2021, Yang2021}. Mithilfe von taxonomischen Relationen können Konzept-Hierarchien zwischen Entitäten definiert werden. Die Beziehungen zwischen einzelnen Entitäten können mithilfe von sogenannte nicht-taxonomische Relationen (auch Object-Properties genannt) beschrieben werden \cite{Yang2021}. Ontologien dienen als formales Schema für die Erstellung von Wissensgraphen, und können genauso wie Wissensgraphen als Graphstruktur modelliert werden \cite{Hogan2021, Peng2023}. Somit sind Wissensgraphen als Instanz einer Ontologie mit Daten anzusehen \cite{ZinkeWehlmann2024}. 
+
+       \section{Objekterkennung und visuelle Annotationstechniken}
+
+       \section{Large Language Models und Verbindung zu Wissensgraphen}
+
+       \section{Automatisierte Wissensgraphgenerierung - Stand der Technik}
+
+       \section{Zusammenfassung der theoretischen Grundlagen}
+
+    \chapter{Methodik}
+        \section{Datenbasis: Struktur und Eigenschaften der annotierten Bilddateien}
+
+        \section{Anforderung an die Graphstruktur}
+
+        \section{Konzeption des automatischen Generierungsprozesses}
+
+        \section{Technische Umsetzung und Implementierungsdetails}
+
+        \section{Validierungskonzept und Evaluationsmetriken}
+
+    \chapter{Evaluation}
+        \section{Erzeugte Wissensgraphen im Vergleich}
+
+        \section{Integration und Verarbeitung durch verschiedene LLM-Models}
+
+        \section{Analyse von Qualität, Vollständigkeit und Robustheit}
+
+        \section{Kritische Bewertung der Ergebnisse}
+
+    \chapter{Diskussion}
+        \section{Interpretation der Evaluationsergebnisse}
+
+        \section{Methodische Herausforderungen und Limitationen}
+
+        \section{Einordnung in den aktuellen Forschungsstand}
+
+        \section{Perspektiven zur Weiterentwicklung und industriellen Anwendung}
+
+    \chapter{Fazit}
+        \section{Zusammenfassung der Arbeit}
+
+        \section{Beantwortung der Forschungsfrage}
+
+
 
   % must be invoked for correct page numbering in the appendix and all lists
   \backmatter
+
+\defbibheading{bibliography}[\bibname]{%
+  \chapter{Literaturverzeichnis}
+}
+
+\printbibliography[heading=bibliography]
+
   
   \appendix
   \chapter{Appendix}
@@ -65,5 +121,5 @@
   
   \section{More Important Information}
   \lipsum[1]
-  
+
 \end{document}

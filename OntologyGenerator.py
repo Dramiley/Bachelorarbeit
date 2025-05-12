@@ -172,6 +172,10 @@ def reverse_properties(onto, individuals):
             individuals[i].right_to[j].left_to.append(individuals[i])
         for j in range(len(individuals[i].equivalent_to)):
             individuals[i].equivalent_to[j].equivalent_to.append(individuals[i])
+        for j in range(len(individuals[i].inside_of)):
+            individuals[i].inside_of[j].outside_of.append(individuals[i])
+        for j in range(len(individuals[i].outside_of)):
+            individuals[i].outside_of[j].inside_of.append(individuals[i])
         
     onto, individuals = remove_redundant_properties(onto, individuals)
     return onto, individuals
@@ -348,7 +352,6 @@ def remove_false_detections(onto, all_individuals):
         individuals = all_individuals[i]
         for j in range(len(individuals)):
             # if the individual has less than the average number of equivalent individuals and the detection_score is low, remove it
-            # TODO: ask, if removing the individuals is right, or add another property like possible wrong to the individual
             # print(average_same, len(set(individuals[j].equivalent_to)), individuals[j].name)
             if len(set(individuals[j].equivalent_to)) < average_same and individuals[j].detection_score[0] < 0.80:
                 # TODO: detroy_entity is not working, need to find a solution
@@ -362,17 +365,77 @@ def remove_false_detections(onto, all_individuals):
             
     return onto, all_individuals
 
+# this function checks if the individual j is inside the individual i, if so, it adds the individual i to the inside_of property of the individual j
+def check_inside(onto, individuals):
+    # threshold for the inside property, if the inside-area is bigger than the treshold (70%) of the whole boxarea, it is inside
+    # can be changed to fit the needs
+    threshold = 0.7
+    # check if the individual i is inside the individual j
+    for i in range(len(individuals)):
+        for j in range(len(individuals)):
+            if i <= j:
+                continue
+            
+            x_min_in = False
+            x_max_in = False
+            y_min_in = False
+            y_max_in = False
+            box_sum = abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
+            box_outside = 0
+            # check on which sides the individual j is outside of the individual i
+            if individuals[i].x_minimum[0] < individuals[j].x_minimum[0]:
+                x_min_in = True
+            if individuals[i].x_maximum[0] > individuals[j].x_maximum[0]:
+                x_max_in = True
+            if individuals[i].y_minimum[0] < individuals[j].y_minimum[0]:
+                y_min_in = True
+            if individuals[i].y_maximum[0] > individuals[j].y_maximum[0]:
+                y_max_in = True
+            
+            # if all sides are inside, add the individual i to the inside_of property of the individual j
+            if x_min_in and x_max_in and y_min_in and y_max_in:
+                individuals[j].inside_of.append(individuals[i])
+            
+            # if not all sides are inside, check if the area outside is bigger than the threshold
+            else:  
+                if not x_min_in:
+                    box_outside += abs(individuals[i].x_minimum[0] - individuals[j].x_minimum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
+                if not x_max_in:
+                    box_outside += abs(individuals[i].x_maximum[0] - individuals[j].x_maximum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
+                if not y_min_in:
+                    box_outside += abs(individuals[i].y_minimum[0] - individuals[j].y_minimum[0]) * abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0])
+                if not y_max_in:
+                    box_outside += abs(individuals[i].y_maximum[0] - individuals[j].y_maximum[0]) * abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0])
+                
+                if box_outside / box_sum >= threshold:
+                    individuals[j].inside_of.append(individuals[i])
+            
+
+    return onto, individuals
+
+def check_inside_all(onto, all_individuals):
+    for i in range(len(all_individuals)):
+        individuals = all_individuals[i]
+        onto, individuals = check_inside(onto, all_individuals[j])
+        all_individuals[i] = individuals
+        
+    return onto, all_individuals
+
+# TODO: Klasse, welche Individuals zusammenfasst 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
     parser.add_argument('-f', '--file', type=str, required=True, help='csv path for single camera, directory for multicam')
     parser.add_argument('-e','--explicit', default=False, action='store_true', help='add -e for explicit mode')
     parser.add_argument('-c','--coordinates', default=False, action='store_true', help='add -c to add coordinates to the individuals')
+    parser.add_argument('-r','--remove_false', default=False, action='store_true', help='add -r to remove false detections')
     
     args = parser.parse_args()
+    
     csv_path = args.file
     explicit = args.explicit
     coordinates = args.coordinates
+    remove = args.remove_false
     
     if csv_path.endswith(".csv"):
         multicam = False
@@ -401,9 +464,12 @@ if __name__ == "__main__":
             right_to = types.new_class("right_to", (ObjectProperty,))
             above = types.new_class("above", (ObjectProperty,))
             below = types.new_class("below", (ObjectProperty,))
+            outside_of = types.new_class("outside_of", (ObjectProperty,))
+            inside_of = types.new_class("inside_of", (ObjectProperty,))
             
             left_to.inverse_property = right_to
             above.inverse_property = below
+            inside_of.inverse_property = outside_of
                     
             class x_center(Thing >> float):
                 pass
@@ -465,6 +531,8 @@ if __name__ == "__main__":
         # Create explicit relations
         if explicit:
             onto, individuals = explicit_mode(onto, individuals)
+            
+        onto, individuals = check_inside(onto, individuals)
                  
         onto, individuals = reverse_properties(onto, individuals)
         
@@ -507,9 +575,12 @@ if __name__ == "__main__":
                     right_to = types.new_class("right_to", (ObjectProperty,))
                     above = types.new_class("above", (ObjectProperty,))
                     below = types.new_class("below", (ObjectProperty,))
+                    outside_of = types.new_class("outside_of", (ObjectProperty,))
+                    inside_of = types.new_class("inside_of", (ObjectProperty,))
                     
                     left_to.inverse_property = right_to
                     above.inverse_property = below
+                    inside_of.inverse_property = outside_of
                     
                     class x_center(Thing >> float):
                         pass
@@ -574,14 +645,18 @@ if __name__ == "__main__":
                 i += 1
 
         
+        onto, all_individuals = check_inside_all(onto, all_individuals)
         
         onto, all_individuals = reverse_properties_all(onto, all_individuals)
         
         onto, all_individuals = same_individuals(onto, all_individuals)
         
         onto, all_individuals = reverse_properties_all(onto, all_individuals)
-
-        onto, all_individuals = remove_false_detections(onto, all_individuals)
+            
+        if remove:
+            # remove false detections
+            onto, all_individuals = remove_false_detections(onto, all_individuals)
+        
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
     
