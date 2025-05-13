@@ -6,7 +6,8 @@ from owlready2 import *
 from owlready2.prop import destroy_entity
 from math import sqrt
 import re
-
+from OntologySummarizer import ontologySummarizer
+from shapely.geometry import box
 
 
 def check_middle(x_min, y_min, x_max, y_max):
@@ -198,6 +199,8 @@ def remove_redundant_properties(onto, individuals):
             individuals[i].left_to = list(set(individuals[i].left_to))
             individuals[i].right_to = list(set(individuals[i].right_to))
             individuals[i].equivalent_to = list(set(individuals[i].equivalent_to))
+            individuals[i].inside_of = list(set(individuals[i].inside_of))
+            individuals[i].outside_of = list(set(individuals[i].outside_of))
             
     return onto, individuals
 
@@ -309,10 +312,22 @@ def same_individuals(onto, all_individuals):
                                     propability += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].right_to[l].name.split("_")[0]):
                                     same_next = True
+                        for l in range(len(individuals[j].inside_of)):
+                            for m in range(len(next[k].inside_of)):
+                                if remove_end_number(individuals[j].inside_of[l].name.split("_")[0]) == remove_end_number(next[k].inside_of[m].name.split("_")[0]):
+                                    propability += 1.0
+                                if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].inside_of[l].name.split("_")[0]):
+                                    same_next = True
+                        for l in range(len(individuals[j].outside_of)):
+                            for m in range(len(next[k].outside_of)):
+                                if remove_end_number(individuals[j].outside_of[l].name.split("_")[0]) == remove_end_number(next[k].outside_of[m].name.split("_")[0]):
+                                    propability += 1.0
+                                if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].outside_of[l].name.split("_")[0]):
+                                    same_next = True
                             
                         # calculate the propability of the individuals being the same
-                        propability = propability / (len(individuals[j].above) + len(individuals[j].below) + len(individuals[j].left_to) + len(individuals[j].right_to))      
-                        # print(f"propability: {propability}")
+                        propability = propability / (len(individuals[j].above) + len(individuals[j].below) + len(individuals[j].left_to) + len(individuals[j].right_to) + len(individuals[j].inside_of) + len(individuals[j].outside_of))    
+                        #print(f"propability: {propability}")
                         # if the individual has a object of the same class next to it
                         if same_next:
                             # check if the next individual is in a property of the individual and the individual is in the same property of the next individual
@@ -333,6 +348,7 @@ def same_individuals(onto, all_individuals):
                                 individuals[j].equivalent_to.append(next[k])
                                 # print(individuals[j].equivalent_to)
                                 # add the individual to the next individual
+                                
 
     onto, all_individuals = remove_redundant_properties_all(onto, all_individuals)
     return onto, all_individuals
@@ -373,7 +389,7 @@ def check_inside(onto, individuals):
     # check if the individual i is inside the individual j
     for i in range(len(individuals)):
         for j in range(len(individuals)):
-            if i <= j:
+            if i == j:
                 continue
             
             x_min_in = False
@@ -382,41 +398,62 @@ def check_inside(onto, individuals):
             y_max_in = False
             box_sum = abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
             box_outside = 0
-            # check on which sides the individual j is outside of the individual i
-            if individuals[i].x_minimum[0] < individuals[j].x_minimum[0]:
+            count = 0
+            # check on which sides the individual j is inside of the individual i
+            if individuals[i].x_minimum[0] < individuals[j].x_minimum[0] and individuals[i].x_maximum[0] > individuals[j].x_minimum[0]:
                 x_min_in = True
-            if individuals[i].x_maximum[0] > individuals[j].x_maximum[0]:
+                count += 1
+            if individuals[i].x_maximum[0] > individuals[j].x_maximum[0] and individuals[i].x_minimum[0] < individuals[j].x_maximum[0]:
                 x_max_in = True
-            if individuals[i].y_minimum[0] < individuals[j].y_minimum[0]:
+                count += 1
+            if individuals[i].y_minimum[0] < individuals[j].y_minimum[0] and individuals[i].y_maximum[0] > individuals[j].y_minimum[0]:
                 y_min_in = True
-            if individuals[i].y_maximum[0] > individuals[j].y_maximum[0]:
+                count += 1
+            if individuals[i].y_maximum[0] > individuals[j].y_maximum[0] and individuals[i].y_minimum[0] < individuals[j].y_maximum[0]:
                 y_max_in = True
+                count += 1
             
             # if all sides are inside, add the individual i to the inside_of property of the individual j
             if x_min_in and x_max_in and y_min_in and y_max_in:
+                # j inside of i
                 individuals[j].inside_of.append(individuals[i])
+                continue
             
             # if not all sides are inside, check if the area outside is bigger than the threshold
-            else:  
-                if not x_min_in:
+            else: 
+                rect1 = box(individuals[i].x_minimum[0], individuals[i].y_minimum[0], individuals[i].x_maximum[0], individuals[i].y_maximum[0])
+                rect2 = box(individuals[j].x_minimum[0], individuals[j].y_minimum[0], individuals[j].x_maximum[0], individuals[j].y_maximum[0])
+                
+                intersection = rect1.intersection(rect2)
+                
+                print("Intersection: ", intersection.area)
+                print(individuals[i].name, individuals[j].name) 
+                print(x_min_in, x_max_in, y_min_in, y_max_in)
+                if not x_min_in and not x_max_in and not y_min_in and not y_max_in:
+                    continue
+                if not x_min_in and count > 2:
                     box_outside += abs(individuals[i].x_minimum[0] - individuals[j].x_minimum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
-                if not x_max_in:
+                if not x_max_in and count > 2:
                     box_outside += abs(individuals[i].x_maximum[0] - individuals[j].x_maximum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
-                if not y_min_in:
+                if not y_min_in and count > 2:
                     box_outside += abs(individuals[i].y_minimum[0] - individuals[j].y_minimum[0]) * abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0])
-                if not y_max_in:
+                if not y_max_in and count > 2:
                     box_outside += abs(individuals[i].y_maximum[0] - individuals[j].y_maximum[0]) * abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0])
                 
+                print(box_outside, box_sum, box_outside / box_sum)
+                print("")
                 if box_outside / box_sum >= threshold:
                     individuals[j].inside_of.append(individuals[i])
-            
-
+      
+                
+    onto, individuals = remove_redundant_properties(onto, individuals)
     return onto, individuals
+
 
 def check_inside_all(onto, all_individuals):
     for i in range(len(all_individuals)):
         individuals = all_individuals[i]
-        onto, individuals = check_inside(onto, all_individuals[j])
+        onto, individuals = check_inside(onto, all_individuals[i])
         all_individuals[i] = individuals
         
     return onto, all_individuals
@@ -542,6 +579,7 @@ if __name__ == "__main__":
         onto.save(file = "output.rdf", format = "rdfxml")
     
     if multicam:
+        ontoSummarizer = ontologySummarizer()
         onto = get_ontology("http://www.semanticweb.org/industrial_maschine")
         files = os.listdir(csv_path)
         # for every file in the directory
@@ -638,7 +676,6 @@ if __name__ == "__main__":
                 # Create explicit relations
                 if explicit:
                     onto, individuals = explicit_mode(onto, individuals)
-                    #onto, individuals = symmetric_mode(onto, individuals)
                   
                 all_individuals[i] = individuals
                   
@@ -652,10 +689,14 @@ if __name__ == "__main__":
         onto, all_individuals = same_individuals(onto, all_individuals)
         
         onto, all_individuals = reverse_properties_all(onto, all_individuals)
+        
+        onto, all_individuals = remove_redundant_properties_all(onto, all_individuals)
             
         if remove:
             # remove false detections
             onto, all_individuals = remove_false_detections(onto, all_individuals)
+            
+        onto, all_individuals, cams, components = ontologySummarizer.summarize(onto, all_individuals, cams, components)
         
         # save the ontology
         onto.save(file = "output.rdf", format = "rdfxml")
