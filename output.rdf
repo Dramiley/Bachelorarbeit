@@ -164,6 +164,7 @@
 
 <owl:NamedIndividual rdf:about="#Hebel_cam0">
   <rdf:type rdf:resource="#Components_cam0"/>
+  <inside_of rdf:resource="#Gewinde_cam0"/>
   <right_to rdf:resource="#Abdeckung_cam0"/>
   <owl:sameAs rdf:resource="#Hebel_cam1"/>
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
@@ -214,6 +215,7 @@
 <owl:NamedIndividual rdf:about="#Hebel_cam1">
   <owl:sameAs rdf:resource="#Hebel_cam0"/>
   <rdf:type rdf:resource="#Components_cam1"/>
+  <inside_of rdf:resource="#Gewinde_cam1"/>
   <right_to rdf:resource="#Abdeckung_cam1"/>
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
   <owl:sameAs rdf:resource="#Hebel_cam3"/>
@@ -264,6 +266,7 @@
   <owl:sameAs rdf:resource="#Hebel_cam0"/>
   <owl:sameAs rdf:resource="#Hebel_cam1"/>
   <rdf:type rdf:resource="#Components_cam2"/>
+  <inside_of rdf:resource="#Gewinde_cam2"/>
   <right_to rdf:resource="#Abdeckung_cam2"/>
   <owl:sameAs rdf:resource="#Hebel_cam3"/>
   <owl:sameAs rdf:resource="#Hebel_sample"/>
@@ -314,6 +317,7 @@
   <owl:sameAs rdf:resource="#Hebel_cam1"/>
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
   <rdf:type rdf:resource="#Components_cam3"/>
+  <inside_of rdf:resource="#Gewinde_cam3"/>
   <right_to rdf:resource="#Abdeckung_cam3"/>
   <owl:sameAs rdf:resource="#Hebel_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.833</detection_score>
@@ -350,6 +354,7 @@
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
   <owl:sameAs rdf:resource="#Hebel_cam3"/>
   <rdf:type rdf:resource="#Components_sample"/>
+  <inside_of rdf:resource="#Gewinde_sample"/>
   <right_to rdf:resource="#Abdeckung_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.823</detection_score>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59.0</y_minimum>
@@ -380,6 +385,7 @@
   <right_to rdf:resource="#Summary_Abdeckung"/>
   <left_to rdf:resource="#Summary_Hebel"/>
   <below rdf:resource="#Summary_Hebel"/>
+  <outside_of rdf:resource="#Summary_Hebel"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Summary_Abdeckung">

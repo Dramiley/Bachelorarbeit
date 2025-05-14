@@ -392,58 +392,18 @@ def check_inside(onto, individuals):
             if i == j:
                 continue
             
-            x_min_in = False
-            x_max_in = False
-            y_min_in = False
-            y_max_in = False
-            box_sum = abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
-            box_outside = 0
-            count = 0
-            # check on which sides the individual j is inside of the individual i
-            if individuals[i].x_minimum[0] < individuals[j].x_minimum[0] and individuals[i].x_maximum[0] > individuals[j].x_minimum[0]:
-                x_min_in = True
-                count += 1
-            if individuals[i].x_maximum[0] > individuals[j].x_maximum[0] and individuals[i].x_minimum[0] < individuals[j].x_maximum[0]:
-                x_max_in = True
-                count += 1
-            if individuals[i].y_minimum[0] < individuals[j].y_minimum[0] and individuals[i].y_maximum[0] > individuals[j].y_minimum[0]:
-                y_min_in = True
-                count += 1
-            if individuals[i].y_maximum[0] > individuals[j].y_maximum[0] and individuals[i].y_minimum[0] < individuals[j].y_maximum[0]:
-                y_max_in = True
-                count += 1
+            rect1 = box(individuals[i].x_minimum[0], individuals[i].y_minimum[0], individuals[i].x_maximum[0], individuals[i].y_maximum[0])
+            rect2 = box(individuals[j].x_minimum[0], individuals[j].y_minimum[0], individuals[j].x_maximum[0], individuals[j].y_maximum[0])
+                
+            intersection = rect1.intersection(rect2)
+                
+            print("Intersection: ", intersection.area)
+            print(individuals[i].name, individuals[j].name) 
+            print(rect1.area, rect2.area)
             
-            # if all sides are inside, add the individual i to the inside_of property of the individual j
-            if x_min_in and x_max_in and y_min_in and y_max_in:
-                # j inside of i
+            
+            if intersection.area / rect2.area >= threshold and rect2.area < rect1.area:
                 individuals[j].inside_of.append(individuals[i])
-                continue
-            
-            # if not all sides are inside, check if the area outside is bigger than the threshold
-            else: 
-                rect1 = box(individuals[i].x_minimum[0], individuals[i].y_minimum[0], individuals[i].x_maximum[0], individuals[i].y_maximum[0])
-                rect2 = box(individuals[j].x_minimum[0], individuals[j].y_minimum[0], individuals[j].x_maximum[0], individuals[j].y_maximum[0])
-                
-                intersection = rect1.intersection(rect2)
-                
-                print("Intersection: ", intersection.area)
-                print(individuals[i].name, individuals[j].name) 
-                print(x_min_in, x_max_in, y_min_in, y_max_in)
-                if not x_min_in and not x_max_in and not y_min_in and not y_max_in:
-                    continue
-                if not x_min_in and count > 2:
-                    box_outside += abs(individuals[i].x_minimum[0] - individuals[j].x_minimum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
-                if not x_max_in and count > 2:
-                    box_outside += abs(individuals[i].x_maximum[0] - individuals[j].x_maximum[0]) * abs(individuals[j].y_maximum[0] - individuals[j].y_minimum[0])
-                if not y_min_in and count > 2:
-                    box_outside += abs(individuals[i].y_minimum[0] - individuals[j].y_minimum[0]) * abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0])
-                if not y_max_in and count > 2:
-                    box_outside += abs(individuals[i].y_maximum[0] - individuals[j].y_maximum[0]) * abs(individuals[j].x_maximum[0] - individuals[j].x_minimum[0])
-                
-                print(box_outside, box_sum, box_outside / box_sum)
-                print("")
-                if box_outside / box_sum >= threshold:
-                    individuals[j].inside_of.append(individuals[i])
       
                 
     onto, individuals = remove_redundant_properties(onto, individuals)
