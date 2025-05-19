@@ -426,6 +426,7 @@ if __name__ == "__main__":
     parser.add_argument('-e','--explicit', default=False, action='store_true', help='add -e for explicit mode')
     parser.add_argument('-c','--coordinates', default=False, action='store_true', help='add -c to add coordinates to the individuals')
     parser.add_argument('-r','--remove_false', default=False, action='store_true', help='add -r to remove false detections')
+    parser.add_argument('-s','--summarize', default=False, action='store_true', help='add -s to summarize the ontology')
     
     args = parser.parse_args()
     
@@ -433,6 +434,7 @@ if __name__ == "__main__":
     explicit = args.explicit
     coordinates = args.coordinates
     remove = args.remove_false
+    summarize = args.summarize
     
     if csv_path.endswith(".csv"):
         multicam = False
@@ -455,7 +457,7 @@ if __name__ == "__main__":
         # Create classes and properties
         with onto:
             Components = types.new_class("Components", (Thing,))
-            Maschines = types.new_class("Maschines", (Thing,))
+            Machines = types.new_class("Machines", (Thing,))
             in_the_middle_of = types.new_class("in_the_middle_of", (ObjectProperty,))
             left_to = types.new_class("left_to", (ObjectProperty,))
             right_to = types.new_class("right_to", (ObjectProperty,))
@@ -484,8 +486,8 @@ if __name__ == "__main__":
                 pass
             
             
-        # Create individual of maschines
-        Schleifmaschine = Maschines("Schleifmaschine")
+        # Create individual of Machines
+        Maschine = Machines("Maschine")
         
         
         individuals = {}
@@ -522,7 +524,7 @@ if __name__ == "__main__":
                 individuals[i].right_to = [individuals[right_class]]
             
             
-        individuals[middle].in_the_middle_of = [Schleifmaschine]
+        individuals[middle].in_the_middle_of = [Maschine]
         
         
         # Create explicit relations
@@ -560,9 +562,9 @@ if __name__ == "__main__":
                 cams[i] = types.new_class(f"Camera_{name}", (Thing,))
                 # Create classes and properties
                 components[i] = types.new_class(f"Components_{name}", (cams[i],))
-                Maschines = types.new_class("Maschines", (cams[i],))
-                # Create individual of maschines
-                Schleifmaschine = Maschines("Schleifmaschine")
+                Machines = types.new_class("Machines", (cams[i],))
+                # Create individual of Machines
+                Maschine = Machines("Maschine")
 
                 
                 try: 
@@ -631,7 +633,7 @@ if __name__ == "__main__":
                         individuals[j].right_to = [individuals[right_class]]
             
             
-                individuals[middle].in_the_middle_of = [Schleifmaschine]
+                individuals[middle].in_the_middle_of = [Maschine]
                 
                 # Create explicit relations
                 if explicit:
@@ -656,10 +658,11 @@ if __name__ == "__main__":
             # remove false detections
             onto, all_individuals = remove_false_detections(onto, all_individuals)
             
-        onto, all_individuals, cams, components = ontologySummarizer.summarize(onto, all_individuals, cams, components)
+        if summarize:
+            ontologySummarizer.summarize(onto, all_individuals, cams, components)
         
         # save the ontology
-        onto.save(file = "output.rdf", format = "rdfxml")
+        onto.save(file = "output.owl", format = "rdfxml")
     
 # to run for single file:
 # python OntologyGenerator.py -f test.csv -e -c (-e for explicit mode, -c for added coordinates)

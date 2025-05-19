@@ -77,7 +77,7 @@
   <rdfs:subClassOf rdf:resource="#Camera_cam0"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Maschines">
+<owl:Class rdf:about="#Machines">
   <rdfs:subClassOf rdf:resource="#Camera_cam0"/>
   <rdfs:subClassOf rdf:resource="#Camera_cam1"/>
   <rdfs:subClassOf rdf:resource="#Camera_cam2"/>
@@ -117,21 +117,13 @@
   <rdfs:subClassOf rdf:resource="#Camera_sample"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Summary">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Components_Summary">
-  <rdfs:subClassOf rdf:resource="#Summary"/>
-</owl:Class>
-
-<owl:NamedIndividual rdf:about="#Schleifmaschine">
-  <rdf:type rdf:resource="#Maschines"/>
+<owl:NamedIndividual rdf:about="#Maschine">
+  <rdf:type rdf:resource="#Machines"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam0">
   <rdf:type rdf:resource="#Components_cam0"/>
-  <in_the_middle_of rdf:resource="#Schleifmaschine"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
   <right_to rdf:resource="#Abdeckung_cam0"/>
   <below rdf:resource="#Hebel_cam0"/>
   <owl:sameAs rdf:resource="#Gewinde_cam1"/>
@@ -180,7 +172,7 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam1">
-  <in_the_middle_of rdf:resource="#Schleifmaschine"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
   <owl:sameAs rdf:resource="#Gewinde_cam0"/>
   <rdf:type rdf:resource="#Components_cam1"/>
   <right_to rdf:resource="#Abdeckung_cam1"/>
@@ -230,7 +222,7 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam2">
-  <in_the_middle_of rdf:resource="#Schleifmaschine"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
   <owl:sameAs rdf:resource="#Gewinde_cam0"/>
   <owl:sameAs rdf:resource="#Gewinde_cam1"/>
   <rdf:type rdf:resource="#Components_cam2"/>
@@ -280,7 +272,7 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam3">
-  <in_the_middle_of rdf:resource="#Schleifmaschine"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
   <owl:sameAs rdf:resource="#Gewinde_cam0"/>
   <owl:sameAs rdf:resource="#Gewinde_cam1"/>
   <owl:sameAs rdf:resource="#Gewinde_cam2"/>
@@ -330,7 +322,7 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_sample">
-  <in_the_middle_of rdf:resource="#Schleifmaschine"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
   <owl:sameAs rdf:resource="#Gewinde_cam0"/>
   <owl:sameAs rdf:resource="#Gewinde_cam1"/>
   <owl:sameAs rdf:resource="#Gewinde_cam2"/>
@@ -378,23 +370,6 @@
   <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">97.0</y_maximum>
   <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">115.5</x_center>
   <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">144.0</x_maximum>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Summary_Gewinde">
-  <rdf:type rdf:resource="#Components_Summary"/>
-  <right_to rdf:resource="#Summary_Abdeckung"/>
-  <left_to rdf:resource="#Summary_Hebel"/>
-  <below rdf:resource="#Summary_Hebel"/>
-  <outside_of rdf:resource="#Summary_Hebel"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Summary_Abdeckung">
-  <rdf:type rdf:resource="#Components_Summary"/>
-  <left_to rdf:resource="#Summary_Hebel"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Summary_Hebel">
-  <rdf:type rdf:resource="#Components_Summary"/>
 </owl:NamedIndividual>
 
 
