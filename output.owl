@@ -131,44 +131,24 @@
   <owl:sameAs rdf:resource="#Gewinde_cam3"/>
   <owl:sameAs rdf:resource="#Gewinde_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.864</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">69.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">110.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">152.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">173.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">196.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">220.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Abdeckung_cam0">
   <rdf:type rdf:resource="#Components_cam0"/>
+  <inside_of rdf:resource="#Gewinde_cam0"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam1"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam2"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam3"/>
-  <owl:sameAs rdf:resource="#Abdeckung_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.735</detection_score>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">48.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">64.0</x_center>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">73.0</y_minimum>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</x_maximum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">84.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">96.0</y_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Hebel_cam0">
   <rdf:type rdf:resource="#Components_cam0"/>
-  <inside_of rdf:resource="#Gewinde_cam0"/>
   <right_to rdf:resource="#Abdeckung_cam0"/>
   <owl:sameAs rdf:resource="#Hebel_cam1"/>
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
   <owl:sameAs rdf:resource="#Hebel_cam3"/>
-  <owl:sameAs rdf:resource="#Hebel_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.838</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">58.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">85.0</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">112.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">191.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">207.0</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">223.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam1">
@@ -181,44 +161,24 @@
   <owl:sameAs rdf:resource="#Gewinde_cam3"/>
   <owl:sameAs rdf:resource="#Gewinde_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.805</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">66.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">105.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">145.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">245.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">277.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">310.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Abdeckung_cam1">
   <owl:sameAs rdf:resource="#Abdeckung_cam0"/>
   <rdf:type rdf:resource="#Components_cam1"/>
+  <inside_of rdf:resource="#Gewinde_cam1"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam2"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam3"/>
-  <owl:sameAs rdf:resource="#Abdeckung_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.79</detection_score>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">68.0</x_minimum>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">70.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">81.0</y_center>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">90.5</x_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">92.0</y_maximum>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">113.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Hebel_cam1">
   <owl:sameAs rdf:resource="#Hebel_cam0"/>
   <rdf:type rdf:resource="#Components_cam1"/>
-  <inside_of rdf:resource="#Gewinde_cam1"/>
   <right_to rdf:resource="#Abdeckung_cam1"/>
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
   <owl:sameAs rdf:resource="#Hebel_cam3"/>
-  <owl:sameAs rdf:resource="#Hebel_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.739</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">56.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">81.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">107.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">270.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">292.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">315.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam2">
@@ -231,44 +191,24 @@
   <owl:sameAs rdf:resource="#Gewinde_cam3"/>
   <owl:sameAs rdf:resource="#Gewinde_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.868</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">68.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">109.0</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">178.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">201.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">225.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Abdeckung_cam2">
   <owl:sameAs rdf:resource="#Abdeckung_cam0"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam1"/>
   <rdf:type rdf:resource="#Components_cam2"/>
+  <inside_of rdf:resource="#Gewinde_cam2"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam3"/>
-  <owl:sameAs rdf:resource="#Abdeckung_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.708</detection_score>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">49.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">65.5</x_center>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">72.0</y_minimum>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">82.0</x_maximum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">83.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">95.0</y_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Hebel_cam2">
   <owl:sameAs rdf:resource="#Hebel_cam0"/>
   <owl:sameAs rdf:resource="#Hebel_cam1"/>
   <rdf:type rdf:resource="#Components_cam2"/>
-  <inside_of rdf:resource="#Gewinde_cam2"/>
   <right_to rdf:resource="#Abdeckung_cam2"/>
   <owl:sameAs rdf:resource="#Hebel_cam3"/>
-  <owl:sameAs rdf:resource="#Hebel_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.791</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">58.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">84.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">111.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">196.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">212.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">229.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_cam3">
@@ -281,12 +221,6 @@
   <below rdf:resource="#Hebel_cam3"/>
   <owl:sameAs rdf:resource="#Gewinde_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.746</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">68.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">108.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">149.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">279.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">316.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">354.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Abdeckung_cam3">
@@ -294,14 +228,8 @@
   <owl:sameAs rdf:resource="#Abdeckung_cam1"/>
   <owl:sameAs rdf:resource="#Abdeckung_cam2"/>
   <rdf:type rdf:resource="#Components_cam3"/>
-  <owl:sameAs rdf:resource="#Abdeckung_sample"/>
+  <inside_of rdf:resource="#Gewinde_cam3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.863</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">72.0</y_minimum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">78.0</x_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">83.0</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">94.0</y_maximum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">103.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">129.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Hebel_cam3">
@@ -309,16 +237,8 @@
   <owl:sameAs rdf:resource="#Hebel_cam1"/>
   <owl:sameAs rdf:resource="#Hebel_cam2"/>
   <rdf:type rdf:resource="#Components_cam3"/>
-  <inside_of rdf:resource="#Gewinde_cam3"/>
   <right_to rdf:resource="#Abdeckung_cam3"/>
-  <owl:sameAs rdf:resource="#Hebel_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.833</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">57.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">83.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">110.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">308.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">333.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">359.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Gewinde_sample">
@@ -332,44 +252,17 @@
   <below rdf:resource="#Hebel_sample"/>
   <right_to rdf:resource="#Abdeckung_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.881</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">70.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">111.5</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">153.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">311.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">352.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">394.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Hebel_sample">
-  <owl:sameAs rdf:resource="#Hebel_cam0"/>
-  <owl:sameAs rdf:resource="#Hebel_cam1"/>
-  <owl:sameAs rdf:resource="#Hebel_cam2"/>
-  <owl:sameAs rdf:resource="#Hebel_cam3"/>
   <rdf:type rdf:resource="#Components_sample"/>
   <inside_of rdf:resource="#Gewinde_sample"/>
-  <right_to rdf:resource="#Abdeckung_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.823</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">59.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">86.0</y_center>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">113.0</y_maximum>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">343.0</x_minimum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">371.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">400.0</x_maximum>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Abdeckung_sample">
-  <owl:sameAs rdf:resource="#Abdeckung_cam0"/>
-  <owl:sameAs rdf:resource="#Abdeckung_cam1"/>
-  <owl:sameAs rdf:resource="#Abdeckung_cam2"/>
-  <owl:sameAs rdf:resource="#Abdeckung_cam3"/>
   <rdf:type rdf:resource="#Components_sample"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.76</detection_score>
-  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">74.0</y_minimum>
-  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">85.5</y_center>
-  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">87.0</x_minimum>
-  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">97.0</y_maximum>
-  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">115.5</x_center>
-  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">144.0</x_maximum>
 </owl:NamedIndividual>
 
 

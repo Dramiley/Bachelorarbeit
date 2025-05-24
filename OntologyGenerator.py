@@ -8,6 +8,7 @@ from math import sqrt
 import re
 from OntologySummarizer import ontologySummarizer
 from shapely.geometry import box
+import configparser
 
 
 def check_middle(x_min, y_min, x_max, y_max):
@@ -135,14 +136,17 @@ def get_class_names(array):
 def read_csv(path):
     # Read the csv file and generate lists for each property filled with the values from the csv file
     df = pd.read_csv(path)
-    df.columns = ['numbers','detection_scores','class', 'x min', 'y min', 'x max', 'y max']
+    try:
+        df.columns = ['numbers','detection_scores','class', 'x min', 'y min', 'x max', 'y max']
+    except ValueError:
+        df.columns = ['detection_scores','class', 'x min', 'y min', 'x max', 'y max']
 
     classes = df['class']
     det_scores = df['detection_scores']
     x_min = list(df['x min'])
     y_min = list(df['y min'])
     x_max = list(df['x max'])
-    y_max = list(df['y max'])
+    y_max = list(df['y max'])  
             
     middle, x_cen, y_cen = check_middle(x_min, y_min, x_max, y_max)
             
@@ -392,14 +396,10 @@ def check_inside(onto, individuals):
             if i == j:
                 continue
             
-            rect1 = box(individuals[i].x_minimum[0], individuals[i].y_minimum[0], individuals[i].x_maximum[0], individuals[i].y_maximum[0])
-            rect2 = box(individuals[j].x_minimum[0], individuals[j].y_minimum[0], individuals[j].x_maximum[0], individuals[j].y_maximum[0])
+            rect1 = box(x_min[i], y_min[i], x_max[i], y_max[i])
+            rect2 = box(x_min[j], y_min[j], x_max[j], y_max[j])
                 
             intersection = rect1.intersection(rect2)
-                
-            print("Intersection: ", intersection.area)
-            print(individuals[i].name, individuals[j].name) 
-            print(rect1.area, rect2.area)
             
             
             if intersection.area / rect2.area >= threshold and rect2.area < rect1.area:
@@ -422,19 +422,20 @@ def check_inside_all(onto, all_individuals):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
-    parser.add_argument('-f', '--file', type=str, required=True, help='csv path for single camera, directory for multicam')
-    parser.add_argument('-e','--explicit', default=False, action='store_true', help='add -e for explicit mode')
-    parser.add_argument('-c','--coordinates', default=False, action='store_true', help='add -c to add coordinates to the individuals')
-    parser.add_argument('-r','--remove_false', default=False, action='store_true', help='add -r to remove false detections')
-    parser.add_argument('-s','--summarize', default=False, action='store_true', help='add -s to summarize the ontology')
+    parser.add_argument("-c", "--config", type=str, help="Path to the config file", default="config.ini")
     
     args = parser.parse_args()
     
-    csv_path = args.file
-    explicit = args.explicit
-    coordinates = args.coordinates
-    remove = args.remove_false
-    summarize = args.summarize
+    config = configparser.ConfigParser()
+    config.read(args.config)
+    
+    output = config.get("DEFAULT","output_path")
+    csv_path = config.get("DEFAULT","csv_path")
+    coordinates = config.getboolean("DEFAULT","add_coordinates")
+    explicit = config.getboolean("DEFAULT","explicit_mode")
+    remove = config.getboolean("DEFAULT","remove_false")
+    summarize = config.getboolean("DEFAULT","summarize_graph")
+    
     
     if csv_path.endswith(".csv"):
         multicam = False
@@ -442,6 +443,7 @@ if __name__ == "__main__":
         multicam = True
     
     # Check if the csv file exists
+    print(f"Using csv file: {csv_path}")
     if not os.path.exists(csv_path):
         print("The csv file does not exist")
         exit(1)
@@ -530,7 +532,7 @@ if __name__ == "__main__":
         # Create explicit relations
         if explicit:
             onto, individuals = explicit_mode(onto, individuals)
-            
+               
         onto, individuals = check_inside(onto, individuals)
                  
         onto, individuals = reverse_properties(onto, individuals)
@@ -538,7 +540,7 @@ if __name__ == "__main__":
         onto, individuals = remove_redundant_properties(onto, individuals)
         
         # save the ontology
-        onto.save(file = "output.rdf", format = "rdfxml")
+        onto.save(file = f"{output}.owl", format = "rdfxml")
     
     if multicam:
         ontoSummarizer = ontologySummarizer()
@@ -643,7 +645,6 @@ if __name__ == "__main__":
                   
                 i += 1
 
-        
         onto, all_individuals = check_inside_all(onto, all_individuals)
         
         onto, all_individuals = reverse_properties_all(onto, all_individuals)
@@ -662,7 +663,7 @@ if __name__ == "__main__":
             ontologySummarizer.summarize(onto, all_individuals, cams, components)
         
         # save the ontology
-        onto.save(file = "output.owl", format = "rdfxml")
+        onto.save(file = f"{output}.owl", format = "rdfxml")
     
 # to run for single file:
 # python OntologyGenerator.py -f test.csv -e -c (-e for explicit mode, -c for added coordinates)

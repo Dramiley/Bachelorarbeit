@@ -1,0 +1,9 @@
+detection_scores,class,x min,y min,x max,y max
+0.927,Gewinde,268,1,355,28
+0.994,Abdeckung,270,38,383,102
+0.693,Hebel,131,105,171,143
+0.859,Auflageflaeche,33,170,513,230
+0.968,Anschluss,365,217,407,230
+0.827,Hebel,318,223,365,245
+0.889,Hebel,238,221,264,240
+0.958,Abdeckung,257,242,445,283
