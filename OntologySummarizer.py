@@ -22,7 +22,7 @@ def get_new_individual(ind, new_individuals, summarized_individuals):
 
 # summarizes the ontology by creating a new individual for each unique set of individuals
 class ontologySummarizer:
-    def summarize(onto, all_individuals, cams, components):
+    def summarize(onto, all_individuals, cams, components, output):
         summarized_individuals = list({})
         new_individuals = {}
         
@@ -101,4 +101,4 @@ class ontologySummarizer:
                         new_individuals[i].in_the_middle_of.append(Maschine)
                     
 
-        new_onto.save(file = "summarized_ontology.owl", format = "rdfxml")
+        new_onto.save(file = f"{output}_summary.owl", format = "rdfxml")

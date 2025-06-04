@@ -1,5 +1,0 @@
-detection_scores,class,x min,y min,x max,y max
-0.942,Gehaeuse,199,184,461,326
-0.919,Druckknopf,365,231,424,263
-0.879,Druckknopf,307,180,407,236
-0.836,Netzstecker,383,290,446,323

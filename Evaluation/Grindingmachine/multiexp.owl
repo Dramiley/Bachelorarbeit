@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/industrial_maschine"
+         xmlns="http://www.semanticweb.org/industrial_maschine#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/industrial_maschine"/>
+
+<owl:ObjectProperty rdf:about="#in_the_middle_of"/>
+
+<owl:ObjectProperty rdf:about="#left_to">
+  <owl:inverseOf rdf:resource="#right_to"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#right_to">
+  <owl:inverseOf rdf:resource="#left_to"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#above">
+  <owl:inverseOf rdf:resource="#below"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#below">
+  <owl:inverseOf rdf:resource="#above"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#outside_of">
+  <owl:inverseOf rdf:resource="#inside_of"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#inside_of">
+  <owl:inverseOf rdf:resource="#outside_of"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#x_center">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_center">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x_minimum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_minimum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x_maximum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_maximum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#detection_score">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Camera_G1">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Components_G1">
+  <rdfs:subClassOf rdf:resource="#Camera_G1"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Machines">
+  <rdfs:subClassOf rdf:resource="#Camera_G1"/>
+  <rdfs:subClassOf rdf:resource="#Camera_G2"/>
+  <rdfs:subClassOf rdf:resource="#Camera_G3"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Camera_G2">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Components_G2">
+  <rdfs:subClassOf rdf:resource="#Camera_G2"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Camera_G3">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Components_G3">
+  <rdfs:subClassOf rdf:resource="#Camera_G3"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Maschine">
+  <rdf:type rdf:resource="#Machines"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Lamp_G1">
+  <rdf:type rdf:resource="#Components_G1"/>
+  <left_to rdf:resource="#Grinding wheel2_G1"/>
+  <above rdf:resource="#Motor_G1"/>
+  <above rdf:resource="#Switch_G1"/>
+  <above rdf:resource="#Fuse_G1"/>
+  <owl:sameAs rdf:resource="#Lamp_G2"/>
+  <owl:sameAs rdf:resource="#Lamp_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.995</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grinding wheel2_G1">
+  <rdf:type rdf:resource="#Components_G1"/>
+  <below rdf:resource="#Lamp_G1"/>
+  <right_to rdf:resource="#Grinding wheel_G1"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.986</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grinding wheel_G1">
+  <rdf:type rdf:resource="#Components_G1"/>
+  <left_to rdf:resource="#Switch_G1"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.978</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Motor_G1">
+  <rdf:type rdf:resource="#Components_G1"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
+  <left_to rdf:resource="#Grinding wheel2_G1"/>
+  <right_to rdf:resource="#Grinding wheel_G1"/>
+  <above rdf:resource="#Switch_G1"/>
+  <above rdf:resource="#Fuse_G1"/>
+  <owl:sameAs rdf:resource="#Motor_G2"/>
+  <owl:sameAs rdf:resource="#Motor_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.897</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Switch_G1">
+  <rdf:type rdf:resource="#Components_G1"/>
+  <left_to rdf:resource="#Grinding wheel2_G1"/>
+  <above rdf:resource="#Fuse_G1"/>
+  <owl:sameAs rdf:resource="#Switch_G2"/>
+  <owl:sameAs rdf:resource="#Switch_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.853</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fuse_G1">
+  <rdf:type rdf:resource="#Components_G1"/>
+  <left_to rdf:resource="#Grinding wheel2_G1"/>
+  <owl:sameAs rdf:resource="#Fuse_G2"/>
+  <owl:sameAs rdf:resource="#Fuse_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.758</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Lamp_G2">
+  <owl:sameAs rdf:resource="#Lamp_G1"/>
+  <rdf:type rdf:resource="#Components_G2"/>
+  <right_to rdf:resource="#Grinding wheel2_G2"/>
+  <left_to rdf:resource="#Grinding wheel_G2"/>
+  <above rdf:resource="#Grinding wheel_G2"/>
+  <above rdf:resource="#Switch_G2"/>
+  <above rdf:resource="#Fuse_G2"/>
+  <owl:sameAs rdf:resource="#Lamp_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.878</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grinding wheel2_G2">
+  <rdf:type rdf:resource="#Components_G2"/>
+  <below rdf:resource="#Lamp_G2"/>
+  <left_to rdf:resource="#Grinding wheel_G2"/>
+  <left_to rdf:resource="#Switch_G2"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.914</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grinding wheel_G2">
+  <rdf:type rdf:resource="#Components_G2"/>
+  <owl:sameAs rdf:resource="#Grinding wheel_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.953</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Motor_G2">
+  <in_the_middle_of rdf:resource="#Maschine"/>
+  <owl:sameAs rdf:resource="#Motor_G1"/>
+  <rdf:type rdf:resource="#Components_G2"/>
+  <below rdf:resource="#Lamp_G2"/>
+  <right_to rdf:resource="#Grinding wheel2_G2"/>
+  <left_to rdf:resource="#Switch_G2"/>
+  <above rdf:resource="#Switch_G2"/>
+  <above rdf:resource="#Fuse_G2"/>
+  <owl:sameAs rdf:resource="#Motor_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.739</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Switch_G2">
+  <owl:sameAs rdf:resource="#Switch_G1"/>
+  <rdf:type rdf:resource="#Components_G2"/>
+  <above rdf:resource="#Fuse_G2"/>
+  <owl:sameAs rdf:resource="#Switch_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.968</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fuse_G2">
+  <owl:sameAs rdf:resource="#Fuse_G1"/>
+  <rdf:type rdf:resource="#Components_G2"/>
+  <left_to rdf:resource="#Switch_G2"/>
+  <owl:sameAs rdf:resource="#Fuse_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.859</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Lamp_G3">
+  <owl:sameAs rdf:resource="#Lamp_G1"/>
+  <owl:sameAs rdf:resource="#Lamp_G2"/>
+  <rdf:type rdf:resource="#Components_G3"/>
+  <left_to rdf:resource="#Grinding wheel_G3"/>
+  <above rdf:resource="#Grinding wheel_G3"/>
+  <above rdf:resource="#Switch_G3"/>
+  <above rdf:resource="#Fuse_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.927</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grinding wheel2_G3">
+  <rdf:type rdf:resource="#Components_G3"/>
+  <left_to rdf:resource="#Grinding wheel_G3"/>
+  <left_to rdf:resource="#Motor_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.859</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Grinding wheel_G3">
+  <owl:sameAs rdf:resource="#Grinding wheel_G2"/>
+  <rdf:type rdf:resource="#Components_G3"/>
+  <right_to rdf:resource="#Fuse_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.932</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Motor_G3">
+  <in_the_middle_of rdf:resource="#Maschine"/>
+  <owl:sameAs rdf:resource="#Motor_G1"/>
+  <owl:sameAs rdf:resource="#Motor_G2"/>
+  <rdf:type rdf:resource="#Components_G3"/>
+  <below rdf:resource="#Lamp_G3"/>
+  <left_to rdf:resource="#Grinding wheel_G3"/>
+  <above rdf:resource="#Switch_G3"/>
+  <above rdf:resource="#Fuse_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.969</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Switch_G3">
+  <owl:sameAs rdf:resource="#Switch_G1"/>
+  <owl:sameAs rdf:resource="#Switch_G2"/>
+  <rdf:type rdf:resource="#Components_G3"/>
+  <left_to rdf:resource="#Grinding wheel_G3"/>
+  <right_to rdf:resource="#Fuse_G3"/>
+  <above rdf:resource="#Fuse_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.849</detection_score>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fuse_G3">
+  <owl:sameAs rdf:resource="#Fuse_G1"/>
+  <owl:sameAs rdf:resource="#Fuse_G2"/>
+  <rdf:type rdf:resource="#Components_G3"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.727</detection_score>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

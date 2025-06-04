@@ -1,0 +1,57 @@
+Maschine is part of Maschines
+Cover is part of Components
+Wrench is part of Components
+Lever2 is part of Components
+Drilling head is part of Components
+Lever3 is part of Components
+Lever is part of Components
+Drilling table is part of Components
+
+Cover left_to Drilling head
+Cover left_to Lever
+Cover below Wrench
+Cover below Lever2
+Cover in_the_middle_of Maschine
+Cover above Drilling head
+
+Wrench left_to Lever2
+Wrench left_to Lever3
+Wrench left_to Lever
+Wrench above Cover
+
+Lever2 left_to Lever3
+Lever2 left_to Lever
+Lever2 below Lever3
+Lever2 above Cover
+Lever2 above Drilling head
+Lever2 above Lever
+Lever2 right_to Wrench
+Lever2 in_the_middle_of Maschine
+
+Drilling head below Cover
+Drilling head below Lever2
+Drilling head below Lever
+Drilling head above Drilling table
+Drilling head right_to Cover
+
+Lever3 left_to Lever
+Lever3 below Lever
+Lever3 above Lever2
+Lever3 above Lever
+Lever3 right_to Wrench
+Lever3 right_to Lever2
+Lever3 right_to Lever
+Lever3 in_the_middle_of Maschine
+
+Lever right_to Cover
+Lever right_to Wrench
+Lever right_to Lever2
+Lever right_to Lever3
+Lever left_to Lever3
+Lever below Lever2
+Lever below Lever3
+Lever above Drilling head
+Lever above Lever3
+
+Drilling table below Drilling head
+

@@ -1,0 +1,39 @@
+Maschine is part of Machines
+Lamp is part of Components
+Grinding wheel is part of Components
+Grinding wheel2 is part of Components
+Motor is part of Components
+Switch is part of Components
+Fuse is part of Components
+
+Lamp detection_score 0.927
+Lamp above Grinding wheel
+Lamp above Motor
+Lamp left_to Grinding wheel
+
+Grinding wheel detection_score 0.932
+Grinding wheel below Lamp
+Grinding wheel right_to Lamp
+Grinding wheel right_to Motor
+Grinding wheel right_to Switch
+
+Grinding wheel2 detection_score 0.859
+Grinding wheel2 left_to Motor
+
+Motor in_the_middle_of Maschine
+Motor above Switch
+Motor left_to Grinding wheel
+Motor right_to Grinding wheel2
+Motor detection_score 0.969
+Motor below Lamp
+
+Switch above Fuse
+Switch left_to Grinding wheel
+Switch right_to Fuse
+Switch detection_score 0.849
+Switch below Motor
+
+Fuse detection_score 0.727
+Fuse below Switch
+Fuse left_to Switch
+

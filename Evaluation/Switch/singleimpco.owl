@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/industrial_maschine"
+         xmlns="http://www.semanticweb.org/industrial_maschine#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/industrial_maschine"/>
+
+<owl:ObjectProperty rdf:about="#in_the_middle_of"/>
+
+<owl:ObjectProperty rdf:about="#left_to">
+  <owl:inverseOf rdf:resource="#right_to"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#right_to">
+  <owl:inverseOf rdf:resource="#left_to"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#above">
+  <owl:inverseOf rdf:resource="#below"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#below">
+  <owl:inverseOf rdf:resource="#above"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#outside_of">
+  <owl:inverseOf rdf:resource="#inside_of"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#inside_of">
+  <owl:inverseOf rdf:resource="#outside_of"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#x_center">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_center">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x_minimum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_minimum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x_maximum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y_maximum">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#detection_score">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Components">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Machines">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Maschine">
+  <rdf:type rdf:resource="#Machines"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Housing">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Button2"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.995</detection_score>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">126.0</y_minimum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">189.0</x_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">210.5</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">295.0</y_maximum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">315.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">442.0</x_maximum>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Button2">
+  <rdf:type rdf:resource="#Components"/>
+  <inside_of rdf:resource="#Housing"/>
+  <above rdf:resource="#Button"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.979</detection_score>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">181.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">212.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">303.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">358.0</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">413.0</x_maximum>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Button">
+  <rdf:type rdf:resource="#Components"/>
+  <in_the_middle_of rdf:resource="#Maschine"/>
+  <right_to rdf:resource="#Housing"/>
+  <inside_of rdf:resource="#Housing"/>
+  <above rdf:resource="#Power plug"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.968</detection_score>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">215.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">233.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">251.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">332.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">366.0</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">400.0</x_maximum>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Power plug">
+  <rdf:type rdf:resource="#Components"/>
+  <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.872</detection_score>
+  <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">277.0</y_minimum>
+  <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">294.0</y_center>
+  <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">311.0</y_maximum>
+  <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">316.0</x_minimum>
+  <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">348.5</x_center>
+  <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">381.0</x_maximum>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

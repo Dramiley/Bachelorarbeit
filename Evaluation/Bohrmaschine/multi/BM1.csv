@@ -1,8 +1,0 @@
-detection_scores,class,x min,y min,x max,y max
-0.926,Abdeckung,156,173,248,254
-0.918,Hebel,341,144,398,187
-0.989,Schraubenschluessel,158,114,208,214
-0.895,Hebel,196,54,333,169
-0.832,Hebel,395,187,450,234
-0.968,Bohrkopf,305,365,347,414
-0.759,Bohrtisch,141,413,512,513

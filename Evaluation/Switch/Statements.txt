@@ -1,0 +1,225 @@
+Maschine is part of Machines
+Housing_S1 is part of Components_S1
+Button2_S1 is part of Components_S1
+Button_S1 is part of Components_S1
+Power plug_S1 is part of Components_S1
+Housing_S2 is part of Components_S2
+Housing_S3 is part of Components_S3
+Button2_S2 is part of Components_S2
+Button2_S3 is part of Components_S3
+Button_S3 is part of Components_S3
+Button_S2 is part of Components_S2
+Power plug_S2 is part of Components_S2
+Power plug_S3 is part of Components_S3
+
+Housing_S1 above Power plug_S1
+Housing_S1 is equivalent to Housing_S2
+Housing_S1 is equivalent to Housing_S3
+Housing_S1 outside_of Button2_S1
+Housing_S1 outside_of Button_S1
+Housing_S1 outside_of Power plug_S1
+Housing_S1 is equivalent to Housing_S2
+Housing_S1 is equivalent to Housing_S3
+Housing_S1 detection_score 0.995
+Housing_S1 is equivalent to Housing_S2
+Housing_S1 is equivalent to Housing_S3
+Housing_S1 left_to Button2_S1
+Housing_S1 left_to Button_S1
+Housing_S1 is equivalent to Housing_S2
+Housing_S1 is equivalent to Housing_S3
+
+Button2_S1 above Button_S1
+Button2_S1 above Power plug_S1
+Button2_S1 is equivalent to Button2_S2
+Button2_S1 is equivalent to Button2_S3
+Button2_S1 is equivalent to Button_S3
+Button2_S1 right_to Housing_S1
+Button2_S1 is equivalent to Button2_S2
+Button2_S1 is equivalent to Button2_S3
+Button2_S1 is equivalent to Button_S3
+Button2_S1 detection_score 0.979
+Button2_S1 is equivalent to Button2_S2
+Button2_S1 is equivalent to Button2_S3
+Button2_S1 is equivalent to Button_S3
+Button2_S1 inside_of Housing_S1
+Button2_S1 is equivalent to Button2_S2
+Button2_S1 is equivalent to Button2_S3
+Button2_S1 is equivalent to Button_S3
+
+Button_S1 above Power plug_S1
+Button_S1 is equivalent to Button2_S2
+Button_S1 is equivalent to Button_S2
+Button_S1 is equivalent to Button2_S3
+Button_S1 is equivalent to Button_S3
+Button_S1 detection_score 0.968
+Button_S1 is equivalent to Button2_S2
+Button_S1 is equivalent to Button_S2
+Button_S1 is equivalent to Button2_S3
+Button_S1 is equivalent to Button_S3
+Button_S1 inside_of Housing_S1
+Button_S1 is equivalent to Button2_S2
+Button_S1 is equivalent to Button_S2
+Button_S1 is equivalent to Button2_S3
+Button_S1 is equivalent to Button_S3
+Button_S1 below Button2_S1
+Button_S1 is equivalent to Button2_S2
+Button_S1 is equivalent to Button_S2
+Button_S1 is equivalent to Button2_S3
+Button_S1 is equivalent to Button_S3
+Button_S1 in_the_middle_of Maschine
+Button_S1 is equivalent to Button2_S2
+Button_S1 is equivalent to Button_S2
+Button_S1 is equivalent to Button2_S3
+Button_S1 is equivalent to Button_S3
+Button_S1 right_to Housing_S1
+Button_S1 is equivalent to Button2_S2
+Button_S1 is equivalent to Button_S2
+Button_S1 is equivalent to Button2_S3
+Button_S1 is equivalent to Button_S3
+
+Power plug_S1 inside_of Housing_S1
+Power plug_S1 is equivalent to Power plug_S2
+Power plug_S1 is equivalent to Power plug_S3
+Power plug_S1 below Housing_S1
+Power plug_S1 below Button2_S1
+Power plug_S1 below Button_S1
+Power plug_S1 is equivalent to Power plug_S2
+Power plug_S1 is equivalent to Power plug_S3
+Power plug_S1 detection_score 0.872
+Power plug_S1 is equivalent to Power plug_S2
+Power plug_S1 is equivalent to Power plug_S3
+
+Housing_S2 above Power plug_S2
+Housing_S2 is equivalent to Housing_S1
+Housing_S2 is equivalent to Housing_S3
+Housing_S2 detection_score 0.976
+Housing_S2 is equivalent to Housing_S1
+Housing_S2 is equivalent to Housing_S3
+Housing_S2 left_to Button_S2
+Housing_S2 left_to Power plug_S2
+Housing_S2 is equivalent to Housing_S1
+Housing_S2 is equivalent to Housing_S3
+Housing_S2 below Button2_S2
+Housing_S2 is equivalent to Housing_S1
+Housing_S2 is equivalent to Housing_S3
+Housing_S2 outside_of Button2_S2
+Housing_S2 outside_of Button_S2
+Housing_S2 outside_of Power plug_S2
+Housing_S2 is equivalent to Housing_S1
+Housing_S2 is equivalent to Housing_S3
+
+Housing_S3 below Button_S3
+Housing_S3 is equivalent to Housing_S1
+Housing_S3 is equivalent to Housing_S2
+Housing_S3 outside_of Button2_S3
+Housing_S3 outside_of Button_S3
+Housing_S3 outside_of Power plug_S3
+Housing_S3 is equivalent to Housing_S1
+Housing_S3 is equivalent to Housing_S2
+Housing_S3 detection_score 0.942
+Housing_S3 is equivalent to Housing_S1
+Housing_S3 is equivalent to Housing_S2
+Housing_S3 left_to Button2_S3
+Housing_S3 left_to Power plug_S3
+Housing_S3 is equivalent to Housing_S1
+Housing_S3 is equivalent to Housing_S2
+
+Button2_S2 above Housing_S2
+Button2_S2 above Button_S2
+Button2_S2 above Power plug_S2
+Button2_S2 is equivalent to Button2_S1
+Button2_S2 is equivalent to Button_S1
+Button2_S2 detection_score 0.925
+Button2_S2 is equivalent to Button2_S1
+Button2_S2 is equivalent to Button_S1
+Button2_S2 inside_of Housing_S2
+Button2_S2 is equivalent to Button2_S1
+Button2_S2 is equivalent to Button_S1
+
+Button2_S3 above Power plug_S3
+Button2_S3 is equivalent to Button2_S1
+Button2_S3 is equivalent to Button_S1
+Button2_S3 detection_score 0.919
+Button2_S3 is equivalent to Button2_S1
+Button2_S3 is equivalent to Button_S1
+Button2_S3 inside_of Housing_S3
+Button2_S3 is equivalent to Button2_S1
+Button2_S3 is equivalent to Button_S1
+Button2_S3 below Button_S3
+Button2_S3 is equivalent to Button2_S1
+Button2_S3 is equivalent to Button_S1
+Button2_S3 in_the_middle_of Maschine
+Button2_S3 is equivalent to Button2_S1
+Button2_S3 is equivalent to Button_S1
+Button2_S3 right_to Housing_S3
+Button2_S3 right_to Button_S3
+Button2_S3 is equivalent to Button2_S1
+Button2_S3 is equivalent to Button_S1
+
+Button_S3 above Housing_S3
+Button_S3 above Button2_S3
+Button_S3 above Power plug_S3
+Button_S3 is equivalent to Button2_S1
+Button_S3 is equivalent to Button_S1
+Button_S3 is equivalent to Button_S2
+Button_S3 left_to Button2_S3
+Button_S3 is equivalent to Button2_S1
+Button_S3 is equivalent to Button_S1
+Button_S3 is equivalent to Button_S2
+Button_S3 detection_score 0.879
+Button_S3 is equivalent to Button2_S1
+Button_S3 is equivalent to Button_S1
+Button_S3 is equivalent to Button_S2
+Button_S3 inside_of Housing_S3
+Button_S3 is equivalent to Button2_S1
+Button_S3 is equivalent to Button_S1
+Button_S3 is equivalent to Button_S2
+
+Button_S2 above Power plug_S2
+Button_S2 is equivalent to Button_S1
+Button_S2 is equivalent to Button_S3
+Button_S2 detection_score 0.929
+Button_S2 is equivalent to Button_S1
+Button_S2 is equivalent to Button_S3
+Button_S2 inside_of Housing_S2
+Button_S2 is equivalent to Button_S1
+Button_S2 is equivalent to Button_S3
+Button_S2 below Button2_S2
+Button_S2 is equivalent to Button_S1
+Button_S2 is equivalent to Button_S3
+Button_S2 in_the_middle_of Maschine
+Button_S2 is equivalent to Button_S1
+Button_S2 is equivalent to Button_S3
+Button_S2 right_to Housing_S2
+Button_S2 is equivalent to Button_S1
+Button_S2 is equivalent to Button_S3
+
+Power plug_S2 inside_of Housing_S2
+Power plug_S2 is equivalent to Power plug_S1
+Power plug_S2 is equivalent to Power plug_S3
+Power plug_S2 detection_score 0.726
+Power plug_S2 is equivalent to Power plug_S1
+Power plug_S2 is equivalent to Power plug_S3
+Power plug_S2 below Housing_S2
+Power plug_S2 below Button2_S2
+Power plug_S2 below Button_S2
+Power plug_S2 is equivalent to Power plug_S1
+Power plug_S2 is equivalent to Power plug_S3
+Power plug_S2 right_to Housing_S2
+Power plug_S2 is equivalent to Power plug_S1
+Power plug_S2 is equivalent to Power plug_S3
+
+Power plug_S3 inside_of Housing_S3
+Power plug_S3 is equivalent to Power plug_S1
+Power plug_S3 is equivalent to Power plug_S2
+Power plug_S3 below Button2_S3
+Power plug_S3 below Button_S3
+Power plug_S3 is equivalent to Power plug_S1
+Power plug_S3 is equivalent to Power plug_S2
+Power plug_S3 right_to Housing_S3
+Power plug_S3 is equivalent to Power plug_S1
+Power plug_S3 is equivalent to Power plug_S2
+Power plug_S3 detection_score 0.836
+Power plug_S3 is equivalent to Power plug_S1
+Power plug_S3 is equivalent to Power plug_S2
+
