@@ -439,12 +439,10 @@ def check_inside_all(onto, all_individuals):
         
     return onto, all_individuals
 
-# TODO: Klasse, welche Individuals zusammenfasst 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
     parser.add_argument("-c", "--config", type=str, help="Path to the config file", default="Evaluation/config.ini")
-
     
     args = parser.parse_args()
     
@@ -561,6 +559,7 @@ if __name__ == "__main__":
         onto, individuals = remove_redundant_properties(onto, individuals)
         
         # save the ontology
+        print(f"Ontology saved as {output}.owl")
         onto.save(file = f"{output}.owl", format = "rdfxml")
     
     if multicam:
@@ -685,6 +684,7 @@ if __name__ == "__main__":
         
         # save the ontology
         onto.save(file = f"{output}.owl", format = "rdfxml")
+        print(f"Ontology saved as {output}.owl")
     
 # to run for single file:
 # python OntologyGenerator.py -f test.csv -e -c (-e for explicit mode, -c for added coordinates)

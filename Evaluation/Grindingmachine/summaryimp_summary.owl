@@ -54,10 +54,9 @@
 <owl:NamedIndividual rdf:about="#Lamp">
   <rdf:type rdf:resource="#Components"/>
   <left_to rdf:resource="#Grinding wheel2"/>
-  <right_to rdf:resource="#Grinding wheel2"/>
   <above rdf:resource="#Grinding wheel2"/>
-  <left_to rdf:resource="#Grinding wheel"/>
-  <above rdf:resource="#Grinding wheel"/>
+  <right_to rdf:resource="#Grinding wheel1"/>
+  <above rdf:resource="#Grinding wheel1"/>
   <above rdf:resource="#Motor"/>
 </owl:NamedIndividual>
 
@@ -65,22 +64,22 @@
   <rdf:type rdf:resource="#Components"/>
   <right_to rdf:resource="#Motor"/>
   <right_to rdf:resource="#Switch"/>
+  <above rdf:resource="#Switch"/>
   <right_to rdf:resource="#Fuse"/>
+  <above rdf:resource="#Fuse"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel">
+<owl:NamedIndividual rdf:about="#Grinding wheel1">
   <rdf:type rdf:resource="#Components"/>
   <left_to rdf:resource="#Motor"/>
-  <right_to rdf:resource="#Motor"/>
   <left_to rdf:resource="#Switch"/>
-  <right_to rdf:resource="#Switch"/>
-  <right_to rdf:resource="#Fuse"/>
+  <above rdf:resource="#Switch"/>
+  <above rdf:resource="#Fuse"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Motor">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <right_to rdf:resource="#Grinding wheel2"/>
   <left_to rdf:resource="#Switch"/>
   <above rdf:resource="#Switch"/>
 </owl:NamedIndividual>
@@ -88,11 +87,11 @@
 <owl:NamedIndividual rdf:about="#Switch">
   <rdf:type rdf:resource="#Components"/>
   <right_to rdf:resource="#Fuse"/>
+  <above rdf:resource="#Fuse"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Fuse">
   <rdf:type rdf:resource="#Components"/>
-  <below rdf:resource="#Switch"/>
 </owl:NamedIndividual>
 
 

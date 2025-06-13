@@ -84,9 +84,9 @@
 <owl:NamedIndividual rdf:about="#Drilling table">
   <rdf:type rdf:resource="#Components"/>
   <below rdf:resource="#Drilling head"/>
-  <below rdf:resource="#Lever3"/>
   <below rdf:resource="#Lever2"/>
-  <below rdf:resource="#Lever"/>
+  <below rdf:resource="#Lever3"/>
+  <below rdf:resource="#Lever1"/>
   <below rdf:resource="#Wrench"/>
   <below rdf:resource="#Cover"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.842</detection_score>
@@ -94,34 +94,38 @@
 
 <owl:NamedIndividual rdf:about="#Drilling head">
   <rdf:type rdf:resource="#Components"/>
+  <below rdf:resource="#Lever2"/>
   <below rdf:resource="#Lever3"/>
-  <below rdf:resource="#Lever"/>
+  <below rdf:resource="#Lever1"/>
   <below rdf:resource="#Wrench"/>
   <below rdf:resource="#Cover"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.962</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever3">
+<owl:NamedIndividual rdf:about="#Lever2">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <above rdf:resource="#Lever2"/>
-  <right_to rdf:resource="#Lever"/>
-  <below rdf:resource="#Lever"/>
+  <above rdf:resource="#Lever3"/>
+  <right_to rdf:resource="#Lever1"/>
+  <below rdf:resource="#Lever1"/>
   <right_to rdf:resource="#Wrench"/>
   <right_to rdf:resource="#Cover"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.91</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever2">
+<owl:NamedIndividual rdf:about="#Lever3">
   <rdf:type rdf:resource="#Components"/>
-  <above rdf:resource="#Drilling head"/>
-  <below rdf:resource="#Lever"/>
+  <right_to rdf:resource="#Lever1"/>
+  <below rdf:resource="#Lever1"/>
+  <right_to rdf:resource="#Wrench"/>
+  <right_to rdf:resource="#Cover"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.932</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever">
+<owl:NamedIndividual rdf:about="#Lever1">
   <rdf:type rdf:resource="#Components"/>
   <right_to rdf:resource="#Wrench"/>
+  <right_to rdf:resource="#Cover"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.919</detection_score>
 </owl:NamedIndividual>
 
@@ -133,7 +137,6 @@
 
 <owl:NamedIndividual rdf:about="#Cover">
   <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Lever"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.849</detection_score>
 </owl:NamedIndividual>
 

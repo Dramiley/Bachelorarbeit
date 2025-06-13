@@ -109,50 +109,63 @@
   <below rdf:resource="#Wrench_D1"/>
   <left_to rdf:resource="#Drilling head_D1"/>
   <above rdf:resource="#Drilling head_D1"/>
+  <owl:sameAs rdf:resource="#Cover_D2"/>
   <owl:sameAs rdf:resource="#Cover_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.926</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever3_D1">
+<owl:NamedIndividual rdf:about="#Lever2_D1">
   <rdf:type rdf:resource="#Components_D1"/>
-  <right_to rdf:resource="#Lever2_D1"/>
-  <left_to rdf:resource="#Lever_D1"/>
-  <above rdf:resource="#Lever_D1"/>
+  <right_to rdf:resource="#Lever1_D1"/>
+  <left_to rdf:resource="#Lever3_D1"/>
+  <above rdf:resource="#Lever3_D1"/>
+  <owl:sameAs rdf:resource="#Lever2_D2"/>
+  <owl:sameAs rdf:resource="#Lever1_D2"/>
+  <owl:sameAs rdf:resource="#Lever2_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.918</detection_score>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Wrench_D1">
   <rdf:type rdf:resource="#Components_D1"/>
-  <left_to rdf:resource="#Lever2_D1"/>
+  <left_to rdf:resource="#Lever1_D1"/>
   <owl:sameAs rdf:resource="#Wrench_D2"/>
   <owl:sameAs rdf:resource="#Wrench_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.989</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever2_D1">
+<owl:NamedIndividual rdf:about="#Lever1_D1">
   <rdf:type rdf:resource="#Components_D1"/>
   <above rdf:resource="#Cover_D1"/>
+  <owl:sameAs rdf:resource="#Lever1_D2"/>
+  <owl:sameAs rdf:resource="#Lever1_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.895</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever_D1">
+<owl:NamedIndividual rdf:about="#Lever3_D1">
   <rdf:type rdf:resource="#Components_D1"/>
+  <above rdf:resource="#Drilling head_D1"/>
+  <owl:sameAs rdf:resource="#Lever3_D2"/>
+  <owl:sameAs rdf:resource="#Lever3_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.832</detection_score>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Drilling head_D1">
   <rdf:type rdf:resource="#Components_D1"/>
-  <above rdf:resource="#Drilling tabel_D1"/>
+  <above rdf:resource="#Drilling table_D1"/>
+  <owl:sameAs rdf:resource="#Drilling head_D2"/>
   <owl:sameAs rdf:resource="#Drilling head_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.968</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Drilling tabel_D1">
+<owl:NamedIndividual rdf:about="#Drilling table_D1">
   <rdf:type rdf:resource="#Components_D1"/>
+  <owl:sameAs rdf:resource="#Drilling table_D2"/>
+  <owl:sameAs rdf:resource="#Drilling table_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.759</detection_score>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Drilling table_D2">
+  <owl:sameAs rdf:resource="#Drilling table_D1"/>
   <rdf:type rdf:resource="#Components_D2"/>
   <below rdf:resource="#Drilling head_D2"/>
   <owl:sameAs rdf:resource="#Drilling table_D3"/>
@@ -160,30 +173,40 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Drilling head_D2">
+  <owl:sameAs rdf:resource="#Drilling head_D1"/>
   <rdf:type rdf:resource="#Components_D2"/>
   <below rdf:resource="#Cover_D2"/>
   <owl:sameAs rdf:resource="#Drilling head_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.962</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever3_D2">
+<owl:NamedIndividual rdf:about="#Lever2_D2">
   <in_the_middle_of rdf:resource="#Maschine"/>
+  <owl:sameAs rdf:resource="#Lever2_D1"/>
   <rdf:type rdf:resource="#Components_D2"/>
-  <above rdf:resource="#Lever2_D2"/>
-  <right_to rdf:resource="#Lever_D2"/>
-  <below rdf:resource="#Lever_D2"/>
+  <above rdf:resource="#Lever3_D2"/>
+  <right_to rdf:resource="#Lever1_D2"/>
+  <below rdf:resource="#Lever1_D2"/>
+  <owl:sameAs rdf:resource="#Lever2_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.91</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever2_D2">
+<owl:NamedIndividual rdf:about="#Lever3_D2">
+  <owl:sameAs rdf:resource="#Lever3_D1"/>
   <rdf:type rdf:resource="#Components_D2"/>
   <above rdf:resource="#Drilling head_D2"/>
+  <right_to rdf:resource="#Lever1_D2"/>
+  <owl:sameAs rdf:resource="#Lever3_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.932</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever_D2">
+<owl:NamedIndividual rdf:about="#Lever1_D2">
+  <owl:sameAs rdf:resource="#Lever2_D1"/>
+  <owl:sameAs rdf:resource="#Lever1_D1"/>
   <rdf:type rdf:resource="#Components_D2"/>
   <right_to rdf:resource="#Wrench_D2"/>
+  <owl:sameAs rdf:resource="#Lever1_D3"/>
+  <owl:sameAs rdf:resource="#Lever2_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.919</detection_score>
 </owl:NamedIndividual>
 
@@ -196,8 +219,9 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Cover_D2">
+  <owl:sameAs rdf:resource="#Cover_D1"/>
   <rdf:type rdf:resource="#Components_D2"/>
-  <left_to rdf:resource="#Lever_D2"/>
+  <left_to rdf:resource="#Lever1_D2"/>
   <owl:sameAs rdf:resource="#Cover_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.849</detection_score>
 </owl:NamedIndividual>
@@ -216,7 +240,7 @@
   <owl:sameAs rdf:resource="#Wrench_D1"/>
   <owl:sameAs rdf:resource="#Wrench_D2"/>
   <rdf:type rdf:resource="#Components_D3"/>
-  <left_to rdf:resource="#Lever3_D3"/>
+  <left_to rdf:resource="#Lever1_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.921</detection_score>
 </owl:NamedIndividual>
 
@@ -229,12 +253,15 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Drilling table_D3">
+  <owl:sameAs rdf:resource="#Drilling table_D1"/>
   <owl:sameAs rdf:resource="#Drilling table_D2"/>
   <rdf:type rdf:resource="#Components_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.927</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever3_D3">
+<owl:NamedIndividual rdf:about="#Lever1_D3">
+  <owl:sameAs rdf:resource="#Lever1_D1"/>
+  <owl:sameAs rdf:resource="#Lever1_D2"/>
   <rdf:type rdf:resource="#Components_D3"/>
   <above rdf:resource="#Lever2_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.824</detection_score>
@@ -242,14 +269,19 @@
 
 <owl:NamedIndividual rdf:about="#Lever2_D3">
   <in_the_middle_of rdf:resource="#Maschine"/>
+  <owl:sameAs rdf:resource="#Lever2_D1"/>
+  <owl:sameAs rdf:resource="#Lever2_D2"/>
+  <owl:sameAs rdf:resource="#Lever1_D2"/>
   <rdf:type rdf:resource="#Components_D3"/>
   <right_to rdf:resource="#Wrench_D3"/>
-  <left_to rdf:resource="#Lever_D3"/>
-  <above rdf:resource="#Lever_D3"/>
+  <left_to rdf:resource="#Lever3_D3"/>
+  <above rdf:resource="#Lever3_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.693</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever_D3">
+<owl:NamedIndividual rdf:about="#Lever3_D3">
+  <owl:sameAs rdf:resource="#Lever3_D1"/>
+  <owl:sameAs rdf:resource="#Lever3_D2"/>
   <rdf:type rdf:resource="#Components_D3"/>
   <above rdf:resource="#Drilling head_D3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.863</detection_score>

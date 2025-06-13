@@ -1,39 +1,59 @@
-Maschine is part of Machines
+Maschine is part of Maschines
 Lamp is part of Components
-Grinding wheel is part of Components
 Grinding wheel2 is part of Components
+Grinding wheel1 is part of Components
 Motor is part of Components
 Switch is part of Components
 Fuse is part of Components
 
-Lamp detection_score 0.927
-Lamp above Grinding wheel
+Lamp left_to Grinding wheel2
+Lamp above Grinding wheel2
+Lamp above Grinding wheel1
 Lamp above Motor
-Lamp left_to Grinding wheel
+Lamp above Switch
+Lamp above Fuse
+Lamp right_to Grinding wheel1
 
-Grinding wheel detection_score 0.932
-Grinding wheel below Lamp
-Grinding wheel right_to Lamp
-Grinding wheel right_to Motor
-Grinding wheel right_to Switch
+Grinding wheel2 above Switch
+Grinding wheel2 above Fuse
+Grinding wheel2 right_to Lamp
+Grinding wheel2 right_to Grinding wheel1
+Grinding wheel2 right_to Motor
+Grinding wheel2 right_to Switch
+Grinding wheel2 right_to Fuse
+Grinding wheel2 below Lamp
 
-Grinding wheel2 detection_score 0.859
-Grinding wheel2 left_to Motor
+Grinding wheel1 left_to Lamp
+Grinding wheel1 left_to Grinding wheel2
+Grinding wheel1 left_to Motor
+Grinding wheel1 left_to Switch
+Grinding wheel1 above Switch
+Grinding wheel1 above Fuse
+Grinding wheel1 below Lamp
 
-Motor in_the_middle_of Maschine
-Motor above Switch
-Motor left_to Grinding wheel
-Motor right_to Grinding wheel2
-Motor detection_score 0.969
 Motor below Lamp
+Motor above Switch
+Motor above Fuse
+Motor left_to Grinding wheel2
+Motor left_to Switch
+Motor in_the_middle_of Maschine
+Motor right_to Grinding wheel1
 
+Switch left_to Grinding wheel2
 Switch above Fuse
-Switch left_to Grinding wheel
+Switch right_to Grinding wheel1
+Switch right_to Motor
 Switch right_to Fuse
-Switch detection_score 0.849
+Switch below Lamp
+Switch below Grinding wheel2
+Switch below Grinding wheel1
 Switch below Motor
 
-Fuse detection_score 0.727
-Fuse below Switch
+Fuse left_to Grinding wheel2
 Fuse left_to Switch
+Fuse below Lamp
+Fuse below Grinding wheel2
+Fuse below Grinding wheel1
+Fuse below Motor
+Fuse below Switch
 

@@ -51,51 +51,32 @@
   <rdf:type rdf:resource="#Maschines"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Cover">
+<owl:NamedIndividual rdf:about="#Housing">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Button1"/>
+  <below rdf:resource="#Button1"/>
+  <outside_of rdf:resource="#Button1"/>
+  <left_to rdf:resource="#Button2"/>
+  <outside_of rdf:resource="#Button2"/>
+  <left_to rdf:resource="#Power plug"/>
+  <above rdf:resource="#Power plug"/>
+  <outside_of rdf:resource="#Power plug"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Button1">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Button2"/>
+  <above rdf:resource="#Button2"/>
+  <above rdf:resource="#Power plug"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Button2">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <left_to rdf:resource="#Lever2"/>
-  <below rdf:resource="#Wrench"/>
-  <below rdf:resource="#Lever1"/>
-  <left_to rdf:resource="#Drilling head"/>
-  <above rdf:resource="#Drilling head"/>
+  <above rdf:resource="#Power plug"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Lever2">
-  <rdf:type rdf:resource="#Components"/>
-  <in_the_middle_of rdf:resource="#Maschine"/>
-  <above rdf:resource="#Cover"/>
-  <right_to rdf:resource="#Lever2"/>
-  <below rdf:resource="#Lever2"/>
-  <right_to rdf:resource="#Wrench"/>
-  <right_to rdf:resource="#Lever1"/>
-  <below rdf:resource="#Lever1"/>
-  <left_to rdf:resource="#Lever3"/>
-  <above rdf:resource="#Lever3"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Wrench">
-  <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Lever1"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Lever1">
-  <rdf:type rdf:resource="#Components"/>
-  <right_to rdf:resource="#Cover"/>
-  <left_to rdf:resource="#Lever3"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Lever3">
-  <rdf:type rdf:resource="#Components"/>
-  <above rdf:resource="#Drilling head"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Drilling head">
-  <rdf:type rdf:resource="#Components"/>
-  <above rdf:resource="#Drilling table"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Drilling table">
+<owl:NamedIndividual rdf:about="#Power plug">
   <rdf:type rdf:resource="#Components"/>
 </owl:NamedIndividual>
 

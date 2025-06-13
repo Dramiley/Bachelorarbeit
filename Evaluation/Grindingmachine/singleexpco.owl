@@ -83,8 +83,10 @@
 
 <owl:NamedIndividual rdf:about="#Lamp">
   <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Grinding wheel"/>
-  <above rdf:resource="#Grinding wheel"/>
+  <right_to rdf:resource="#Grinding wheel1"/>
+  <left_to rdf:resource="#Grinding wheel2"/>
+  <above rdf:resource="#Grinding wheel2"/>
+  <above rdf:resource="#Motor"/>
   <above rdf:resource="#Switch"/>
   <above rdf:resource="#Fuse"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.927</detection_score>
@@ -96,10 +98,12 @@
   <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">316.0</x_maximum>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel2">
+<owl:NamedIndividual rdf:about="#Grinding wheel1">
   <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Grinding wheel"/>
+  <left_to rdf:resource="#Grinding wheel2"/>
   <left_to rdf:resource="#Motor"/>
+  <left_to rdf:resource="#Switch"/>
+  <above rdf:resource="#Fuse"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.859</detection_score>
   <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">39.0</x_minimum>
   <x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">93.0</x_center>
@@ -109,9 +113,12 @@
   <y_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">253.0</y_maximum>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel">
+<owl:NamedIndividual rdf:about="#Grinding wheel2">
   <rdf:type rdf:resource="#Components"/>
+  <right_to rdf:resource="#Motor"/>
+  <right_to rdf:resource="#Switch"/>
   <right_to rdf:resource="#Fuse"/>
+  <above rdf:resource="#Fuse"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.932</detection_score>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">130.0</y_minimum>
   <y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">188.0</y_center>
@@ -124,8 +131,6 @@
 <owl:NamedIndividual rdf:about="#Motor">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <below rdf:resource="#Lamp"/>
-  <left_to rdf:resource="#Grinding wheel"/>
   <above rdf:resource="#Switch"/>
   <above rdf:resource="#Fuse"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.969</detection_score>
@@ -139,7 +144,6 @@
 
 <owl:NamedIndividual rdf:about="#Switch">
   <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Grinding wheel"/>
   <right_to rdf:resource="#Fuse"/>
   <above rdf:resource="#Fuse"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.849</detection_score>

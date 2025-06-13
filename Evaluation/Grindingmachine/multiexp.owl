@@ -106,6 +106,8 @@
 <owl:NamedIndividual rdf:about="#Lamp_G1">
   <rdf:type rdf:resource="#Components_G1"/>
   <left_to rdf:resource="#Grinding wheel2_G1"/>
+  <above rdf:resource="#Grinding wheel2_G1"/>
+  <right_to rdf:resource="#Grinding wheel1_G1"/>
   <above rdf:resource="#Motor_G1"/>
   <above rdf:resource="#Switch_G1"/>
   <above rdf:resource="#Fuse_G1"/>
@@ -116,22 +118,29 @@
 
 <owl:NamedIndividual rdf:about="#Grinding wheel2_G1">
   <rdf:type rdf:resource="#Components_G1"/>
-  <below rdf:resource="#Lamp_G1"/>
-  <right_to rdf:resource="#Grinding wheel_G1"/>
+  <right_to rdf:resource="#Grinding wheel1_G1"/>
+  <right_to rdf:resource="#Motor_G1"/>
+  <right_to rdf:resource="#Switch_G1"/>
+  <right_to rdf:resource="#Fuse_G1"/>
+  <owl:sameAs rdf:resource="#Grinding wheel2_G2"/>
+  <owl:sameAs rdf:resource="#Grinding wheel2_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.986</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel_G1">
+<owl:NamedIndividual rdf:about="#Grinding wheel1_G1">
   <rdf:type rdf:resource="#Components_G1"/>
+  <left_to rdf:resource="#Motor_G1"/>
   <left_to rdf:resource="#Switch_G1"/>
+  <above rdf:resource="#Switch_G1"/>
+  <above rdf:resource="#Fuse_G1"/>
+  <owl:sameAs rdf:resource="#Grinding wheel1_G2"/>
+  <owl:sameAs rdf:resource="#Grinding wheel1_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.978</detection_score>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Motor_G1">
   <rdf:type rdf:resource="#Components_G1"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <left_to rdf:resource="#Grinding wheel2_G1"/>
-  <right_to rdf:resource="#Grinding wheel_G1"/>
   <above rdf:resource="#Switch_G1"/>
   <above rdf:resource="#Fuse_G1"/>
   <owl:sameAs rdf:resource="#Motor_G2"/>
@@ -141,7 +150,6 @@
 
 <owl:NamedIndividual rdf:about="#Switch_G1">
   <rdf:type rdf:resource="#Components_G1"/>
-  <left_to rdf:resource="#Grinding wheel2_G1"/>
   <above rdf:resource="#Fuse_G1"/>
   <owl:sameAs rdf:resource="#Switch_G2"/>
   <owl:sameAs rdf:resource="#Switch_G3"/>
@@ -150,7 +158,6 @@
 
 <owl:NamedIndividual rdf:about="#Fuse_G1">
   <rdf:type rdf:resource="#Components_G1"/>
-  <left_to rdf:resource="#Grinding wheel2_G1"/>
   <owl:sameAs rdf:resource="#Fuse_G2"/>
   <owl:sameAs rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.758</detection_score>
@@ -159,26 +166,36 @@
 <owl:NamedIndividual rdf:about="#Lamp_G2">
   <owl:sameAs rdf:resource="#Lamp_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
-  <right_to rdf:resource="#Grinding wheel2_G2"/>
-  <left_to rdf:resource="#Grinding wheel_G2"/>
-  <above rdf:resource="#Grinding wheel_G2"/>
+  <right_to rdf:resource="#Grinding wheel1_G2"/>
+  <above rdf:resource="#Grinding wheel1_G2"/>
+  <left_to rdf:resource="#Grinding wheel2_G2"/>
+  <above rdf:resource="#Grinding wheel2_G2"/>
+  <above rdf:resource="#Motor_G2"/>
   <above rdf:resource="#Switch_G2"/>
   <above rdf:resource="#Fuse_G2"/>
   <owl:sameAs rdf:resource="#Lamp_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.878</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel2_G2">
+<owl:NamedIndividual rdf:about="#Grinding wheel1_G2">
+  <owl:sameAs rdf:resource="#Grinding wheel1_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
-  <below rdf:resource="#Lamp_G2"/>
-  <left_to rdf:resource="#Grinding wheel_G2"/>
+  <left_to rdf:resource="#Grinding wheel2_G2"/>
+  <left_to rdf:resource="#Motor_G2"/>
   <left_to rdf:resource="#Switch_G2"/>
+  <above rdf:resource="#Fuse_G2"/>
+  <owl:sameAs rdf:resource="#Grinding wheel1_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.914</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel_G2">
+<owl:NamedIndividual rdf:about="#Grinding wheel2_G2">
+  <owl:sameAs rdf:resource="#Grinding wheel2_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
-  <owl:sameAs rdf:resource="#Grinding wheel_G3"/>
+  <right_to rdf:resource="#Motor_G2"/>
+  <above rdf:resource="#Switch_G2"/>
+  <right_to rdf:resource="#Fuse_G2"/>
+  <above rdf:resource="#Fuse_G2"/>
+  <owl:sameAs rdf:resource="#Grinding wheel2_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.953</detection_score>
 </owl:NamedIndividual>
 
@@ -186,8 +203,6 @@
   <in_the_middle_of rdf:resource="#Maschine"/>
   <owl:sameAs rdf:resource="#Motor_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
-  <below rdf:resource="#Lamp_G2"/>
-  <right_to rdf:resource="#Grinding wheel2_G2"/>
   <left_to rdf:resource="#Switch_G2"/>
   <above rdf:resource="#Switch_G2"/>
   <above rdf:resource="#Fuse_G2"/>
@@ -198,6 +213,7 @@
 <owl:NamedIndividual rdf:about="#Switch_G2">
   <owl:sameAs rdf:resource="#Switch_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
+  <right_to rdf:resource="#Fuse_G2"/>
   <above rdf:resource="#Fuse_G2"/>
   <owl:sameAs rdf:resource="#Switch_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.968</detection_score>
@@ -206,7 +222,6 @@
 <owl:NamedIndividual rdf:about="#Fuse_G2">
   <owl:sameAs rdf:resource="#Fuse_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
-  <left_to rdf:resource="#Switch_G2"/>
   <owl:sameAs rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.859</detection_score>
 </owl:NamedIndividual>
@@ -215,24 +230,34 @@
   <owl:sameAs rdf:resource="#Lamp_G1"/>
   <owl:sameAs rdf:resource="#Lamp_G2"/>
   <rdf:type rdf:resource="#Components_G3"/>
-  <left_to rdf:resource="#Grinding wheel_G3"/>
-  <above rdf:resource="#Grinding wheel_G3"/>
+  <right_to rdf:resource="#Grinding wheel1_G3"/>
+  <left_to rdf:resource="#Grinding wheel2_G3"/>
+  <above rdf:resource="#Grinding wheel2_G3"/>
+  <above rdf:resource="#Motor_G3"/>
   <above rdf:resource="#Switch_G3"/>
   <above rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.927</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel2_G3">
+<owl:NamedIndividual rdf:about="#Grinding wheel1_G3">
+  <owl:sameAs rdf:resource="#Grinding wheel1_G1"/>
+  <owl:sameAs rdf:resource="#Grinding wheel1_G2"/>
   <rdf:type rdf:resource="#Components_G3"/>
-  <left_to rdf:resource="#Grinding wheel_G3"/>
+  <left_to rdf:resource="#Grinding wheel2_G3"/>
   <left_to rdf:resource="#Motor_G3"/>
+  <left_to rdf:resource="#Switch_G3"/>
+  <above rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.859</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Grinding wheel_G3">
-  <owl:sameAs rdf:resource="#Grinding wheel_G2"/>
+<owl:NamedIndividual rdf:about="#Grinding wheel2_G3">
+  <owl:sameAs rdf:resource="#Grinding wheel2_G1"/>
+  <owl:sameAs rdf:resource="#Grinding wheel2_G2"/>
   <rdf:type rdf:resource="#Components_G3"/>
+  <right_to rdf:resource="#Motor_G3"/>
+  <right_to rdf:resource="#Switch_G3"/>
   <right_to rdf:resource="#Fuse_G3"/>
+  <above rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.932</detection_score>
 </owl:NamedIndividual>
 
@@ -241,8 +266,6 @@
   <owl:sameAs rdf:resource="#Motor_G1"/>
   <owl:sameAs rdf:resource="#Motor_G2"/>
   <rdf:type rdf:resource="#Components_G3"/>
-  <below rdf:resource="#Lamp_G3"/>
-  <left_to rdf:resource="#Grinding wheel_G3"/>
   <above rdf:resource="#Switch_G3"/>
   <above rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.969</detection_score>
@@ -252,7 +275,6 @@
   <owl:sameAs rdf:resource="#Switch_G1"/>
   <owl:sameAs rdf:resource="#Switch_G2"/>
   <rdf:type rdf:resource="#Components_G3"/>
-  <left_to rdf:resource="#Grinding wheel_G3"/>
   <right_to rdf:resource="#Fuse_G3"/>
   <above rdf:resource="#Fuse_G3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.849</detection_score>

@@ -51,21 +51,31 @@
   <rdf:type rdf:resource="#Maschines"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Gewinde">
+<owl:NamedIndividual rdf:about="#Housing">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Button1"/>
+  <below rdf:resource="#Button1"/>
+  <outside_of rdf:resource="#Button1"/>
+  <left_to rdf:resource="#Button2"/>
+  <outside_of rdf:resource="#Button2"/>
+  <left_to rdf:resource="#Power plug"/>
+  <above rdf:resource="#Power plug"/>
+  <outside_of rdf:resource="#Power plug"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Button1">
+  <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Button2"/>
+  <above rdf:resource="#Button2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Button2">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <right_to rdf:resource="#Abdeckung"/>
-  <left_to rdf:resource="#Hebel"/>
-  <below rdf:resource="#Hebel"/>
-  <outside_of rdf:resource="#Hebel"/>
+  <above rdf:resource="#Power plug"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Abdeckung">
-  <rdf:type rdf:resource="#Components"/>
-  <left_to rdf:resource="#Hebel"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#Hebel">
+<owl:NamedIndividual rdf:about="#Power plug">
   <rdf:type rdf:resource="#Components"/>
 </owl:NamedIndividual>
 
