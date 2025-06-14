@@ -105,34 +105,31 @@
 
 <owl:NamedIndividual rdf:about="#Housing_S1">
   <rdf:type rdf:resource="#Components_S1"/>
+  <left_to rdf:resource="#Button1_S1"/>
   <left_to rdf:resource="#Button2_S1"/>
-  <left_to rdf:resource="#Button_S1"/>
   <above rdf:resource="#Power plug_S1"/>
   <owl:sameAs rdf:resource="#Housing_S2"/>
   <owl:sameAs rdf:resource="#Housing_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.995</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button2_S1">
+<owl:NamedIndividual rdf:about="#Button1_S1">
   <rdf:type rdf:resource="#Components_S1"/>
   <inside_of rdf:resource="#Housing_S1"/>
-  <above rdf:resource="#Button_S1"/>
+  <above rdf:resource="#Button2_S1"/>
   <above rdf:resource="#Power plug_S1"/>
-  <owl:sameAs rdf:resource="#Button2_S2"/>
-  <owl:sameAs rdf:resource="#Button2_S3"/>
-  <owl:sameAs rdf:resource="#Button_S3"/>
+  <owl:sameAs rdf:resource="#Button1_S2"/>
+  <owl:sameAs rdf:resource="#Button1_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.979</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button_S1">
+<owl:NamedIndividual rdf:about="#Button2_S1">
   <rdf:type rdf:resource="#Components_S1"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
   <inside_of rdf:resource="#Housing_S1"/>
   <above rdf:resource="#Power plug_S1"/>
   <owl:sameAs rdf:resource="#Button2_S2"/>
-  <owl:sameAs rdf:resource="#Button_S2"/>
   <owl:sameAs rdf:resource="#Button2_S3"/>
-  <owl:sameAs rdf:resource="#Button_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.968</detection_score>
 </owl:NamedIndividual>
 
@@ -149,8 +146,8 @@
   <rdf:type rdf:resource="#Components_S2"/>
   <left_to rdf:resource="#Power plug_S2"/>
   <above rdf:resource="#Power plug_S2"/>
-  <below rdf:resource="#Button2_S2"/>
-  <left_to rdf:resource="#Button_S2"/>
+  <below rdf:resource="#Button1_S2"/>
+  <left_to rdf:resource="#Button2_S2"/>
   <owl:sameAs rdf:resource="#Housing_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.976</detection_score>
 </owl:NamedIndividual>
@@ -159,27 +156,27 @@
   <owl:sameAs rdf:resource="#Power plug_S1"/>
   <rdf:type rdf:resource="#Components_S2"/>
   <inside_of rdf:resource="#Housing_S2"/>
+  <below rdf:resource="#Button1_S2"/>
   <below rdf:resource="#Button2_S2"/>
-  <below rdf:resource="#Button_S2"/>
   <owl:sameAs rdf:resource="#Power plug_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.726</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button2_S2">
-  <owl:sameAs rdf:resource="#Button2_S1"/>
-  <owl:sameAs rdf:resource="#Button_S1"/>
+<owl:NamedIndividual rdf:about="#Button1_S2">
+  <owl:sameAs rdf:resource="#Button1_S1"/>
   <rdf:type rdf:resource="#Components_S2"/>
   <inside_of rdf:resource="#Housing_S2"/>
-  <above rdf:resource="#Button_S2"/>
+  <above rdf:resource="#Button2_S2"/>
+  <owl:sameAs rdf:resource="#Button1_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.925</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button_S2">
+<owl:NamedIndividual rdf:about="#Button2_S2">
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <owl:sameAs rdf:resource="#Button_S1"/>
+  <owl:sameAs rdf:resource="#Button2_S1"/>
   <rdf:type rdf:resource="#Components_S2"/>
   <inside_of rdf:resource="#Housing_S2"/>
-  <owl:sameAs rdf:resource="#Button_S3"/>
+  <owl:sameAs rdf:resource="#Button2_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.929</detection_score>
 </owl:NamedIndividual>
 
@@ -188,7 +185,7 @@
   <owl:sameAs rdf:resource="#Housing_S2"/>
   <rdf:type rdf:resource="#Components_S3"/>
   <left_to rdf:resource="#Button2_S3"/>
-  <below rdf:resource="#Button_S3"/>
+  <below rdf:resource="#Button1_S3"/>
   <left_to rdf:resource="#Power plug_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.942</detection_score>
 </owl:NamedIndividual>
@@ -196,19 +193,18 @@
 <owl:NamedIndividual rdf:about="#Button2_S3">
   <in_the_middle_of rdf:resource="#Maschine"/>
   <owl:sameAs rdf:resource="#Button2_S1"/>
-  <owl:sameAs rdf:resource="#Button_S1"/>
+  <owl:sameAs rdf:resource="#Button2_S2"/>
   <rdf:type rdf:resource="#Components_S3"/>
   <inside_of rdf:resource="#Housing_S3"/>
-  <right_to rdf:resource="#Button_S3"/>
-  <below rdf:resource="#Button_S3"/>
+  <right_to rdf:resource="#Button1_S3"/>
+  <below rdf:resource="#Button1_S3"/>
   <above rdf:resource="#Power plug_S3"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.919</detection_score>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button_S3">
-  <owl:sameAs rdf:resource="#Button2_S1"/>
-  <owl:sameAs rdf:resource="#Button_S1"/>
-  <owl:sameAs rdf:resource="#Button_S2"/>
+<owl:NamedIndividual rdf:about="#Button1_S3">
+  <owl:sameAs rdf:resource="#Button1_S1"/>
+  <owl:sameAs rdf:resource="#Button1_S2"/>
   <rdf:type rdf:resource="#Components_S3"/>
   <inside_of rdf:resource="#Housing_S3"/>
   <above rdf:resource="#Power plug_S3"/>

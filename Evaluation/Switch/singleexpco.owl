@@ -83,7 +83,9 @@
 
 <owl:NamedIndividual rdf:about="#Housing">
   <rdf:type rdf:resource="#Components"/>
+  <left_to rdf:resource="#Button1"/>
   <left_to rdf:resource="#Button2"/>
+  <above rdf:resource="#Power plug"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.995</detection_score>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">126.0</y_minimum>
   <x_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">189.0</x_minimum>
@@ -93,10 +95,10 @@
   <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">442.0</x_maximum>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button2">
+<owl:NamedIndividual rdf:about="#Button1">
   <rdf:type rdf:resource="#Components"/>
   <inside_of rdf:resource="#Housing"/>
-  <above rdf:resource="#Button"/>
+  <above rdf:resource="#Button2"/>
   <above rdf:resource="#Power plug"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.979</detection_score>
   <y_minimum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150.0</y_minimum>
@@ -107,10 +109,9 @@
   <x_maximum rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">413.0</x_maximum>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#Button">
+<owl:NamedIndividual rdf:about="#Button2">
   <rdf:type rdf:resource="#Components"/>
   <in_the_middle_of rdf:resource="#Maschine"/>
-  <right_to rdf:resource="#Housing"/>
   <inside_of rdf:resource="#Housing"/>
   <above rdf:resource="#Power plug"/>
   <detection_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.968</detection_score>
