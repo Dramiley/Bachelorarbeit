@@ -4,32 +4,32 @@ Button1 is part of Components
 Button2 is part of Components
 Power plug is part of Components
 
+Housing left_to Button1
+Housing left_to Button2
+Housing left_to Power plug
+Housing below Button1
 Housing outside_of Button1
 Housing outside_of Button2
 Housing outside_of Power plug
 Housing above Power plug
-Housing below Button1
-Housing left_to Button1
-Housing left_to Button2
-Housing left_to Power plug
 
+Button1 inside_of Housing
+Button1 right_to Housing
+Button1 left_to Button2
 Button1 above Housing
 Button1 above Button2
 Button1 above Power plug
-Button1 inside_of Housing
-Button1 left_to Button2
-Button1 right_to Housing
 
 Button2 right_to Housing
 Button2 right_to Button1
-Button2 inside_of Housing
-Button2 below Button1
-Button2 above Power plug
 Button2 in_the_middle_of Maschine
+Button2 below Button1
+Button2 inside_of Housing
+Button2 above Power plug
 
+Power plug inside_of Housing
+Power plug right_to Housing
 Power plug below Housing
 Power plug below Button1
 Power plug below Button2
-Power plug inside_of Housing
-Power plug right_to Housing
 

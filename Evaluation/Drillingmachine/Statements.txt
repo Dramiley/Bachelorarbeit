@@ -6,20 +6,15 @@ Lever3 is part of Components
 Drilling head is part of Components
 Drilling table is part of Components
 
-Cover below Lever2
-Cover below Wrench
 Cover left_to Lever2
 Cover left_to Lever3
 Cover left_to Drilling head
+Cover below Lever2
+Cover below Wrench
+Cover in_the_middle_of Maschine
 Cover above Drilling head
 Cover above Drilling table
-Cover in_the_middle_of Maschine
 
-Lever2 below Lever2
-Lever2 below Lever3
-Lever2 left_to Lever2
-Lever2 left_to Lever3
-Lever2 in_the_middle_of Maschine
 Lever2 above Cover
 Lever2 above Lever2
 Lever2 above Lever3
@@ -28,17 +23,18 @@ Lever2 above Drilling table
 Lever2 right_to Cover
 Lever2 right_to Lever2
 Lever2 right_to Wrench
+Lever2 below Lever2
+Lever2 below Lever3
+Lever2 left_to Lever2
+Lever2 left_to Lever3
+Lever2 in_the_middle_of Maschine
 
+Wrench left_to Lever2
+Wrench left_to Lever3
 Wrench above Cover
 Wrench above Drilling head
 Wrench above Drilling table
-Wrench left_to Lever2
-Wrench left_to Lever3
 
-Lever3 below Lever2
-Lever3 below Lever3
-Lever3 left_to Lever3
-Lever3 in_the_middle_of Maschine
 Lever3 above Lever2
 Lever3 above Lever3
 Lever3 above Drilling head
@@ -47,12 +43,16 @@ Lever3 right_to Cover
 Lever3 right_to Lever2
 Lever3 right_to Wrench
 Lever3 right_to Lever3
+Lever3 below Lever2
+Lever3 below Lever3
+Lever3 left_to Lever3
+Lever3 in_the_middle_of Maschine
 
+Drilling head above Drilling table
 Drilling head below Cover
 Drilling head below Lever2
 Drilling head below Wrench
 Drilling head below Lever3
-Drilling head above Drilling table
 Drilling head right_to Cover
 
 Drilling table below Cover
