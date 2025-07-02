@@ -9,20 +9,26 @@ if __name__ == "__main__":
     Statements = open("Statements.txt", "w")
     
     onto = get_ontology("file://" + args.owl).load()
-    for i in onto.individuals():
-        for j in i.is_a:
-            Statements.write(i.name + " is part of " + j.name + "\n")
-    #Statements.write("\n")
     
     for i in onto.individuals():
-        for prop in i.get_properties():
-            for value in prop[i]:
-                if isinstance(value, float):
-                    Statements.write(i.name + " " + prop.name + " " + str(value) + "\n")
-                else:
-                    Statements.write(i.name + " " + prop.name + " " + value.name + "\n")
-            for e in i.equivalent_to:
-                Statements.write(i.name + " is equivalent to " + e.name + "\n")
+        for e in i.is_a:
+            Statements.write(i.name + " is part of " + e.name + "\n")
+        for e in i.above:
+            Statements.write(i.name + " above " + e.name + "\n")
+        for e in i.below:
+            Statements.write(i.name + " below " + e.name + "\n")
+        for e in i.left_to:
+            Statements.write(i.name + " left to " + e.name + "\n")
+        for e in i.right_to:
+            Statements.write(i.name + " right to " + e.name + "\n")
+        for e in i.inside_of:
+            Statements.write(i.name + " inside of " + e.name + "\n")
+        for e in i.outside_of:
+            Statements.write(i.name + " outside of " + e.name + "\n")
+        for e in i.in_the_middle_of:
+            Statements.write(i.name + " in the middle of " + e.name + "\n")
+        for e in i.equivalent_to:
+            Statements.write(i.name + " is equivalent to " + e.name + "\n")
         Statements.write("\n")
                 
     Statements.close()

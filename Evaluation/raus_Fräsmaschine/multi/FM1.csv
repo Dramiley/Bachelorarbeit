@@ -1,9 +1,0 @@
-detection_scores,class,x min,y min,x max,y max
-0.963,Abdeckung,232,1,305,72
-0.816,Auflageflaeche,153,160,513,238
-0.937,Hebel,221,210,242,236
-0.827,Hebel,236,238,285,255
-0.970,Hebel,317,368,415,452
-0.723,Hebel,215,309,242,348
-0.997,Anschluss,317,244,352,264
-0.745,Abdeckung,170,251,341,320

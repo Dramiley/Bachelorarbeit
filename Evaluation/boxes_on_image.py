@@ -81,6 +81,33 @@ class boxDrawer:
                 name = classes[i]
             
                 self.draw_bounding_box_with_text(image, x_min[i], x_max[i], y_min[i], y_max[i], 4, (name,''))
+                
+        except ValueError:
+            if imagepath != '0':
+                try:
+                    image = Image.open(imagepath)
+                except PIL.UnidentifiedImageError:
+                    print(f"Could not open image: {imagepath}")
+                    return
+        else:
+            image = Image.new('RGB', (512, 512), (0, 0, 0))
+            
+        try:
+            df = pd.read_csv(csvpath)
+            df.columns = ['','detection_scores','class', 'x min', 'y min', 'x max', 'y max']
+
+            classes = df['class']
+            det_scores = df['detection_scores']
+            x_min = df['x min']
+            y_min = df['y min']
+            x_max = df['x max']
+            y_max = df['y max']
+        
+            for i in range(len(classes)):
+                name = classes[i]
+            
+                self.draw_bounding_box_with_text(image, x_min[i], x_max[i], y_min[i], y_max[i], 4, (name,''))
+            
             
         except pd.errors.EmptyDataError:
             pass
