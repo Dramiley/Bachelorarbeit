@@ -29,6 +29,20 @@ if __name__ == "__main__":
             Statements.write(i.name + " in the middle of " + e.name + "\n")
         for e in i.equivalent_to:
             Statements.write(i.name + " is equivalent to " + e.name + "\n")
+        for e in i.x_minimum:
+            Statements.write(i.name + " x minimum " + str(e) + "\n")
+        for e in i.y_minimum:
+            Statements.write(i.name + " y minimum " + str(e) + "\n")
+        for e in i.x_maximum:
+            Statements.write(i.name + " x maximum " + str(e) + "\n")
+        for e in i.y_maximum:
+            Statements.write(i.name + " y maximum " + str(e) + "\n")
+        for e in i.x_center:
+            Statements.write(i.name + " x center " + str(e) + "\n")
+        for e in i.y_center:
+            Statements.write(i.name + " y center " + str(e) + "\n")
+        for e in i.detection_score:
+            Statements.write(i.name + " detection score " + str(e) + "\n")
         Statements.write("\n")
                 
     Statements.close()

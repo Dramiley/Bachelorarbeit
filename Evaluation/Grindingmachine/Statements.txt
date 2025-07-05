@@ -1,59 +1,81 @@
-Maschine is part of Maschines
+Maschine is part of Machines
+
 Lamp is part of Components
-Grinding wheel2 is part of Components
-Grinding wheel1 is part of Components
-Motor is part of Components
-Switch is part of Components
-Fuse is part of Components
-
-Lamp left_to Grinding wheel2
 Lamp above Grinding wheel2
-Lamp above Grinding wheel1
 Lamp above Motor
-Lamp above Switch
-Lamp above Fuse
-Lamp right_to Grinding wheel1
+Lamp left to Grinding wheel2
+Lamp right to Grinding wheel1
+Lamp x minimum 222.0
+Lamp y minimum 74.0
+Lamp x maximum 316.0
+Lamp y maximum 132.0
+Lamp x center 269.0
+Lamp y center 103.0
+Lamp detection score 0.927
 
-Grinding wheel2 above Switch
-Grinding wheel2 above Fuse
-Grinding wheel2 right_to Lamp
-Grinding wheel2 right_to Grinding wheel1
-Grinding wheel2 right_to Motor
-Grinding wheel2 right_to Switch
-Grinding wheel2 right_to Fuse
-Grinding wheel2 below Lamp
-
-Grinding wheel1 left_to Lamp
-Grinding wheel1 left_to Grinding wheel2
-Grinding wheel1 left_to Motor
-Grinding wheel1 left_to Switch
-Grinding wheel1 above Switch
+Grinding wheel1 is part of Components
 Grinding wheel1 above Fuse
-Grinding wheel1 below Lamp
+Grinding wheel1 left to Lamp
+Grinding wheel1 left to Motor
+Grinding wheel1 x minimum 39.0
+Grinding wheel1 y minimum 141.0
+Grinding wheel1 x maximum 147.0
+Grinding wheel1 y maximum 253.0
+Grinding wheel1 x center 93.0
+Grinding wheel1 y center 197.0
+Grinding wheel1 detection score 0.859
 
-Motor below Lamp
+Grinding wheel2 is part of Components
+Grinding wheel2 above Fuse
+Grinding wheel2 below Lamp
+Grinding wheel2 right to Lamp
+Grinding wheel2 right to Motor
+Grinding wheel2 right to Switch
+Grinding wheel2 x minimum 319.0
+Grinding wheel2 y minimum 130.0
+Grinding wheel2 x maximum 409.0
+Grinding wheel2 y maximum 246.0
+Grinding wheel2 x center 364.0
+Grinding wheel2 y center 188.0
+Grinding wheel2 detection score 0.932
+
+Motor is part of Components
 Motor above Switch
-Motor above Fuse
-Motor left_to Grinding wheel2
-Motor left_to Switch
-Motor in_the_middle_of Maschine
-Motor right_to Grinding wheel1
+Motor below Lamp
+Motor left to Grinding wheel2
+Motor right to Grinding wheel1
+Motor in the middle of Maschine
+Motor x minimum 117.0
+Motor y minimum 170.0
+Motor x maximum 349.0
+Motor y maximum 218.0
+Motor x center 233.0
+Motor y center 194.0
+Motor detection score 0.969
 
-Switch left_to Grinding wheel2
-Switch above Fuse
-Switch right_to Grinding wheel1
-Switch right_to Motor
-Switch right_to Fuse
-Switch below Lamp
-Switch below Grinding wheel2
-Switch below Grinding wheel1
-Switch below Motor
-
-Fuse left_to Grinding wheel2
-Fuse left_to Switch
-Fuse below Lamp
-Fuse below Grinding wheel2
+Fuse is part of Components
 Fuse below Grinding wheel1
-Fuse below Motor
+Fuse below Grinding wheel2
 Fuse below Switch
+Fuse left to Switch
+Fuse x minimum 143.0
+Fuse y minimum 299.0
+Fuse x maximum 196.0
+Fuse y maximum 350.0
+Fuse x center 169.5
+Fuse y center 324.5
+Fuse detection score 0.727
+
+Switch is part of Components
+Switch above Fuse
+Switch below Motor
+Switch left to Grinding wheel2
+Switch right to Fuse
+Switch x minimum 220.0
+Switch y minimum 242.0
+Switch x maximum 262.0
+Switch y maximum 264.0
+Switch x center 241.0
+Switch y center 253.0
+Switch detection score 0.849
 
