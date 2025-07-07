@@ -25,7 +25,7 @@ def check_middle(x_min, y_min, x_max, y_max):
         x_cen.append((x_max[i] + x_min[i]) /2)
         y_cen.append((y_max[i] + y_min[i]) /2)
     
-    # calculate the middle of the maschine    
+    # calculate the middle of the Machine    
     x_mid = x_mid / len(x_min)
     y_mid = y_mid / len(y_min)
     lowest_diff = 1000000
@@ -474,7 +474,7 @@ if __name__ == "__main__":
         df, classes, det_scores, x_min, y_min, x_max, y_max, middle, x_cen, y_cen = read_csv(csv_path)
      
         #onto = owl.get_ontology("file://test.rdf").load()
-        onto = get_ontology("http://www.semanticweb.org/industrial_maschine")
+        onto = get_ontology("http://www.semanticweb.org/industrial_machine")
         
         # Create classes and properties
         with onto:
@@ -509,7 +509,7 @@ if __name__ == "__main__":
             
             
         # Create individual of Machines
-        Maschine = Machines("Maschine")
+        Machine = Machines("Machine")
         
         
         individuals = {}
@@ -549,7 +549,7 @@ if __name__ == "__main__":
                 individuals[i].below.append(individuals[below_class[j]])
             
             
-        individuals[middle].in_the_middle_of = [Maschine]
+        individuals[middle].in_the_middle_of = [Machine]
         
                
         onto, individuals = check_inside(onto, individuals)
@@ -564,7 +564,7 @@ if __name__ == "__main__":
     
     if multicam:
         ontoSummarizer = ontologySummarizer()
-        onto = get_ontology("http://www.semanticweb.org/industrial_maschine")
+        onto = get_ontology("http://www.semanticweb.org/industrial_machine")
         files = os.listdir(csv_path)
         # for every file in the directory
         for file in files:
@@ -587,7 +587,7 @@ if __name__ == "__main__":
                 components[i] = types.new_class(f"Components_{name}", (cams[i],))
                 Machines = types.new_class("Machines", (cams[i],))
                 # Create individual of Machines
-                Maschine = Machines("Maschine")
+                Machine = Machines("Machine")
 
                 
                 try: 
@@ -659,7 +659,7 @@ if __name__ == "__main__":
                         individuals[j].below.append(individuals[below_class[k]])
             
             
-                individuals[middle].in_the_middle_of = [Maschine]
+                individuals[middle].in_the_middle_of = [Machine]
                   
                 all_individuals[i] = individuals
                   
