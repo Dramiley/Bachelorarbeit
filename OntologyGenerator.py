@@ -40,17 +40,17 @@ def check_middle(x_min, y_min, x_max, y_max):
 
 def check_vertical(x):
     fixed_value = 0.7
-    above_min = 1000
+    above_min = 1024
     above_class = []
-    below_min = 1000
+    below_min = 1024
     below_class = []
     
     
     # for all individuals	
     for i in range(len(y_min)):
         if explicit:
-            above_min = 1000
-            below_min = 1000
+            above_min = 1024
+            below_min = 1024
         if x_cen[i] == x_cen[x] and y_cen[i] == y_cen[x]:
             continue
         # if the individual is above the current individual and the distance is smaller than the minimum distance
@@ -79,16 +79,16 @@ def check_vertical(x):
 
 def check_horizontal(x):
     fixed_value = 0.7
-    left_min = 1000
+    left_min = 1024
     left_class = []
-    right_min = 1000
+    right_min = 1024
     right_class = []
     
     # for all individuals	
     for i in range(len(x_min)):
         if explicit:
-            right_min = 1000
-            left_min = 1000
+            right_min = 1024
+            left_min = 1024
         if x_cen[i] == x_cen[x] and y_cen[i] == y_cen[x]:
             continue
           # if the individual is left the current individual and the distance is smaller than the minimum distance
