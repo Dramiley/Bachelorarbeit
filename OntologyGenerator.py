@@ -274,6 +274,7 @@ def remove_redundant_properties_all(onto, all_individuals):
 
 def same_individuals(onto, all_individuals):
     threshold = 0.75
+    tolerance = 0.45
     # for every combination of individual-lists
     for a in range(len(all_individuals)):
         for b in range(len(all_individuals)):
@@ -364,12 +365,12 @@ def same_individuals(onto, all_individuals):
                                 check_next += 1
 
                             if check_next * 1.5 > same_next:
-                                if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and propability > (threshold -0.45):
+                                if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and propability > (threshold - tolerance):
                                     individuals[j].equivalent_to.append(next[k])
                                 elif propability > threshold:
                                     individuals[j].equivalent_to.append(next[k])
                         else:
-                            if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and propability > (threshold -0.45):
+                            if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and propability > (threshold - tolerance):
                                 individuals[j].equivalent_to.append(next[k])
                             elif propability > threshold:
                                 individuals[j].equivalent_to.append(next[k])
