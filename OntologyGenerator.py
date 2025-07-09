@@ -293,52 +293,52 @@ def same_individuals(onto, all_individuals):
             for j in range(len(individuals)):
                 for k in range(len(next)):
                     # compare names and properties of the individuals
-                    propability = 0.0
+                    similarity = 0.0
                     same_next = 0
                     # [0] is the class name, remove_end_number to make Motor and Motor_1 the same
                     if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(next[k].name.split("_")[0]):
                         for l in range(len(individuals[j].above)):
                             for m in range(len(next[k].above)):
                                 if remove_end_number(individuals[j].above[l].name.split("_")[0]) == remove_end_number(next[k].above[m].name.split("_")[0]):
-                                    propability += 1.0
+                                    similarity += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].above[l].name.split("_")[0]):
                                     same_next += 1
                         for l in range(len(individuals[j].below)):
                             for m in range(len(next[k].below)):
                                 if remove_end_number(individuals[j].below[l].name.split("_")[0]) == remove_end_number(next[k].below[m].name.split("_")[0]):
-                                    propability += 1.0
+                                    similarity += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].below[l].name.split("_")[0]):
                                     same_next += 1
                         for l in range(len(individuals[j].left_to)):
                             for m in range(len(next[k].left_to)):
                                 if remove_end_number(individuals[j].left_to[l].name.split("_")[0]) == remove_end_number(next[k].left_to[m].name.split("_")[0]):
-                                    propability += 1.0
+                                    similarity += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].left_to[l].name.split("_")[0]):
                                     same_next += 1
                         for l in range(len(individuals[j].right_to)):
                             for m in range(len(next[k].right_to)):
                                 if remove_end_number(individuals[j].right_to[l].name.split("_")[0]) == remove_end_number(next[k].right_to[m].name.split("_")[0]):
-                                    propability += 1.0
+                                    similarity += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].right_to[l].name.split("_")[0]):
                                     same_next += 1
                         for l in range(len(individuals[j].inside_of)):
                             for m in range(len(next[k].inside_of)):
                                 if remove_end_number(individuals[j].inside_of[l].name.split("_")[0]) == remove_end_number(next[k].inside_of[m].name.split("_")[0]):
-                                    propability += 1.0
+                                    similarity += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].inside_of[l].name.split("_")[0]):
                                     same_next += 1
                         for l in range(len(individuals[j].outside_of)):
                             for m in range(len(next[k].outside_of)):
                                 if remove_end_number(individuals[j].outside_of[l].name.split("_")[0]) == remove_end_number(next[k].outside_of[m].name.split("_")[0]):
-                                    propability += 1.0
+                                    similarity += 1.0
                                 if remove_end_number(individuals[j].name.split("_")[0]) == remove_end_number(individuals[j].outside_of[l].name.split("_")[0]):
                                     same_next += 1
                             
-                        # calculate the propability of the individuals being the same
+                        # calculate the similarity of the two individuals
                         try:
-                            propability = propability / ((len(individuals[j].above) + len(individuals[j].below) + len(individuals[j].left_to) + len(individuals[j].right_to) + len(individuals[j].inside_of) + len(individuals[j].outside_of)))  
+                            similarity = similarity / ((len(individuals[j].above) + len(individuals[j].below) + len(individuals[j].left_to) + len(individuals[j].right_to) + len(individuals[j].inside_of) + len(individuals[j].outside_of)))  
                         except ZeroDivisionError:
-                            propability = 0.0
+                            similarity = 0.0
                         
                         # if the individual has a object of the same class next to it
                         #TODO check if important to keep or can be removed
@@ -365,14 +365,14 @@ def same_individuals(onto, all_individuals):
                                 check_next += 1
 
                             if check_next * 1.5 > same_next:
-                                if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and propability > (threshold - tolerance):
+                                if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and similarity > (threshold - tolerance):
                                     individuals[j].equivalent_to.append(next[k])
-                                elif propability > threshold:
+                                elif similarity > threshold:
                                     individuals[j].equivalent_to.append(next[k])
                         else:
-                            if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and propability > (threshold - tolerance):
+                            if next[k].name.split("_")[0] == individuals[j].name.split("_")[0] and similarity > (threshold - tolerance):
                                 individuals[j].equivalent_to.append(next[k])
-                            elif propability > threshold:
+                            elif similarity > threshold:
                                 individuals[j].equivalent_to.append(next[k])
                                 
 
