@@ -380,6 +380,7 @@ def same_individuals(onto, all_individuals):
     return onto, all_individuals
 
 def remove_false_detections(onto, all_individuals):
+    threshold = 0.80
     average_same = 0.0
     total_individuals = 0.0
     for i in range(len(all_individuals)):
@@ -395,7 +396,7 @@ def remove_false_detections(onto, all_individuals):
         for j in range(len(individuals)):
             # if the individual has less than the average number of equivalent individuals and the detection_score is low, remove it
             # print(average_same, len(set(individuals[j].equivalent_to)), individuals[j].name)
-            if len(set(individuals[j].equivalent_to)) < average_same and individuals[j].detection_score[0] < 0.80:
+            if len(set(individuals[j].equivalent_to)) < average_same and individuals[j].detection_score[0] < threshold:
                 # TODO: detroy_entity is not working, need to find a solution
                 try:
                     #continue
@@ -687,7 +688,6 @@ if __name__ == "__main__":
         onto.save(file = f"{output}.owl", format = "rdfxml")
         print(f"Ontology saved as {output}.owl")
     
-# to run for single file:
-# python OntologyGenerator.py -f test.csv -e -c (-e for explicit mode, -c for added coordinates)
-# to run for multiple files (cams):
-# python OntologyGenerator.py -f .\filefolder -e -c (-e for explicit mode, -c for added coordinates)
+# to run:
+# python OntologyGenerator.py -c config.ini
+# for mutliple cameras, use the csv_path as a directory with multiple csv files

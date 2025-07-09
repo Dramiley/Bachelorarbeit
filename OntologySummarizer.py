@@ -18,6 +18,18 @@ def get_new_individual(ind, new_individuals, summarized_individuals):
   
     if found == None:
         return None
+    
+def get_name(individuals):
+    counter = {}
+    for i in range(len(individuals)):
+        if individuals[i].name.split("_")[0] not in counter:
+            counter[individuals[i].name.split("_")[0]] = 1
+        else:
+            counter[individuals[i].name.split("_")[0]] += 1
+    
+    name = max(counter, key=counter.get)
+    #print(f"Most common name: {name} with {counter[name]} occurrences")
+    return name
 
 
 # summarizes the ontology by creating a new individual for each unique set of individuals
@@ -39,6 +51,7 @@ class ontologySummarizer:
                 # check if the new set is already in the summarized individuals
                 found = False
                 for k in range(len(summarized_individuals)):
+                    # check both ways to verify, if the sets are equal
                     if summarized_individuals[k].issubset(new_set) and new_set.issubset(summarized_individuals[k]):
                         found = True
 
@@ -76,7 +89,7 @@ class ontologySummarizer:
             # create a new individual for each summarized individual
             for i in range(len(summarized_individuals)):
                 i_individuals = list(summarized_individuals[i])
-                name = i_individuals[0].name.split("_")[0]
+                name = get_name(i_individuals)
                 with new_onto:
                     new_individuals[i] = Components(name)
 

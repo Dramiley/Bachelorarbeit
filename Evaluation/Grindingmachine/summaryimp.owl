@@ -3,10 +3,10 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xml:base="http://www.semanticweb.org/industrial_maschine"
-         xmlns="http://www.semanticweb.org/industrial_maschine#">
+         xml:base="http://www.semanticweb.org/industrial_machine"
+         xmlns="http://www.semanticweb.org/industrial_machine#">
 
-<owl:Ontology rdf:about="http://www.semanticweb.org/industrial_maschine"/>
+<owl:Ontology rdf:about="http://www.semanticweb.org/industrial_machine"/>
 
 <owl:ObjectProperty rdf:about="#in_the_middle_of"/>
 
@@ -99,7 +99,7 @@
   <rdfs:subClassOf rdf:resource="#Camera_G3"/>
 </owl:Class>
 
-<owl:NamedIndividual rdf:about="#Maschine">
+<owl:NamedIndividual rdf:about="#Machine">
   <rdf:type rdf:resource="#Machines"/>
 </owl:NamedIndividual>
 
@@ -132,7 +132,7 @@
 
 <owl:NamedIndividual rdf:about="#Motor_G1">
   <rdf:type rdf:resource="#Components_G1"/>
-  <in_the_middle_of rdf:resource="#Maschine"/>
+  <in_the_middle_of rdf:resource="#Machine"/>
   <left_to rdf:resource="#Grinding wheel2_G1"/>
   <right_to rdf:resource="#Grinding wheel1_G1"/>
   <above rdf:resource="#Switch_G1"/>
@@ -186,7 +186,7 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Motor_G2">
-  <in_the_middle_of rdf:resource="#Maschine"/>
+  <in_the_middle_of rdf:resource="#Machine"/>
   <owl:sameAs rdf:resource="#Motor_G1"/>
   <rdf:type rdf:resource="#Components_G2"/>
   <below rdf:resource="#Lamp_G2"/>
@@ -241,7 +241,7 @@
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#Motor_G3">
-  <in_the_middle_of rdf:resource="#Maschine"/>
+  <in_the_middle_of rdf:resource="#Machine"/>
   <owl:sameAs rdf:resource="#Motor_G1"/>
   <owl:sameAs rdf:resource="#Motor_G2"/>
   <rdf:type rdf:resource="#Components_G3"/>
