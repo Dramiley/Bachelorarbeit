@@ -1,0 +1,8 @@
+detection_scores,class,x min,y min,x max,y max
+0.842,Drilling table,173,400,513,513
+0.962,Drilling head,325,360,364,401
+0.910,Lever,410,156,449,191
+0.932,Lever,426,195,484,234
+0.919,Lever,316,79,429,176
+0.963,Wrench,217,119,258,219
+0.849,Cover,148,179,317,257
