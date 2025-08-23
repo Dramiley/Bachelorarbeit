@@ -1,7 +1,0 @@
-,detection_scores,class,x min,y min,x max,y max
-0,0.878,Lamp,115,25,302,87
-1,0.914,Grinding wheel,1,93,155,263
-2,0.953,Grinding wheel,235,110,374,211
-3,0.739,Motor,121,136,296,198
-4,0.968,Switch,253,231,298,251
-5,0.859,Fuse,120,303,193,366
