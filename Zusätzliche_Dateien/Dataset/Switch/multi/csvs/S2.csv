@@ -1,0 +1,5 @@
+detection_scores,class,x min,y min,x max,y max
+0.976,Housing,3,139,307,328
+0.726,Power plug,192,289,268,330
+0.925,Button,117,146,228,217
+0.929,Button,175,220,250,263
