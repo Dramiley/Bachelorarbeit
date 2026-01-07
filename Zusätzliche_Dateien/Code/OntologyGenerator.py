@@ -444,7 +444,10 @@ def check_inside_all(onto, all_individuals):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate Ontology from csv file')
-    parser.add_argument("-c", "--config", type=str, help="Path to the config file", default="Evaluation/config.ini")
+    parser.add_argument("-c", "--config", type=str, help="Path to the config file", default="config.ini")
+    
+    # parser overrides config file arguments
+    parser.add_argument("-i", "--input", type=str, help="Path to the input csv file", default="input.csv")
     
     args = parser.parse_args()
     
@@ -452,7 +455,10 @@ if __name__ == "__main__":
     config.read(args.config)
 
     output = config.get("DEFAULT","output_path")
-    csv_path = config.get("DEFAULT","csv_path")
+    if args.input == "input.csv":
+        csv_path = config.get("DEFAULT","csv_path")
+    else:
+        csv_path = args.input
     coordinates = config.getboolean("DEFAULT","add_coordinates")
     explicit = config.getboolean("DEFAULT","explicit_mode")
     remove = config.getboolean("DEFAULT","remove_false")
